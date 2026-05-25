@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard APD - Pak Nahir</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; }
+        header { width: 100%; background-color: #004080; color: white; padding: 25px 0; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .container { max-width: 600px; width: 90%; margin-top: 30px; }
+        .welcome-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; margin-bottom: 25px; border-top: 5px solid #004080; }
+        .menu-title { font-size: 1.1rem; color: #333; margin-bottom: 15px; font-weight: bold; display: flex; align-items: center; }
+        .menu-title::after { content: ""; flex: 1; height: 1px; background: #ddd; margin-left: 10px; }
+        .btn-link { display: block; background-color: white; color: #004080; text-decoration: none; padding: 18px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #d0d7de; transition: all 0.3s; font-weight: 600; text-align: left; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .btn-link:hover { background-color: #004080; color: white; transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,64,128,0.15); border-color: #004080; }
+        .icon { margin-right: 10px; }
+        footer { margin-top: 50px; padding: 20px; color: #666; font-size: 0.85rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2 style="margin:0;">Administrasi Perkantoran Digital</h2>
+    <p style="margin:8px 0 0 0; font-size: 0.95rem; opacity: 0.9;">Politeknik Negeri Ujung Pandang</p>
+</header>
+
+<div class="container">
+    <div class="welcome-card">
+        <h3 style="margin-top:0; color: #004080;">Selamat Datang, Mahasiswa</h3>
+        <p style="color: #555; line-height: 1.5;">Portal ini adalah pusat akses materi dan evaluasi mandiri mata kuliah APD. Silakan pilih menu di bawah ini.</p>
+    </div>
+
+    <div class="menu-title">Daftar Kuis & Evaluasi</div>
+    
+    <a href="kuis1.html" class="btn-link">
+        <span class="icon">📝</span> Kuis 1: Pengenalan Administrasi Digital
+    </a>
+
+    <a href="#" class="btn-link" style="opacity: 0.6; cursor: not-allowed;">
+        <span class="icon">🔒</span> Kuis 2: Manajemen Dokumen Elektronik (Locked)
+    </a>
+    
+    <div class="menu-title">Sumber Belajar</div>
+    <a href="#" class="btn-link">
+        <span class="icon">📚</span> Download Silabus & Modul Kuliah
+    </a>
+</div>
+
+<footer>
+    &copy; 2024 - Pak Nahir | Dosen APD PNUP <br>
+    Built with Digital Professionalism
+</footer>
+
+</body>
+</html>
