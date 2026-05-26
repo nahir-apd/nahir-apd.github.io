@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Kuis 3 Uji Coba- AB </title>
+    <style>
+        /* Mengatur agar kuis tampil satu layar penuh */
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: Arial, sans-serif; }
+        .nav-header { height: 50px; background: #004080; display: flex; align-items: center; padding: 0 20px; }
+        .btn-back { color: white; text-decoration: none; font-weight: bold; border: 1px solid white; padding: 5px 15px; border-radius: 5px; font-size: 14px; }
+        .btn-back:hover { background: white; color: #004080; }
+        iframe { width: 100%; height: calc(100% - 50px); border: none; }
+    </style>
+</head>
+<body>
+
+    <div class="nav-header">
+        <a href="index.html" class="btn-back">⬅ Kembali ke Menu Utama</a>
+    </div>
+
+    <iframe src="https://script.google.com/a/macros/poliupg.ac.id/s/AKfycbyfBANT_fDUbl2zMlAUiHn_TSMAdVp_vXR4OvJHROBKJGpYWLeO6obOyy5a-qNkBNUV/exec"></iframe>
+
+</body>
+</html>
