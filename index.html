@@ -3,115 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Dashboard APD 3D - Nahiruddin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Sistem Eksekutif APD - Nahiruddin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #020617;
-            --accent: #0ea5e9;
-            --emerald: #10b981;
-            --bg-3d: #e2e8f0;
-            --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --bg-sidebar: #0f172a;
+            --bg-sidebar-hover: #1e293b;
+            --accent-glow: #0ea5e9;
+            --accent-text: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --bg-body: #f1f5f9;
+            --smooth: cubic-bezier(0.87, 0, 0.13, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #cbd5e1; height: 100vh; display: flex; overflow: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-body); height: 100vh; display: flex; overflow: hidden; }
 
-        /* --- SIDEBAR MODERN --- */
+        /* ================= KIRI: SIDEBAR EKSKLUSIF ================= */
         .sidebar { 
-            width: 320px; background: var(--primary); color: white; 
-            display: flex; flex-direction: column; z-index: 10;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.3);
+            width: 330px; background: var(--bg-sidebar); color: var(--text-main); 
+            display: flex; flex-direction: column; position: relative;
+            box-shadow: 15px 0 50px rgba(0,0,0,0.15); z-index: 100;
         }
 
-        .sidebar-header { padding: 40px 25px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .sidebar-header h2 { font-family: 'Poppins'; font-size: 1.5rem; color: var(--accent); letter-spacing: 2px; }
-
-        .menu-container { flex: 1; padding: 25px 15px; overflow-y: auto; }
-
-        /* ANIMASI DASHBOARD SYSTEM (Glow Pulse) */
-        .dashboard-btn {
-            width: 100%; padding: 15px; background: rgba(14, 165, 233, 0.1);
-            border: 2px solid var(--accent); color: var(--accent);
-            border-radius: 12px; font-weight: 800; cursor: pointer;
-            margin-bottom: 25px; text-align: center;
-            animation: glowPulse 2s infinite; transition: var(--transition);
+        .sidebar-header { 
+            padding: 45px 30px; text-align: center; 
+            background: linear-gradient(180deg, #020617 0%, var(--bg-sidebar) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        @keyframes glowPulse {
-            0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); transform: scale(1); }
-            50% { box-shadow: 0 0 20px 5px rgba(14, 165, 233, 0.2); transform: scale(1.02); }
-            100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); transform: scale(1); }
+        .sidebar-header h2 { 
+            font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 800;
+            letter-spacing: 3px; background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px;
         }
+        .sidebar-header p { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
 
-        /* MENU UTAMA */
-        .menu-label { font-size: 0.7rem; color: #475569; font-weight: 800; margin: 20px 0 10px 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .menu-container { flex: 1; overflow-y: auto; padding: 25px 20px; scrollbar-width: none; }
+        .menu-container::-webkit-scrollbar { display: none; }
+        
+        .menu-label { 
+            font-size: 0.7rem; color: #475569; font-weight: 800; 
+            margin: 30px 0 10px 15px; letter-spacing: 2px; text-transform: uppercase;
+        }
 
         .nav-item { 
-            width: 100%; padding: 14px 18px; background: transparent; border: none; 
-            color: #94a3b8; text-align: left; font-size: 0.95rem; font-weight: 600; 
+            width: 100%; border: none; background: transparent; color: var(--text-muted);
+            padding: 16px 20px; text-align: left; font-size: 0.95rem; font-weight: 600;
             cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            border-radius: 10px; transition: 0.3s;
+            border-radius: 14px; transition: all 0.4s var(--smooth); margin-bottom: 6px;
         }
-        .nav-item:hover { background: rgba(255,255,255,0.05); color: white; }
+        .nav-item:hover { background: var(--bg-sidebar-hover); color: var(--accent-text); transform: translateX(5px); }
+        .nav-item.active { background: rgba(14, 165, 233, 0.1); color: var(--accent-text); box-shadow: inset 4px 0 0 var(--accent-glow); }
 
-        .chevron { width: 12px; height: 12px; transition: transform 0.4s; fill: none; stroke: currentColor; stroke-width: 3; }
-        .rotated { transform: rotate(180deg); color: var(--accent); }
+        .chevron { width: 14px; height: 14px; transition: transform 0.6s var(--smooth); fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        .rotated { transform: rotate(180deg); color: var(--accent-glow); }
 
-        /* SUBMENU MATERI (Dropdown) */
         .sub-menu { 
-            max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out;
-            background: rgba(0,0,0,0.2); border-radius: 10px; margin-top: 5px;
+            max-height: 0; overflow: hidden; transition: max-height 0.6s var(--smooth);
+            background: rgba(0,0,0,0.15); border-radius: 14px; margin: 0 5px 15px 5px;
         }
-        .sub-menu.open { max-height: 200px; padding: 10px 0; }
+        .sub-menu.open { max-height: 400px; padding: 10px 0; }
 
         .sub-link { 
-            display: block; width: 100%; padding: 10px 15px 10px 45px; color: #64748b;
-            text-decoration: none; border: none; background: transparent; 
-            text-align: left; cursor: pointer; font-size: 0.88rem; transition: 0.3s;
+            display: block; width: 100%; padding: 12px 20px 12px 50px; color: #64748b;
+            text-decoration: none; border: none; background: transparent;
+            text-align: left; cursor: pointer; font-size: 0.88rem; font-weight: 500; transition: 0.3s ease;
         }
-        .sub-link:hover { color: var(--accent); background: rgba(255,255,255,0.03); }
+        .sub-link:hover { color: var(--text-main); background: rgba(255,255,255,0.03); }
 
-        /* ================= AREA KANAN (3D DIMENSION) ================= */
+        /* ================= KANAN: AREA KONTEN UTAMA (3D PERSPECTIVE) ================= */
         .main-content { 
-            flex: 1; padding: 50px; perspective: 1500px; /* Kedalaman Dimensi Tiga */
-            display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+            flex: 1; display: flex; flex-direction: column; position: relative;
+            /* Mengaktifkan Dimensi Tiga pada Kontainer Utama */
+            perspective: 2000px;
         }
-
-        /* CARD 3D YANG BISA BERGERAK */
-        .glass-panel {
-            width: 100%; height: 100%; background: white; border-radius: 40px;
-            position: relative; overflow: hidden;
-            box-shadow: 
-                30px 50px 100px rgba(0,0,0,0.2),
-                inset 0 0 0 1px rgba(255,255,255,0.5);
-            transform: rotateY(-5deg) rotateX(2deg); /* Kemiringan 3D Default */
-            transition: transform 0.1s ease-out; /* Untuk mengikuti kursor */
-            display: flex; flex-direction: column;
-        }
-
-        .top-bar-3d {
-            padding: 30px 45px; border-bottom: 1px solid #f1f5f9;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(255,255,255,0.8); backdrop-filter: blur(10px);
-        }
-        .top-bar-3d h1 { font-family: 'Poppins'; font-size: 1.2rem; color: var(--primary); }
-
-        .display-area { flex: 1; padding: 40px; }
         
-        iframe { width: 100%; height: 100%; border: none; border-radius: 20px; display: none; }
-
-        .welcome-hero {
-            height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+        .top-bar { 
+            height: 85px; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
+            display: flex; align-items: center; padding: 0 45px; justify-content: space-between; 
+            border-bottom: 1px solid #e2e8f0; z-index: 10;
         }
-        .hero-circle { 
-            width: 100px; height: 100px; background: #e0f2fe; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 3rem; color: var(--accent); margin-bottom: 25px;
-            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.2);
+        .top-bar h1 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #1e293b; letter-spacing: 0.5px; }
+        .status-badge { padding: 8px 18px; background: #e0f2fe; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #0284c7; display: flex; align-items: center; gap: 8px; }
+        .status-dot { width: 8px; height: 8px; background: #0ea5e9; border-radius: 50%; box-shadow: 0 0 10px #0ea5e9; animation: pulse 2s infinite; }
+
+        /* KARTU KONTEN 3D */
+        .content-area { 
+            flex: 1; padding: 40px; position: relative; overflow: hidden;
+            display: flex; justify-content: center; align-items: center;
         }
 
-        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.3); background: #020617; }
+        /* Iframe untuk Materi & Kuis */
+        #display-frame { 
+            width: 100%; height: 100%; border: none; border-radius: 24px; 
+            background: white; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.05); display: none;
+            animation: slideUp 0.8s var(--smooth);
+            /* Transform 3D Dasar */
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease;
+        }
+
+        /* Tampilan Penyambutan (Hero Section Premium) */
+        #welcome-screen {
+            width: 100%; height: 100%; background: white; border-radius: 24px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.05); text-align: center; position: relative;
+            overflow: hidden; animation: fadeIn 1s ease;
+            /* Transform 3D Dasar */
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease;
+        }
+        
+        .bg-glow { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, rgba(255,255,255,0) 70%); top: -100px; right: -100px; border-radius: 50%; }
+        
+        .hero-icon { 
+            font-size: 5rem; margin-bottom: 25px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); } 100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+        @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        footer { padding: 25px; text-align: center; font-size: 0.75rem; color: #475569; background: #020617; }
     </style>
 </head>
 <body>
@@ -119,110 +137,150 @@
     <div class="sidebar">
         <div class="sidebar-header">
             <h2>NAHIRUDDIN</h2>
-            <p>Digital Office Management</p>
+            <p>Adminitrasi Perkantoran Digital</p>
         </div>
 
         <div class="menu-container">
-            <button class="dashboard-btn" onclick="goHome()">
-                DASHBOARD SYSTEM
+            <button class="nav-item active" id="btn-dash" onclick="goHome()">
+                <span><span style="font-size:1.1rem; margin-right:10px;">🏠</span> Dashboard System</span>
             </button>
 
-            <div class="menu-label">Pusat File</div>
-            <button class="nav-item" style="color:white;" onclick="loadPage('silabus.html', 'Download & Silabus')">
-                <span>📁 &nbsp; Download & Silabus</span>
+            <div class="menu-label">Pusat Informasi</div>
+            <button class="nav-item" onclick="toggleMenu('materi-drop', this)">
+                <span><span style="font-size:1.1rem; margin-right:10px;">📖</span> Mata Kuliah</span>
+                <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div id="materi-drop" class="sub-menu">
+                <button class="sub-link" onclick="loadPage('mat1.html', 'Mata Kuliah 1', this)">Mata Kuliah 1</button>
+                <button class="sub-link" onclick="loadPage('mat2.html', 'Mata Kuliah 2', this)">Mata Kuliah 2</button>
+            </div>
+            
+            <button class="sub-link" style="color: var(--text-main); font-weight: 600; padding-left: 20px;" onclick="loadPage('silabus.html', 'Silabus & Modul', this)">
+                <span style="margin-right:10px;">📚</span> Download Silabus & Modul
             </button>
 
-            <div class="menu-label">Pembelajaran</div>
-            <button class="nav-item" onclick="toggleMateri()">
-                <span>📚 &nbsp; Materi Kuliah</span>
-                <svg id="materi-chevron" class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            <div class="menu-label">Evaluasi Digital</div>
+            <button class="nav-item" onclick="toggleMenu('kuis-drop', this)">
+                <span><span style="font-size:1.1rem; margin-right:10px;">📝</span> Kuis Akademik</span>
+                <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <div id="materi-menu" class="sub-menu">
-                <button class="sub-link" onclick="loadPage('materi1.html', 'Materi 1: Pengantar APD')">Materi 1</button>
-                <button class="sub-link" onclick="loadPage('materi2.html', 'Materi 2: Tata Kelola Digital')">Materi 2</button>
-                <button class="sub-link" onclick="loadPage('materi3.html', 'Materi 3: Sistem Informasi')">Materi 3</button>
+            <div id="kuis-drop" class="sub-menu">
+                <button class="sub-link" onclick="loadPage('kuis1.html', 'Kuis 1: Latihan', this)">Kuis 1: Latihan Cobaan</button>
+                <button class="sub-link" onclick="loadPage('kuis2.html', 'Kuis 2: UAS', this)">Kuis 2: Latihan Ujian UAS AKB</button>
+                <button class="sub-link" onclick="loadPage('kuis3.html', 'Kuis 3: Uji Coba', this)">Kuis 3: Uji Coba UAS AKB</button>
             </div>
 
-            <div class="menu-label">Evaluasi</div>
-            <button class="nav-item" onclick="loadPage('kuis1.html', 'Kuis Akademik')">
-                <span>📝 &nbsp; Kuis Akademik</span>
+            <div class="menu-label">Laporan Hasil</div>
+            <button class="sub-link" style="color: var(--text-main); font-weight: 600; padding-left: 20px;" onclick="loadPage('rek2.html', 'Rekap Kuis 2', this)">
+                <span style="margin-right:10px;">📊</span> Rekap Nilai Kuis 2
             </button>
+            <button class="sub-link" style="color: var(--text-main); font-weight: 600; padding-left: 20px;" onclick="loadPage('rek3.html', 'Rekap Kuis 3', this)">
+                <span style="margin-right:10px;">📊</span> Rekap Nilai Kuis 3
+            </button>
+
+            <div class="menu-label">Konfigurasi</div>
+            <button class="nav-item" onclick="toggleMenu('admin-drop', this)">
+                <span><span style="font-size:1.1rem; margin-right:10px;">⚙️</span> Pengaturan Admin</span>
+                <svg class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div id="admin-drop" class="sub-menu">
+                <button class="sub-link" onclick="loadPage('profil.html', 'Profil Dosen', this)">Profil Dosen</button>
+                <button class="sub-link" onclick="loadPage('user.html', 'Manajemen User', this)">Manajemen User</button>
+            </div>
         </div>
 
         <footer>
-            Politeknik Negeri Ujung Pandang <br>
-            Mei 2026 &copy; Nahiruddin
+            Hak Cipta &copy; 2026<br>
+            <strong style="color: #64748b;">Politeknik Negeri Ujung Pandang</strong>
         </footer>
     </div>
 
-    <div class="main-content" id="perspective-box">
-        <div class="glass-panel" id="tilt-card">
-            <div class="top-bar-3d">
-                <h1 id="page-title">SISTEM DASHBOARD UTAMA</h1>
-                <div style="font-size: 0.7rem; font-weight: 800; color: var(--emerald);">● SYSTEM ONLINE</div>
+    <div class="main-content">
+        <div class="top-bar">
+            <h1 id="top-title">BERANDA SISTEM</h1>
+            <div class="status-badge">
+                <div class="status-dot"></div> STATUS ONLINE
             </div>
+        </div>
 
-            <div class="display-area">
-                <div id="welcome-view" class="welcome-hero">
-                    <div class="hero-circle">◈</div>
-                    <h2 style="font-family: 'Poppins'; font-size: 2.2rem; color: var(--primary);">Portal APD Eksklusif</h2>
-                    <p style="color: #64748b; max-width: 500px; line-height: 1.8; margin-top: 15px;">
-                        Selamat datang di pusat pembelajaran digital. Sistem ini dirancang dengan teknologi Dimensi Tiga untuk memberikan pengalaman visual terbaik bagi mahasiswa.
-                    </p>
+        <div class="content-area" id="content-perspective">
+            <div id="welcome-screen">
+                <div class="bg-glow"></div>
+                <div class="hero-icon">◈</div>
+                <h2 style="font-family: 'Poppins'; font-size: 2.5rem; color: #0f172a; margin-bottom: 10px;">Digital Office Portal</h2>
+                <p style="color: #64748b; max-width: 550px; line-height: 1.8; font-size: 1.1rem; z-index: 2;">
+                    Pusat integrasi materi, silabus, dan evaluasi akademik. Bukti nyata inovasi tata kelola perkantoran digital di era modern.
+                </p>
+                <div style="margin-top: 40px; padding: 12px 30px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 30px; color: #0f172a; font-weight: 600; font-size: 0.9rem; z-index: 2;">
+                    Siap Digunakan oleh Mahasiswa
                 </div>
-                <iframe id="content-frame"></iframe>
             </div>
+            <iframe id="display-frame"></iframe>
         </div>
     </div>
 
     <script>
-        // --- LOGIKA DROPDOWN MATERI ---
-        function toggleMateri() {
-            const menu = document.getElementById('materi-menu');
-            const chevron = document.getElementById('materi-chevron');
-            menu.classList.toggle('open');
-            chevron.classList.toggle('rotated');
+        // Logika Dropdown Akordion
+        function toggleMenu(id, btn) {
+            const menu = document.getElementById(id);
+            const icon = btn.querySelector('.chevron');
+            const isOpening = !menu.classList.contains('open');
+            
+            document.querySelectorAll('.sub-menu').forEach(m => m.classList.remove('open'));
+            document.querySelectorAll('.chevron').forEach(c => c.classList.remove('rotated'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+            if (isOpening) {
+                menu.classList.add('open');
+                icon.classList.add('rotated');
+                btn.classList.add('active');
+            }
         }
 
-        // --- LOGIKA NAVIGASI ---
-        function loadPage(url, title) {
-            document.getElementById('welcome-view').style.display = 'none';
-            const frame = document.getElementById('content-frame');
+        // Logika Pemuatan Halaman ke Iframe
+        function loadPage(url, title, el) {
+            document.getElementById('welcome-screen').style.display = 'none';
+            const frame = document.getElementById('display-frame');
             frame.style.display = 'block';
             frame.src = url;
-            document.getElementById('page-title').innerText = title.toUpperCase();
+            document.getElementById('top-title').innerText = title.toUpperCase();
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById('btn-dash').classList.remove('active');
         }
 
+        // Kembali ke Dashboard Utama
         function goHome() {
-            document.getElementById('content-frame').style.display = 'none';
-            document.getElementById('welcome-view').style.display = 'flex';
-            document.getElementById('page-title').innerText = 'SISTEM DASHBOARD UTAMA';
-            document.getElementById('materi-menu').classList.remove('open');
-            document.getElementById('materi-chevron').classList.remove('rotated');
+            document.getElementById('display-frame').style.display = 'none';
+            document.getElementById('welcome-screen').style.display = 'flex';
+            document.getElementById('top-title').innerText = "BERANDA SISTEM";
+            document.querySelectorAll('.sub-menu').forEach(m => m.classList.remove('open'));
+            document.querySelectorAll('.chevron').forEach(c => c.classList.remove('rotated'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById('btn-dash').classList.add('active');
         }
 
-        // --- LOGIKA INTERAKSI 3D (MOUSE TRACKING) ---
-        const box = document.getElementById('perspective-box');
-        const card = document.getElementById('tilt-card');
+        // ================= LOGIKA INTERAKSI 3D SPEKTAKULER =================
+        const perspectiveContainer = document.getElementById('content-perspective');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const displayFrame = document.getElementById('display-frame');
 
-        box.addEventListener('mousemove', (e) => {
-            const { width, height } = box.getBoundingClientRect();
-            const { clientX, clientY } = e;
-            
-            // Hitung posisi kursor relatif terhadap tengah layar
-            const xPos = (clientX / width) - 0.5;
-            const yPos = (clientY / height) - 0.5;
+        perspectiveContainer.addEventListener('mousemove', (e) => {
+            const { offsetWidth: width, offsetHeight: height } = perspectiveContainer;
+            const { offsetX: x, offsetY: y } = e;
 
-            // Rotasi Maksimal 10 derajat agar terlihat dimensi tiganya
-            const xDeg = yPos * -15; 
-            const yDeg = xPos * 15;
+            // Hitung Rotasi (Semakin ke pinggir, semakin miring)
+            const xRotation = -((y / height) - 0.5) * 5; // Maksimal 5 derajat
+            const yRotation = ((x / width) - 0.5) * 5;  // Maksimal 5 derajat
 
-            card.style.transform = `rotateX(${xDeg}deg) rotateY(${yDeg}deg) scale(1.02)`;
+            // Terapkan ke elemen yang aktif (Welcome Screen atau Iframe)
+            const activeElement = (welcomeScreen.style.display !== 'none') ? welcomeScreen : displayFrame;
+            activeElement.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.01)`;
         });
 
-        box.addEventListener('mouseleave', () => {
-            // Kembali ke posisi miring elegan semula saat mouse keluar
-            card.style.transform = `rotateY(-5deg) rotateX(2deg) scale(1)`;
+        // Reset Posisi saat Kursor Keluar
+        perspectiveContainer.addEventListener('mouseleave', () => {
+            const activeElement = (welcomeScreen.style.display !== 'none') ? welcomeScreen : displayFrame;
+            activeElement.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
         });
     </script>
 </body>
