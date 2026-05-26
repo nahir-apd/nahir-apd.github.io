@@ -6,139 +6,152 @@
     <title>Dashboard APD - Nahiruddin</title>
     <style>
         * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; height: 100vh; background: #f0f2f5; overflow: hidden; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; display: flex; height: 100vh; background: #f8f9fa; overflow: hidden; }
 
-        /* KOLOM 1: Sidebar */
-        .sidebar { width: 300px; background: #004080; color: white; display: flex; flex-direction: column; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
-        .sidebar-header { padding: 20px; background: #002d5a; border-bottom: 1px solid #003d7a; text-align: center; }
+        /* SIDEBAR */
+        .sidebar { width: 300px; background: #002d5a; color: white; display: flex; flex-direction: column; box-shadow: 4px 0 10px rgba(0,0,0,0.1); }
+        .sidebar-header { padding: 30px 20px; background: #001f3f; text-align: center; border-bottom: 1px solid #003366; }
         
-        .menu-container { flex: 1; overflow-y: auto; padding: 10px; }
+        .menu-container { flex: 1; overflow-y: auto; padding: 15px; }
         
-        /* Menu Utama (Dashboard) */
+        /* Tombol Utama (Accordion) */
         .nav-header { 
-            width: 100%; padding: 12px 15px; background: transparent; border: none; 
-            color: white; text-align: left; font-size: 0.95rem; font-weight: bold; 
+            width: 100%; padding: 14px 18px; background: transparent; border: none; 
+            color: #ecf0f1; text-align: left; font-size: 0.95rem; font-weight: 600; 
             cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            border-radius: 8px; transition: 0.3s;
+            border-radius: 10px; transition: all 0.3s ease; margin-top: 10px;
         }
-        .nav-header:hover { background: #0056b3; }
+        .nav-header:hover { background: #004a99; color: white; }
 
-        /* Sub-menu (Anak menu) */
+        /* Efek Segitiga (Arrow) yang Bapak tanya */
+        .arrow { 
+            font-size: 0.7rem; 
+            transition: transform 0.4s ease; /* Ini yang bikin keren, Pak */
+            opacity: 0.6;
+        }
+        .rotated { transform: rotate(180deg); opacity: 1; }
+
+        /* Sub-menu (Item di dalamnya) */
         .sub-menu { 
-            display: none; /* Tersembunyi di awal */
-            background: #003366; border-radius: 8px; margin-top: 5px; margin-bottom: 10px;
+            max-height: 0; /* Awalnya tertutup */
+            overflow: hidden; 
+            transition: max-height 0.4s ease-out; /* Efek sliding halus */
+            background: rgba(0,0,0,0.1); border-radius: 8px; margin-top: 5px;
         }
+        .sub-menu.show { max-height: 300px; } /* Terbuka */
+
         .sub-item { 
-            display: block; width: 100%; padding: 10px 15px 10px 40px; color: #cbd5e0; 
+            display: block; width: 100%; padding: 10px 15px 10px 45px; color: #bdc3c7; 
             text-decoration: none; border: none; background: transparent; 
-            text-align: left; cursor: pointer; font-size: 0.85rem; transition: 0.2s;
+            text-align: left; cursor: pointer; font-size: 0.88rem; transition: 0.3s;
         }
-        .sub-item:hover { color: white; background: #0056b3; }
-        .active-sub { background: #28a745 !important; color: white !important; border-radius: 8px; }
+        .sub-item:hover { color: white; background: #28a745; padding-left: 50px; }
 
-        /* KOLOM 2: Area Konten */
+        /* AREA KANAN */
         .main-content { flex: 1; display: flex; flex-direction: column; }
-        .top-bar { padding: 15px 25px; background: white; border-bottom: 1px solid #d0d7de; font-weight: bold; color: #004080; }
-        .iframe-container { flex: 1; padding: 15px; position: relative; }
-        iframe { width: 100%; height: 100%; border: none; border-radius: 10px; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .top-bar { padding: 18px 25px; background: white; border-bottom: 1px solid #dee2e6; font-weight: bold; color: #002d5a; display: flex; justify-content: space-between; }
+        .content-area { flex: 1; padding: 25px; position: relative; }
+        
+        iframe { width: 100%; height: 100%; border: none; border-radius: 15px; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: none; }
 
-        #welcome-screen {
-            position: absolute; top: 15px; left: 15px; right: 15px; bottom: 15px;
-            background: white; border-radius: 10px; padding: 40px; text-align: center;
-            border-top: 5px solid #004080; display: flex; flex-direction: column; justify-content: center; align-items: center;
+        #welcome-card {
+            width: 100%; height: 100%; background: white; border-radius: 15px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; border-top: 6px solid #28a745; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        footer { padding: 15px; font-size: 0.75rem; background: #002d5a; text-align: center; color: #cbd5e0; }
+        footer { padding: 15px; font-size: 0.75rem; color: #7f8c8d; text-align: center; background: #001f3f; color: #95a5a6; }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
         <div class="sidebar-header">
-            <h2 style="margin:0; font-size: 1.1rem;">Nahiruddin</h2>
-            <p style="margin:5px 0 0; font-size: 0.8rem; opacity: 0.8;">Adminitrasi Perkantoran Digital</p>
+            <h2 style="margin:0; font-size: 1.2rem; letter-spacing: 1px;">Nahiruddin</h2>
+            <p style="margin:5px 0 0; font-size: 0.8rem; opacity: 0.7;">Adminitrasi Perkantoran Digital</p>
         </div>
 
         <div class="menu-container">
-            <button class="nav-header" onclick="goHome()">🏠 Dashboard Utama</button>
+            <button class="nav-header" onclick="goHome()">
+                <span>🏠 Dashboard</span>
+            </button>
 
-            <button class="nav-header" onclick="toggleMenu('materi-list')">📚 Sumber Belajar <span>▼</span></button>
+            <button class="nav-header" onclick="toggleAccordion('materi-list', this)">
+                <span>📚 Sumber Belajar</span>
+                <span class="arrow">▼</span>
+            </button>
             <div id="materi-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('materi1.html', this)">Mata Kuliah 1</button>
-                <button class="sub-item" onclick="loadPage('materi2.html', this)">Mata Kuliah 2</button>
-                <button class="sub-item" onclick="loadPage('silabus.html', this)">Silabus & Modul</button>
+                <button class="sub-item" onclick="loadContent('materi1.html', 'Mata Kuliah 1')">Mata Kuliah 1</button>
+                <button class="sub-item" onclick="loadContent('materi2.html', 'Mata Kuliah 2')">Mata Kuliah 2</button>
             </div>
 
-            <button class="nav-header" onclick="toggleMenu('kuis-list')">📝 Daftar Kuis <span>▼</span></button>
+            <button class="nav-header" onclick="toggleAccordion('kuis-list', this)">
+                <span>📝 Kuis dan Evaluasi</span>
+                <span class="arrow">▼</span>
+            </button>
             <div id="kuis-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('kuis1.html', this)">Kuis 1: Latihan Cobaan</button>
-                <button class="sub-item" onclick="loadPage('kuis2.html', this)">Kuis 2: Latihan Ujian UAS AKB</button>
-                <button class="sub-item" onclick="loadPage('kuis3.html', this)">Kuis 3: Uji Coba Ujian UAS</button>
-            </div>
-
-            <button class="nav-header" onclick="toggleMenu('rekap-list')">📊 Laporan Hasil <span>▼</span></button>
-            <div id="rekap-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('rekap2.html', this)">Rekap Nilai Kuis 2</button>
-                <button class="sub-item" onclick="loadPage('rekap3.html', this)">Rekap Nilai Kuis 3</button>
-            </div>
-
-            <button class="nav-header" onclick="toggleMenu('admin-list')">⚙️ Pengaturan & Admin <span>▼</span></button>
-            <div id="admin-list" class="sub-menu">
-                <button class="sub-item">Profil Dosen</button>
-                <button class="sub-item">Manajemen User</button>
+                <button class="sub-item" onclick="loadContent('kuis1.html', 'Pengerjaan Kuis 1')">Kuis 1</button>
+                <button class="sub-item" onclick="loadContent('kuis2.html', 'Pengerjaan Kuis 2')">Kuis 2</button>
+                <button class="sub-item" onclick="loadContent('rekap.html', 'Rekapitulasi Nilai')">Rekap Nilai</button>
             </div>
         </div>
 
         <footer>
-            &copy; Mei 2026 - Nahiruddin <br>
-            PNUP - Digital Professionalism
+            &copy; Mei 2026 - Nahiruddin <br> PNUP Makassar
         </footer>
     </div>
 
     <div class="main-content">
-        <div class="top-bar" id="page-title">Dashboard Utama</div>
-        <div class="iframe-container">
-            <div id="welcome-screen">
-                <h2 style="color: #004080;">Selamat Datang, Mahasiswa</h2>
-                <p style="color: #555; max-width: 450px; line-height: 1.6;">
+        <div class="top-bar">
+            <span id="header-title">Beranda Utama</span>
+            <span style="font-size: 0.8rem; font-weight: normal; color: #95a5a6;">Digital Office Portal</span>
+        </div>
+
+        <div class="content-area">
+            <div id="welcome-card">
+                <h1 style="color: #002d5a; margin-bottom: 10px;">Selamat Datang, Mahasiswa</h1>
+                <p style="color: #7f8c8d; max-width: 500px; font-size: 1.1rem; line-height: 1.6;">
                     Portal ini adalah pusat akses materi dan evaluasi mandiri mata kuliah APD. 
-                    Silakan klik menu di samping untuk membuka daftar isi.
+                    Klik menu di samping untuk mulai belajar.
                 </p>
             </div>
-            <iframe id="main-frame" src="about:blank" style="display:none;"></iframe>
+            <iframe id="target-frame"></iframe>
         </div>
     </div>
 
     <script>
-        // Fungsi untuk Buka-Tutup Menu
-        function toggleMenu(id) {
-            const menus = document.querySelectorAll('.sub-menu');
-            menus.forEach(m => {
-                if(m.id !== id) m.style.display = 'none'; // Menutup menu lain
+        function toggleAccordion(id, btn) {
+            const menu = document.getElementById(id);
+            const arrow = btn.querySelector('.arrow');
+            
+            // Tutup semua menu lain dulu agar rapi
+            document.querySelectorAll('.sub-menu').forEach(m => {
+                if(m.id !== id) {
+                    m.classList.remove('show');
+                    m.previousElementSibling.querySelector('.arrow').classList.remove('rotated');
+                }
             });
-            const x = document.getElementById(id);
-            x.style.display = (x.style.display === 'block') ? 'none' : 'block';
+
+            // Toggle menu yang diklik
+            menu.classList.toggle('show');
+            arrow.classList.toggle('rotated');
         }
 
-        // Fungsi Load Halaman ke Kolom 2
-        function loadPage(url, el) {
-            document.getElementById('welcome-screen').style.display = 'none';
-            const frame = document.getElementById('main-frame');
+        function loadContent(url, title) {
+            document.getElementById('welcome-card').style.display = 'none';
+            const frame = document.getElementById('target-frame');
             frame.style.display = 'block';
             frame.src = url;
-            document.getElementById('page-title').innerText = el.innerText;
-
-            // Mark Active
-            document.querySelectorAll('.sub-item').forEach(i => i.classList.remove('active-sub'));
-            el.classList.add('active-sub');
+            document.getElementById('header-title').innerText = title;
         }
 
-        // Kembali ke Home
         function goHome() {
-            document.getElementById('main-frame').style.display = 'none';
-            document.getElementById('welcome-screen').style.display = 'flex';
-            document.getElementById('page-title').innerText = "Dashboard Utama";
-            document.querySelectorAll('.sub-menu').forEach(m => m.style.display = 'none');
+            document.getElementById('target-frame').style.display = 'none';
+            document.getElementById('welcome-card').style.display = 'flex';
+            document.getElementById('header-title').innerText = "Beranda Utama";
+            // Tutup semua accordion
+            document.querySelectorAll('.sub-menu').forEach(m => m.classList.remove('show'));
+            document.querySelectorAll('.arrow').forEach(a => a.classList.remove('rotated'));
         }
     </script>
 </body>
