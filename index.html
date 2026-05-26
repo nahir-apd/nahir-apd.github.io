@@ -3,219 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Eksekutif APD - Nahiruddin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    <title>Sistem Dashboard APD 3D - Nahiruddin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-sidebar: #0f172a;
+            --primary: #020617;
             --accent: #0ea5e9;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --frame-bg: #e0e5ec;
-            --shadow-light: #ffffff;
-            --shadow-dark: #bebebe;
+            --emerald: #10b981;
+            --bg-3d: #e2e8f0;
+            --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--frame-bg); height: 100vh; display: flex; overflow: hidden; }
+        body { font-family: 'Inter', sans-serif; background: #cbd5e1; height: 100vh; display: flex; overflow: hidden; }
 
-        /* --- KOLOM 1: SIDEBAR --- */
+        /* --- SIDEBAR MODERN --- */
         .sidebar { 
-            width: 320px; background: var(--bg-sidebar); color: var(--text-main); 
-            display: flex; flex-direction: column; z-index: 100;
+            width: 320px; background: var(--primary); color: white; 
+            display: flex; flex-direction: column; z-index: 10;
             box-shadow: 10px 0 30px rgba(0,0,0,0.3);
         }
 
-        .sidebar-header { padding: 30px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .sidebar-header h2 { font-family: 'Poppins'; font-size: 1.5rem; color: var(--accent); letter-spacing: 1px; }
+        .sidebar-header { padding: 40px 25px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .sidebar-header h2 { font-family: 'Poppins'; font-size: 1.5rem; color: var(--accent); letter-spacing: 2px; }
 
-        .menu-container { flex: 1; overflow-y: auto; padding: 20px; scrollbar-width: none; }
-        
-        /* ANIMASI PULSE (Dashboard, Download, Materi saat Aktif) */
-        .btn-pulse {
+        .menu-container { flex: 1; padding: 25px 15px; overflow-y: auto; }
+
+        /* ANIMASI DASHBOARD SYSTEM (Glow Pulse) */
+        .dashboard-btn {
             width: 100%; padding: 15px; background: rgba(14, 165, 233, 0.1);
             border: 2px solid var(--accent); color: var(--accent);
-            border-radius: 10px; font-weight: 800; cursor: pointer; margin-bottom: 15px;
-            animation: pulseEffect 2s infinite; transition: 0.3s;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
+            border-radius: 12px; font-weight: 800; cursor: pointer;
+            margin-bottom: 25px; text-align: center;
+            animation: glowPulse 2s infinite; transition: var(--transition);
         }
-        @keyframes pulseEffect {
+        @keyframes glowPulse {
             0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); transform: scale(1); }
-            70% { box-shadow: 0 0 12px 5px rgba(14, 165, 233, 0); transform: scale(1.02); }
+            50% { box-shadow: 0 0 20px 5px rgba(14, 165, 233, 0.2); transform: scale(1.02); }
             100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); transform: scale(1); }
         }
 
-        .menu-label { 
-            font-size: 0.7rem; color: #475569; font-weight: 800; 
-            margin: 25px 0 10px 10px; text-transform: uppercase; letter-spacing: 1.5px;
-        }
+        /* MENU UTAMA */
+        .menu-label { font-size: 0.7rem; color: #475569; font-weight: 800; margin: 20px 0 10px 10px; text-transform: uppercase; letter-spacing: 2px; }
 
         .nav-item { 
-            width: 100%; border: none; background: transparent; color: var(--text-muted);
-            padding: 12px 15px; text-align: left; font-size: 0.9rem; font-weight: 600;
+            width: 100%; padding: 14px 18px; background: transparent; border: none; 
+            color: #94a3b8; text-align: left; font-size: 0.95rem; font-weight: 600; 
             cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            border-radius: 8px; transition: 0.3s; margin-bottom: 4px;
+            border-radius: 10px; transition: 0.3s;
         }
-        .nav-item:hover { background: rgba(255,255,255,0.05); color: white; padding-left: 20px; }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: white; }
 
-        .chevron { width: 10px; height: 10px; transition: transform 0.4s ease; fill: none; stroke: currentColor; stroke-width: 3; }
-        .rotated { transform: rotate(180deg); }
+        .chevron { width: 12px; height: 12px; transition: transform 0.4s; fill: none; stroke: currentColor; stroke-width: 3; }
+        .rotated { transform: rotate(180deg); color: var(--accent); }
 
-        /* Dropdown Materi */
+        /* SUBMENU MATERI (Dropdown) */
         .sub-menu { 
-            max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-            background: rgba(0,0,0,0.2); border-radius: 8px;
+            max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out;
+            background: rgba(0,0,0,0.2); border-radius: 10px; margin-top: 5px;
         }
-        .sub-menu.open { max-height: 200px; transition: max-height 0.5s ease-in; margin-bottom: 10px; }
+        .sub-menu.open { max-height: 200px; padding: 10px 0; }
 
         .sub-link { 
             display: block; width: 100%; padding: 10px 15px 10px 45px; color: #64748b;
-            text-decoration: none; border: none; background: transparent;
-            text-align: left; cursor: pointer; font-size: 0.85rem; transition: 0.2s;
+            text-decoration: none; border: none; background: transparent; 
+            text-align: left; cursor: pointer; font-size: 0.88rem; transition: 0.3s;
         }
-        .sub-link:hover { color: white; background: rgba(255,255,255,0.05); }
+        .sub-link:hover { color: var(--accent); background: rgba(255,255,255,0.03); }
 
-        /* --- KOLOM 2: KONTEN DENGAN BINGKAI 3D --- */
-        .main-content { flex: 1; display: flex; flex-direction: column; padding: 25px; gap: 20px; }
+        /* ================= AREA KANAN (3D DIMENSION) ================= */
+        .main-content { 
+            flex: 1; padding: 50px; perspective: 1500px; /* Kedalaman Dimensi Tiga */
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+        }
 
-        /* Bingkai Atas Dimensi Tiga */
-        .top-frame-3d { 
-            padding: 20px 40px; background: var(--frame-bg); border-radius: 12px;
+        /* CARD 3D YANG BISA BERGERAK */
+        .glass-panel {
+            width: 100%; height: 100%; background: white; border-radius: 40px;
+            position: relative; overflow: hidden;
+            box-shadow: 
+                30px 50px 100px rgba(0,0,0,0.2),
+                inset 0 0 0 1px rgba(255,255,255,0.5);
+            transform: rotateY(-5deg) rotateX(2deg); /* Kemiringan 3D Default */
+            transition: transform 0.1s ease-out; /* Untuk mengikuti kursor */
+            display: flex; flex-direction: column;
+        }
+
+        .top-bar-3d {
+            padding: 30px 45px; border-bottom: 1px solid #f1f5f9;
             display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
-            border: 1px solid rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.8); backdrop-filter: blur(10px);
         }
-        .top-frame-3d h3 { color: #475569; font-family: 'Poppins'; }
+        .top-bar-3d h1 { font-family: 'Poppins'; font-size: 1.2rem; color: var(--primary); }
 
-        /* Bingkai Konten Utama Dimensi Tiga */
-        .content-frame-3d { 
-            flex: 1; background: var(--frame-bg); border-radius: 20px;
-            padding: 15px;
-            box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
-            border: 5px solid var(--frame-bg);
-            display: flex; position: relative;
+        .display-area { flex: 1; padding: 40px; }
+        
+        iframe { width: 100%; height: 100%; border: none; border-radius: 20px; display: none; }
+
+        .welcome-hero {
+            height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+        }
+        .hero-circle { 
+            width: 100px; height: 100px; background: #e0f2fe; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 3rem; color: var(--accent); margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.2);
         }
 
-        iframe { width: 100%; height: 100%; border: none; border-radius: 10px; background: white; display: none; }
-        .welcome-msg { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: #94a3b8; }
-
-        footer { padding: 10px; text-align: center; font-size: 0.7rem; color: #475569; }
+        footer { padding: 20px; text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.3); background: #020617; }
     </style>
 </head>
 <body>
 
-<div class="sidebar">
-    <div class="sidebar-header">
-        <h2>NAHIRUDDIN</h2>
-    </div>
-
-    <div class="menu-container">
-        <button id="btn-dash" class="btn-pulse" onclick="activatePulse('btn-dash'); goHome()">
-            <span>🏠 DASHBOARD SYSTEM</span>
-        </button>
-
-        <div class="menu-label">Sumber Belajar</div>
-        
-        <button id="btn-down" class="nav-item" onclick="activatePulse('btn-down'); loadPage('silabus.html', 'Download & Silabus')">
-            <span>📁 Download & Silabus</span>
-        </button>
-
-        <button id="btn-mate" class="nav-item" onclick="toggleMateri(this)">
-            <span>📖 Materi</span>
-            <svg class="chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>
-        </button>
-        <div id="materi-drop" class="sub-menu">
-            <button class="sub-link" onclick="loadPage('mat1.html', 'Materi 1')">Materi 1</button>
-            <button class="sub-link" onclick="loadPage('mat2.html', 'Materi 2')">Materi 2</button>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>NAHIRUDDIN</h2>
+            <p>Digital Office Management</p>
         </div>
 
-        <div class="menu-label">Kuis & Evaluasi</div>
-        <button class="nav-item" onclick="toggleMenu('kuis-drop', this)">
-            <span>📝 Kuis Akademik</span>
-            <svg class="chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>
-        </button>
-        <div id="kuis-drop" class="sub-menu">
-            <button class="sub-link" onclick="loadPage('kuis1.html', 'Kuis 1')">Kuis 1</button>
-            <button class="sub-link" onclick="loadPage('kuis2.html', 'Kuis 2')">Kuis 2</button>
+        <div class="menu-container">
+            <button class="dashboard-btn" onclick="goHome()">
+                DASHBOARD SYSTEM
+            </button>
+
+            <div class="menu-label">Pusat File</div>
+            <button class="nav-item" style="color:white;" onclick="loadPage('silabus.html', 'Download & Silabus')">
+                <span>📁 &nbsp; Download & Silabus</span>
+            </button>
+
+            <div class="menu-label">Pembelajaran</div>
+            <button class="nav-item" onclick="toggleMateri()">
+                <span>📚 &nbsp; Materi Kuliah</span>
+                <svg id="materi-chevron" class="chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div id="materi-menu" class="sub-menu">
+                <button class="sub-link" onclick="loadPage('materi1.html', 'Materi 1: Pengantar APD')">Materi 1</button>
+                <button class="sub-link" onclick="loadPage('materi2.html', 'Materi 2: Tata Kelola Digital')">Materi 2</button>
+                <button class="sub-link" onclick="loadPage('materi3.html', 'Materi 3: Sistem Informasi')">Materi 3</button>
+            </div>
+
+            <div class="menu-label">Evaluasi</div>
+            <button class="nav-item" onclick="loadPage('kuis1.html', 'Kuis Akademik')">
+                <span>📝 &nbsp; Kuis Akademik</span>
+            </button>
         </div>
 
-        <div class="menu-label">Laporan Hasil</div>
-        <button class="sub-link" onclick="loadPage('rek2.html', 'Rekap Kuis 2')">📊 Rekap Kuis 2</button>
+        <footer>
+            Politeknik Negeri Ujung Pandang <br>
+            Mei 2026 &copy; Nahiruddin
+        </footer>
+    </div>
 
-        <div class="menu-label">Pengaturan</div>
-        <button class="nav-item" onclick="toggleMenu('admin-drop', this)">
-            <span>⚙️ Pengaturan Admin</span>
-            <svg class="chevron" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>
-        </button>
-        <div id="admin-drop" class="sub-menu">
-            <button class="sub-link" onclick="loadPage('profil.html', 'Profil Dosen')">Profil Dosen</button>
+    <div class="main-content" id="perspective-box">
+        <div class="glass-panel" id="tilt-card">
+            <div class="top-bar-3d">
+                <h1 id="page-title">SISTEM DASHBOARD UTAMA</h1>
+                <div style="font-size: 0.7rem; font-weight: 800; color: var(--emerald);">● SYSTEM ONLINE</div>
+            </div>
+
+            <div class="display-area">
+                <div id="welcome-view" class="welcome-hero">
+                    <div class="hero-circle">◈</div>
+                    <h2 style="font-family: 'Poppins'; font-size: 2.2rem; color: var(--primary);">Portal APD Eksklusif</h2>
+                    <p style="color: #64748b; max-width: 500px; line-height: 1.8; margin-top: 15px;">
+                        Selamat datang di pusat pembelajaran digital. Sistem ini dirancang dengan teknologi Dimensi Tiga untuk memberikan pengalaman visual terbaik bagi mahasiswa.
+                    </p>
+                </div>
+                <iframe id="content-frame"></iframe>
+            </div>
         </div>
     </div>
-    <footer>PNUP 2026</footer>
-</div>
 
-<div class="main-content">
-    <div class="top-frame-3d">
-        <h3 id="top-title">BERANDA</h3>
-        <div style="font-size: 0.7rem; font-weight: 800; color: #0ea5e9;">SISTEM ONLINE</div>
-    </div>
-
-    <div class="content-frame-3d">
-        <div id="welcome-msg" class="welcome-msg">
-            <p>Silakan pilih menu untuk menampilkan materi.</p>
-        </div>
-        <iframe id="main-frame"></iframe>
-    </div>
-</div>
-
-<script>
-    // Fungsi untuk mengubah tombol menjadi mode Pulse saat aktif
-    function activatePulse(id) {
-        // Reset semua ke style normal
-        document.getElementById('btn-dash').className = 'nav-item';
-        document.getElementById('btn-down').className = 'nav-item';
-        document.getElementById('btn-mate').className = 'nav-item';
-        
-        // Aktifkan pulse pada ID yang dipilih
-        document.getElementById(id).className = 'btn-pulse';
-    }
-
-    function toggleMateri(btn) {
-        activatePulse('btn-mate');
-        const menu = document.getElementById('materi-drop');
-        const icon = btn.querySelector('.chevron');
-        menu.classList.toggle('open');
-        icon.classList.toggle('rotated');
-    }
-
-    function toggleMenu(id, btn) {
-        const menu = document.getElementById(id);
-        const icon = btn.querySelector('.chevron');
-        const isOpen = menu.classList.contains('open');
-
-        document.querySelectorAll('.sub-menu').forEach(m => m.classList.remove('open'));
-        document.querySelectorAll('.chevron').forEach(c => c.classList.remove('rotated'));
-
-        if (!isOpen) {
-            menu.classList.add('open');
-            icon.classList.add('rotated');
+    <script>
+        // --- LOGIKA DROPDOWN MATERI ---
+        function toggleMateri() {
+            const menu = document.getElementById('materi-menu');
+            const chevron = document.getElementById('materi-chevron');
+            menu.classList.toggle('open');
+            chevron.classList.toggle('rotated');
         }
-    }
 
-    function loadPage(url, title) {
-        document.getElementById('welcome-msg').style.display = 'none';
-        const frame = document.getElementById('main-frame');
-        frame.style.display = 'block';
-        frame.src = url;
-        document.getElementById('top-title').innerText = title.toUpperCase();
-    }
+        // --- LOGIKA NAVIGASI ---
+        function loadPage(url, title) {
+            document.getElementById('welcome-view').style.display = 'none';
+            const frame = document.getElementById('content-frame');
+            frame.style.display = 'block';
+            frame.src = url;
+            document.getElementById('page-title').innerText = title.toUpperCase();
+        }
 
-    function goHome() {
-        document.getElementById('main-frame').style.display = 'none';
-        document.getElementById('welcome-msg').style.display = 'flex';
-        document.getElementById('top-title').innerText = "BERANDA";
-    }
-</script>
+        function goHome() {
+            document.getElementById('content-frame').style.display = 'none';
+            document.getElementById('welcome-view').style.display = 'flex';
+            document.getElementById('page-title').innerText = 'SISTEM DASHBOARD UTAMA';
+            document.getElementById('materi-menu').classList.remove('open');
+            document.getElementById('materi-chevron').classList.remove('rotated');
+        }
 
+        // --- LOGIKA INTERAKSI 3D (MOUSE TRACKING) ---
+        const box = document.getElementById('perspective-box');
+        const card = document.getElementById('tilt-card');
+
+        box.addEventListener('mousemove', (e) => {
+            const { width, height } = box.getBoundingClientRect();
+            const { clientX, clientY } = e;
+            
+            // Hitung posisi kursor relatif terhadap tengah layar
+            const xPos = (clientX / width) - 0.5;
+            const yPos = (clientY / height) - 0.5;
+
+            // Rotasi Maksimal 10 derajat agar terlihat dimensi tiganya
+            const xDeg = yPos * -15; 
+            const yDeg = xPos * 15;
+
+            card.style.transform = `rotateX(${xDeg}deg) rotateY(${yDeg}deg) scale(1.02)`;
+        });
+
+        box.addEventListener('mouseleave', () => {
+            // Kembali ke posisi miring elegan semula saat mouse keluar
+            card.style.transform = `rotateY(-5deg) rotateX(2deg) scale(1)`;
+        });
+    </script>
 </body>
 </html>
