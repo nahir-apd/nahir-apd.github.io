@@ -8,140 +8,138 @@
         * { box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; height: 100vh; background: #f0f2f5; overflow: hidden; }
 
-        /* KOLOM 1: Sidebar Navigasi */
-        .sidebar { width: 320px; background: #004080; color: white; display: flex; flex-direction: column; box-shadow: 2px 0 10px rgba(0,0,0,0.1); z-index: 10; }
-        .sidebar-header { padding: 25px 20px; background: #002d5a; border-bottom: 1px solid #003d7a; text-align: center; }
-        .sidebar-header h2 { margin: 0; font-size: 1.2rem; }
-        .sidebar-header h3 { margin: 5px 0 0; font-size: 0.9rem; font-weight: normal; opacity: 0.9; }
-        .sidebar-header p { margin: 5px 0 0; font-size: 0.75rem; opacity: 0.8; }
+        /* KOLOM 1: Sidebar */
+        .sidebar { width: 300px; background: #004080; color: white; display: flex; flex-direction: column; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+        .sidebar-header { padding: 20px; background: #002d5a; border-bottom: 1px solid #003d7a; text-align: center; }
         
-        .menu-container { flex: 1; overflow-y: auto; padding: 15px; }
-        .menu-group { margin-bottom: 20px; }
-        .menu-label { font-size: 0.75rem; text-transform: uppercase; color: #a0aec0; margin-bottom: 10px; padding-left: 10px; letter-spacing: 1px; font-weight: bold; }
+        .menu-container { flex: 1; overflow-y: auto; padding: 10px; }
         
-        .menu-item { 
-            display: flex; align-items: center; width: 100%; padding: 12px 15px; color: #e2e8f0; text-decoration: none; 
-            border-radius: 8px; margin-bottom: 4px; transition: 0.3s; font-size: 0.9rem; border: none;
-            background: transparent; text-align: left; cursor: pointer;
+        /* Menu Utama (Dashboard) */
+        .nav-header { 
+            width: 100%; padding: 12px 15px; background: transparent; border: none; 
+            color: white; text-align: left; font-size: 0.95rem; font-weight: bold; 
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            border-radius: 8px; transition: 0.3s;
         }
-        .menu-item:hover { background: #0056b3; color: white; }
-        .active { background: #28a745 !important; color: white; }
-        .icon { margin-right: 12px; font-size: 1.1rem; }
+        .nav-header:hover { background: #0056b3; }
 
-        /* KOLOM 2: Area Konten Utama */
-        .main-content { flex: 1; display: flex; flex-direction: column; background: #f0f2f5; }
-        .top-bar { padding: 15px 25px; background: white; border-bottom: 1px solid #d0d7de; display: flex; justify-content: space-between; align-items: center; }
-        .iframe-container { flex: 1; padding: 20px; display: flex; flex-direction: column; position: relative; }
-        iframe { width: 100%; height: 100%; border: none; border-radius: 12px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        
-        /* Tampilan Welcome Card (Teks dari script lama Bapak) */
+        /* Sub-menu (Anak menu) */
+        .sub-menu { 
+            display: none; /* Tersembunyi di awal */
+            background: #003366; border-radius: 8px; margin-top: 5px; margin-bottom: 10px;
+        }
+        .sub-item { 
+            display: block; width: 100%; padding: 10px 15px 10px 40px; color: #cbd5e0; 
+            text-decoration: none; border: none; background: transparent; 
+            text-align: left; cursor: pointer; font-size: 0.85rem; transition: 0.2s;
+        }
+        .sub-item:hover { color: white; background: #0056b3; }
+        .active-sub { background: #28a745 !important; color: white !important; border-radius: 8px; }
+
+        /* KOLOM 2: Area Konten */
+        .main-content { flex: 1; display: flex; flex-direction: column; }
+        .top-bar { padding: 15px 25px; background: white; border-bottom: 1px solid #d0d7de; font-weight: bold; color: #004080; }
+        .iframe-container { flex: 1; padding: 15px; position: relative; }
+        iframe { width: 100%; height: 100%; border: none; border-radius: 10px; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
         #welcome-screen {
-            position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px;
-            background: white; border-radius: 12px; padding: 40px; text-align: center;
-            border-top: 5px solid #004080; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            position: absolute; top: 15px; left: 15px; right: 15px; bottom: 15px;
+            background: white; border-radius: 10px; padding: 40px; text-align: center;
+            border-top: 5px solid #004080; display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
 
-        .footer-sidebar { padding: 15px; font-size: 0.75rem; color: #cbd5e0; text-align: center; line-height: 1.4; border-top: 1px solid #003d7a; background: #002d5a; }
+        footer { padding: 15px; font-size: 0.75rem; background: #002d5a; text-align: center; color: #cbd5e0; }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
         <div class="sidebar-header">
-            <h2>Nahiruddin</h2>
-            <h3>Adminitrasi Perkantoran Digital</h3>
-            <p>Politeknik Negeri Ujung Pandang</p>
+            <h2 style="margin:0; font-size: 1.1rem;">Nahiruddin</h2>
+            <p style="margin:5px 0 0; font-size: 0.8rem; opacity: 0.8;">Adminitrasi Perkantoran Digital</p>
         </div>
 
         <div class="menu-container">
-            <div class="menu-group">
-                <div class="menu-label">Sumber Belajar</div>
-                <button class="menu-item" onclick="loadPage('materi1.html', this)">
-                    <span class="icon">📚</span> Mata Kuliah 1
-                </button>
-                <button class="menu-item" onclick="loadPage('materi2.html', this)">
-                    <span class="icon">📚</span> Mata Kuliah 2
-                </button>
-                <button class="menu-item" onclick="loadPage('silabus.html', this)">
-                    <span class="icon">📚</span> Download Silabus & Modul
-                </button>
+            <button class="nav-header" onclick="goHome()">🏠 Dashboard Utama</button>
+
+            <button class="nav-header" onclick="toggleMenu('materi-list')">📚 Sumber Belajar <span>▼</span></button>
+            <div id="materi-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('materi1.html', this)">Mata Kuliah 1</button>
+                <button class="sub-item" onclick="loadPage('materi2.html', this)">Mata Kuliah 2</button>
+                <button class="sub-item" onclick="loadPage('silabus.html', this)">Silabus & Modul</button>
             </div>
 
-            <div class="menu-group">
-                <div class="menu-label">Daftar Kuis & Evaluasi</div>
-                <button class="menu-item" onclick="loadPage('kuis1.html', this)">
-                    <span class="icon">📝</span> Kuis 1: Latihan Cobaan
-                </button>
-                <button class="menu-item" onclick="loadPage('kuis2.html', this)">
-                    <span class="icon">📝</span> Kuis 2: Latihan Ujian UAS AKB
-                </button>
-                <button class="menu-item" onclick="loadPage('kuis3.html', this)">
-                    <span class="icon">📝</span> Kuis 3: Uji Coba Ujian UAS AKB
-                </button>
+            <button class="nav-header" onclick="toggleMenu('kuis-list')">📝 Daftar Kuis <span>▼</span></button>
+            <div id="kuis-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('kuis1.html', this)">Kuis 1: Latihan Cobaan</button>
+                <button class="sub-item" onclick="loadPage('kuis2.html', this)">Kuis 2: Latihan Ujian UAS AKB</button>
+                <button class="sub-item" onclick="loadPage('kuis3.html', this)">Kuis 3: Uji Coba Ujian UAS</button>
             </div>
 
-            <div class="menu-group">
-                <div class="menu-label">Laporan Hasil</div>
-                <button class="menu-item" style="color: #48bb78;" onclick="loadPage('rekap2.html', this)">
-                    <span class="icon">📊</span> Rekap Nilai Kuis 2
-                </button>
-                <button class="menu-item" style="color: #48bb78;" onclick="loadPage('rekap3.html', this)">
-                    <span class="icon">📊</span> Rekap Nilai Kuis 3
-                </button>
+            <button class="nav-header" onclick="toggleMenu('rekap-list')">📊 Laporan Hasil <span>▼</span></button>
+            <div id="rekap-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('rekap2.html', this)">Rekap Nilai Kuis 2</button>
+                <button class="sub-item" onclick="loadPage('rekap3.html', this)">Rekap Nilai Kuis 3</button>
+            </div>
+
+            <button class="nav-header" onclick="toggleMenu('admin-list')">⚙️ Pengaturan & Admin <span>▼</span></button>
+            <div id="admin-list" class="sub-menu">
+                <button class="sub-item">Profil Dosen</button>
+                <button class="sub-item">Manajemen User</button>
             </div>
         </div>
 
-        <div class="footer-sidebar">
-            &copy; Mei 2026 - Nahir | Dosen APD PNUP <br>
-            <small>Built with Digital Professionalism</small>
-        </div>
+        <footer>
+            &copy; Mei 2026 - Nahiruddin <br>
+            PNUP - Digital Professionalism
+        </footer>
     </div>
 
     <div class="main-content">
-        <div class="top-bar">
-            <div id="page-title" style="font-weight: bold; color: #004080; font-size: 1.1rem;">Dashboard</div>
-            <div style="font-size: 0.85rem; color: #666;">Mei 2026 - Digital Office Portal</div>
-        </div>
-
+        <div class="top-bar" id="page-title">Dashboard Utama</div>
         <div class="iframe-container">
             <div id="welcome-screen">
-                <h2 style="color: #004080; margin-top: 0;">Selamat Datang, Mahasiswa</h2>
-                <p style="color: #555; max-width: 500px; line-height: 1.6; font-size: 1.1rem;">
+                <h2 style="color: #004080;">Selamat Datang, Mahasiswa</h2>
+                <p style="color: #555; max-width: 450px; line-height: 1.6;">
                     Portal ini adalah pusat akses materi dan evaluasi mandiri mata kuliah APD. 
-                    Silakan pilih menu di sebelah kiri untuk memulai.
+                    Silakan klik menu di samping untuk membuka daftar isi.
                 </p>
-                <div style="margin-top: 20px; color: #004080; font-weight: bold; border: 1px solid #004080; padding: 10px 30px; border-radius: 30px; animation: pulse 2s infinite;">
-                    ⬅ Pilih Menu di Sidebar
-                </div>
             </div>
-
-            <iframe id="main-frame" src="about:blank" style="display: none;"></iframe>
+            <iframe id="main-frame" src="about:blank" style="display:none;"></iframe>
         </div>
     </div>
 
     <script>
-        function loadPage(url, element) {
-            const frame = document.getElementById('main-frame');
-            const welcome = document.getElementById('welcome-screen');
-            const title = document.getElementById('page-title');
-            
-            // Sembunyikan welcome screen, tampilkan iframe
-            welcome.style.display = 'none';
-            frame.style.display = 'block';
-            
-            // Masukkan file yang dipanggil
-            frame.src = url;
-            
-            // Update Judul di Top Bar
-            title.innerHTML = element.innerHTML;
+        // Fungsi untuk Buka-Tutup Menu
+        function toggleMenu(id) {
+            const menus = document.querySelectorAll('.sub-menu');
+            menus.forEach(m => {
+                if(m.id !== id) m.style.display = 'none'; // Menutup menu lain
+            });
+            const x = document.getElementById(id);
+            x.style.display = (x.style.display === 'block') ? 'none' : 'block';
+        }
 
-            // Efek navigasi aktif
-            const items = document.querySelectorAll('.menu-item');
-            items.forEach(item => item.classList.remove('active'));
-            element.classList.add('active');
+        // Fungsi Load Halaman ke Kolom 2
+        function loadPage(url, el) {
+            document.getElementById('welcome-screen').style.display = 'none';
+            const frame = document.getElementById('main-frame');
+            frame.style.display = 'block';
+            frame.src = url;
+            document.getElementById('page-title').innerText = el.innerText;
+
+            // Mark Active
+            document.querySelectorAll('.sub-item').forEach(i => i.classList.remove('active-sub'));
+            el.classList.add('active-sub');
+        }
+
+        // Kembali ke Home
+        function goHome() {
+            document.getElementById('main-frame').style.display = 'none';
+            document.getElementById('welcome-screen').style.display = 'flex';
+            document.getElementById('page-title').innerText = "Dashboard Utama";
+            document.querySelectorAll('.sub-menu').forEach(m => m.style.display = 'none');
         }
     </script>
-
 </body>
 </html>
