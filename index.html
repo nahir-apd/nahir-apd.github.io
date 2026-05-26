@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Palet Warna Premium (Midnight Blue & Neon Cyan) */
             --bg-sidebar: #0f172a;
             --bg-sidebar-hover: #1e293b;
             --accent-glow: #0ea5e9;
@@ -15,7 +14,6 @@
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --bg-body: #f1f5f9;
-            /* Transisi Elastis Super Halus */
             --smooth: cubic-bezier(0.87, 0, 0.13, 1);
         }
 
@@ -44,13 +42,11 @@
         .menu-container { flex: 1; overflow-y: auto; padding: 25px 20px; scrollbar-width: none; }
         .menu-container::-webkit-scrollbar { display: none; }
         
-        /* Label Kategori */
         .menu-label { 
             font-size: 0.7rem; color: #475569; font-weight: 800; 
             margin: 30px 0 10px 15px; letter-spacing: 2px; text-transform: uppercase;
         }
 
-        /* Tombol Navigasi Utama */
         .nav-item { 
             width: 100%; border: none; background: transparent; color: var(--text-muted);
             padding: 16px 20px; text-align: left; font-size: 0.95rem; font-weight: 600;
@@ -60,18 +56,15 @@
         .nav-item:hover { background: var(--bg-sidebar-hover); color: var(--accent-text); transform: translateX(5px); }
         .nav-item.active { background: rgba(14, 165, 233, 0.1); color: var(--accent-text); box-shadow: inset 4px 0 0 var(--accent-glow); }
 
-        /* Ikon Panah SVG (Minimalis & Elegan) */
         .chevron { width: 14px; height: 14px; transition: transform 0.6s var(--smooth); fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
         .rotated { transform: rotate(180deg); color: var(--accent-glow); }
 
-        /* Sub-menu (Animasi Meluncur/Akordion) */
         .sub-menu { 
             max-height: 0; overflow: hidden; transition: max-height 0.6s var(--smooth);
             background: rgba(0,0,0,0.15); border-radius: 14px; margin: 0 5px 15px 5px;
         }
         .sub-menu.open { max-height: 400px; padding: 10px 0; }
 
-        /* Item di dalam Dropdown */
         .sub-link { 
             display: block; width: 100%; padding: 12px 20px 12px 50px; color: #64748b;
             text-decoration: none; border: none; background: transparent;
@@ -79,8 +72,12 @@
         }
         .sub-link:hover { color: var(--text-main); background: rgba(255,255,255,0.03); }
 
-        /* ================= KANAN: AREA KONTEN UTAMA ================= */
-        .main-content { flex: 1; display: flex; flex-direction: column; position: relative; }
+        /* ================= KANAN: AREA KONTEN UTAMA (3D PERSPECTIVE) ================= */
+        .main-content { 
+            flex: 1; display: flex; flex-direction: column; position: relative;
+            /* Mengaktifkan Dimensi Tiga pada Kontainer Utama */
+            perspective: 2000px;
+        }
         
         .top-bar { 
             height: 85px; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
@@ -91,13 +88,20 @@
         .status-badge { padding: 8px 18px; background: #e0f2fe; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: #0284c7; display: flex; align-items: center; gap: 8px; }
         .status-dot { width: 8px; height: 8px; background: #0ea5e9; border-radius: 50%; box-shadow: 0 0 10px #0ea5e9; animation: pulse 2s infinite; }
 
-        .content-area { flex: 1; padding: 40px; position: relative; overflow: hidden; }
+        /* KARTU KONTEN 3D */
+        .content-area { 
+            flex: 1; padding: 40px; position: relative; overflow: hidden;
+            display: flex; justify-content: center; align-items: center;
+        }
 
         /* Iframe untuk Materi & Kuis */
         #display-frame { 
             width: 100%; height: 100%; border: none; border-radius: 24px; 
             background: white; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.05); display: none;
             animation: slideUp 0.8s var(--smooth);
+            /* Transform 3D Dasar */
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease;
         }
 
         /* Tampilan Penyambutan (Hero Section Premium) */
@@ -106,9 +110,11 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.05); text-align: center; position: relative;
             overflow: hidden; animation: fadeIn 1s ease;
+            /* Transform 3D Dasar */
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease;
         }
         
-        /* Dekorasi Latar Belakang Kartu */
         .bg-glow { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, rgba(255,255,255,0) 70%); top: -100px; right: -100px; border-radius: 50%; }
         
         .hero-icon { 
@@ -118,7 +124,6 @@
             animation: float 4s ease-in-out infinite;
         }
 
-        /* Keyframes Animasi Mempesona */
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); } 100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); } }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
@@ -198,7 +203,7 @@
             </div>
         </div>
 
-        <div class="content-area">
+        <div class="content-area" id="content-perspective">
             <div id="welcome-screen">
                 <div class="bg-glow"></div>
                 <div class="hero-icon">◈</div>
@@ -215,23 +220,16 @@
     </div>
 
     <script>
+        // Logika Dropdown Akordion
         function toggleMenu(id, btn) {
             const menu = document.getElementById(id);
             const icon = btn.querySelector('.chevron');
             const isOpening = !menu.classList.contains('open');
             
-            // Tutup menu lain secara otomatis agar rapi
-            document.querySelectorAll('.sub-menu').forEach(m => {
-                m.classList.remove('open');
-            });
-            document.querySelectorAll('.chevron').forEach(c => {
-                c.classList.remove('rotated');
-            });
-            document.querySelectorAll('.nav-item').forEach(n => {
-                n.classList.remove('active');
-            });
+            document.querySelectorAll('.sub-menu').forEach(m => m.classList.remove('open'));
+            document.querySelectorAll('.chevron').forEach(c => c.classList.remove('rotated'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
 
-            // Buka yang diklik
             if (isOpening) {
                 menu.classList.add('open');
                 icon.classList.add('rotated');
@@ -239,28 +237,51 @@
             }
         }
 
+        // Logika Pemuatan Halaman ke Iframe
         function loadPage(url, title, el) {
             document.getElementById('welcome-screen').style.display = 'none';
             const frame = document.getElementById('display-frame');
             frame.style.display = 'block';
             frame.src = url;
             document.getElementById('top-title').innerText = title.toUpperCase();
-            
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             document.getElementById('btn-dash').classList.remove('active');
         }
 
+        // Kembali ke Dashboard Utama
         function goHome() {
             document.getElementById('display-frame').style.display = 'none';
             document.getElementById('welcome-screen').style.display = 'flex';
             document.getElementById('top-title').innerText = "BERANDA SISTEM";
-            
             document.querySelectorAll('.sub-menu').forEach(m => m.classList.remove('open'));
             document.querySelectorAll('.chevron').forEach(c => c.classList.remove('rotated'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            
             document.getElementById('btn-dash').classList.add('active');
         }
+
+        // ================= LOGIKA INTERAKSI 3D SPEKTAKULER =================
+        const perspectiveContainer = document.getElementById('content-perspective');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const displayFrame = document.getElementById('display-frame');
+
+        perspectiveContainer.addEventListener('mousemove', (e) => {
+            const { offsetWidth: width, offsetHeight: height } = perspectiveContainer;
+            const { offsetX: x, offsetY: y } = e;
+
+            // Hitung Rotasi (Semakin ke pinggir, semakin miring)
+            const xRotation = -((y / height) - 0.5) * 5; // Maksimal 5 derajat
+            const yRotation = ((x / width) - 0.5) * 5;  // Maksimal 5 derajat
+
+            // Terapkan ke elemen yang aktif (Welcome Screen atau Iframe)
+            const activeElement = (welcomeScreen.style.display !== 'none') ? welcomeScreen : displayFrame;
+            activeElement.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.01)`;
+        });
+
+        // Reset Posisi saat Kursor Keluar
+        perspectiveContainer.addEventListener('mouseleave', () => {
+            const activeElement = (welcomeScreen.style.display !== 'none') ? welcomeScreen : displayFrame;
+            activeElement.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+        });
     </script>
 </body>
 </html>
