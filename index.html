@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard APD - Nahiruddin</title>
+    <title>Dashboard Eksekutif - Nahiruddin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; }
@@ -53,7 +53,7 @@
             transition: max-height 0.5s ease-out; 
             background: rgba(0,0,0,0.15); border-radius: 10px; margin-top: 8px;
         }
-        .sub-menu.show { max-height: 500px; }
+        .sub-menu.show { max-height: 800px; }
 
         .sub-item { 
             display: block; width: 100%; padding: 11px 15px 11px 45px; color: #bdc3c7; 
@@ -89,7 +89,7 @@
     <div class="sidebar">
         <div class="sidebar-header">
             <h2><i class="fas fa-university"></i> Nahiruddin</h2>
-            <p>Administrasi Perkantoran Digital - PNUP</p>
+            <p>Admin Perkantoran Digital - PNUP</p>
         </div>
 
         <div class="menu-container">
@@ -97,7 +97,7 @@
                 <span><i class="fas fa-th-large"></i> Dashboard Portal</span>
             </button>
 
-            <div class="menu-label">Sumber Belajar</div>
+            <div class="menu-label">Akademik & Pembelajaran</div>
             
             <button id="btn-matkul" class="nav-header" onclick="toggleMenu('matkul-list', this)">
                 <span><i class="fas fa-book-reader"></i> Mata Kuliah</span>
@@ -118,16 +118,14 @@
                 <button class="sub-item" onclick="loadPage('sil3.html', 'Silabus 3')"><i class="fas fa-file-pdf"></i> Silabus 3</button>
             </div>
 
-            <div class="menu-label">Kuis dan Evaluasi</div>
-            
             <button id="btn-kuis" class="nav-header" onclick="toggleMenu('kuis-list', this)">
                 <span><i class="fas fa-spell-check"></i> Kuis</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
             <div id="kuis-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('kuis1.html', 'Kuis 1')"><i class="fas fa-pencil-alt"></i> Kuis 1 Latihan Cobaan</button>
-                <button class="sub-item" onclick="loadPage('kuis2.html', 'Kuis 2')"><i class="fas fa-pencil-alt"></i> Kuis 2 Latihan UAS AKB</button>
-                <button class="sub-item" onclick="loadPage('kuis3.html', 'Kuis 3')"><i class="fas fa-pencil-alt"></i> Kuis 3 Uji Coba UAS AKB</button>
+                <button class="sub-item" onclick="loadPage('kuis1.html', 'Kuis 1')"><i class="fas fa-pencil-alt"></i> Kuis 1</button>
+                <button class="sub-item" onclick="loadPage('kuis2.html', 'Kuis 2')"><i class="fas fa-pencil-alt"></i> Kuis 2</button>
+                <button class="sub-item" onclick="loadPage('kuis3.html', 'Kuis 3')"><i class="fas fa-pencil-alt"></i> Kuis 3</button>
             </div>
 
             <button id="btn-eval" class="nav-header" onclick="toggleMenu('eval-list', this)">
@@ -139,31 +137,47 @@
                 <button class="sub-item" onclick="loadPage('rekap3.html', 'Rekap Nilai Kuis 3')"><i class="fas fa-chart-bar"></i> Rekap Nilai Kuis 3</button>
             </div>
 
-            <div class="menu-label">Laporan Hasil</div>
-            
-            <button id="btn-laporan" class="nav-header" onclick="toggleMenu('laporan-list', this)">
-                <span><i class="fas fa-folder-open"></i> Laporan</span>
+            <button id="btn-skmengajar" class="nav-header" onclick="toggleMenu('sk-list', this)">
+                <span><i class="fas fa-briefcase"></i> SK Mengajar</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
-            <div id="laporan-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('lap1.html', 'Laporan 1')"><i class="fas fa-file-contract"></i> Laporan 1</button>
-                <button class="sub-item" onclick="loadPage('lap2.html', 'Laporan 2')"><i class="fas fa-file-contract"></i> Laporan 2</button>
-                <button class="sub-item" onclick="loadPage('lap3.html', 'Laporan 3')"><i class="fas fa-file-contract"></i> Laporan 3</button>
+            <div id="sk-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('sk-semester-ganjil.html', 'SK Mengajar Ganjil')"><i class="fas fa-file-signature"></i> Semester Ganjil</button>
+                <button class="sub-item" onclick="loadPage('sk-semester-genap.html', 'SK Mengajar Genap')"><i class="fas fa-file-signature"></i> Semester Genap</button>
             </div>
 
-            <button id="btn-hasil" class="nav-header" onclick="toggleMenu('hasil-list', this)">
-                <span><i class="fas fa-poll"></i> Hasil</span>
+            <div class="menu-label">Kepakaran & Asesor</div>
+            <button id="btn-asesor" class="nav-header" onclick="toggleMenu('asesor-list', this)">
+                <span><i class="fas fa-user-check"></i> Asesor Kompetensi</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
-            <div id="hasil-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('has1.html', 'Hasil 1')"><i class="fas fa-clipboard-check"></i> Hasil 1</button>
-                <button class="sub-item" onclick="loadPage('has2.html', 'Hasil 2')"><i class="fas fa-clipboard-check"></i> Hasil 2</button>
-                <button class="sub-item" onclick="loadPage('has3.html', 'Hasil 3')"><i class="fas fa-clipboard-check"></i> Hasil 3</button>
+            <div id="asesor-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('sertifikat-met.html', 'Sertifikat Asesor MET')"><i class="fas fa-certificate"></i> Sertifikat MET</button>
+                <button class="sub-item" onclick="loadPage('skema-diampu.html', 'Skema Sertifikasi')"><i class="fas fa-list-check"></i> Skema Diampu</button>
+            </div>
+
+            <div class="menu-label">Tridharma & Karya</div>
+            <button id="btn-p3m" class="nav-header" onclick="toggleMenu('p3m-list', this)">
+                <span><i class="fas fa-microscope"></i> Penelitian & P3M</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="p3m-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('sk-p3m.html', 'SK P3M')"><i class="fas fa-file-contract"></i> SK P3M</button>
+                <button class="sub-item" onclick="loadPage('laporan-p3m.html', 'Laporan P3M')"><i class="fas fa-book"></i> Laporan P3M</button>
+            </div>
+
+            <button id="btn-karya" class="nav-header" onclick="toggleMenu('karya-list', this)">
+                <span><i class="fas fa-award"></i> Publikasi & HAKI</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="karya-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('jurnal.html', 'Jurnal Ilmiah')"><i class="fas fa-globe"></i> Jurnal Ilmiah</button>
+                <button class="sub-item" onclick="loadPage('haki.html', 'Laporan HAKI')"><i class="fas fa-copyright"></i> Laporan HAKI</button>
             </div>
 
             <div class="menu-label">Pengaturan</div>
             <button id="btn-admin" class="nav-header" onclick="toggleMenu('admin-list', this)">
-                <span><i class="fas fa-cogs"></i> Admin</span>
+                <span><i class="fas fa-cogs"></i> Sistem Admin</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
             <div id="admin-list" class="sub-menu">
@@ -184,8 +198,8 @@
         <div class="content-area">
             <div id="welcome-card">
                 <i class="fas fa-graduation-cap" style="font-size: 4rem; color: #28a745; margin-bottom: 20px;"></i>
-                <h1 style="color: #002d5a; margin: 0; font-size: 2.2rem;">Selamat Datang</h1>
-                <p style="color: #6c757d; font-size: 1.1rem; margin-top: 15px;">Silakan pilih menu di samping untuk mengakses konten.</p>
+                <h1 style="color: #002d5a; margin: 0; font-size: 2.2rem;">Selamat Datang, Bapak Nahiruddin</h1>
+                <p style="color: #6c757d; font-size: 1.1rem; margin-top: 15px;">Portal Akademik, Asesor Kompetensi, & Portofolio P3M.</p>
             </div>
             <iframe id="main-frame"></iframe>
         </div>
@@ -196,11 +210,11 @@
             const menu = document.getElementById(id);
             const arrow = btn.querySelector('.arrow');
             
-            // Set Pulse Effect
+            // Set Pulse Effect ke menu yang diklik
             document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
             btn.classList.add('active-pulse');
 
-            // Tutup menu lain agar rapi
+            // Tutup menu lain agar sidebar tetap rapi
             document.querySelectorAll('.sub-menu').forEach(m => {
                 if(m.id !== id) {
                     m.classList.remove('show');
