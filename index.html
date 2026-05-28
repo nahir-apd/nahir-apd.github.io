@@ -9,7 +9,7 @@
         * { box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; height: 100vh; background: #eef2f5; overflow: hidden; }
 
-        /* SIDEBAR VISUAL MODERN */
+        /* SIDEBAR VISUAL */
         .sidebar { width: 320px; background: #002d5a; color: white; display: flex; flex-direction: column; box-shadow: 5px 0 20px rgba(0,0,0,0.2); }
         .sidebar-header { padding: 30px 20px; background: #001f3f; text-align: center; border-bottom: 1px solid #003366; }
         .sidebar-header h2 { margin: 0; font-size: 1.3rem; letter-spacing: 1px; font-weight: 700; }
@@ -24,7 +24,7 @@
             letter-spacing: 1.5px; text-transform: uppercase;
         }
 
-        /* Tombol Utama & Efek Pulse */
+        /* Tombol Utama & Animasi Pulse */
         .nav-header { 
             width: 100%; padding: 14px 18px; background: transparent; border: none; 
             color: #ecf0f1; text-align: left; font-size: 0.98rem; font-weight: 600; 
@@ -32,7 +32,6 @@
             border-radius: 12px; transition: all 0.4s; margin-top: 5px;
         }
 
-        /* Animasi Pulse saat Aktif */
         .active-pulse {
             background: rgba(40, 167, 69, 0.2) !important;
             border: 1px solid #28a745 !important;
@@ -64,17 +63,15 @@
         .sub-item:hover { color: white; background: #28a745; border-radius: 8px; padding-left: 50px; }
         .sub-item i { margin-right: 10px; font-size: 0.8rem; opacity: 0.7; }
 
-        /* AREA KANAN (BINGKAI DIMENSI TIGA) */
+        /* AREA KANAN (BINGKAI 3D) */
         .main-content { flex: 1; display: flex; flex-direction: column; background: #eef2f5; padding: 25px; gap: 20px; }
         
-        /* Bingkai Atas 3D (Timbul) */
         .top-bar { 
             padding: 20px 30px; background: #eef2f5; border-radius: 15px;
             box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
             font-weight: bold; color: #002d5a; font-size: 1.1rem;
         }
 
-        /* Bingkai Konten 3D (Cekung/Inset) */
         .content-area { 
             flex: 1; background: #eef2f5; border-radius: 20px;
             box-shadow: inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff;
@@ -101,13 +98,14 @@
             </button>
 
             <div class="menu-label">Sumber Belajar</div>
+            
             <button id="btn-matkul" class="nav-header" onclick="toggleMenu('matkul-list', this)">
                 <span><i class="fas fa-book-reader"></i> Mata Kuliah</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
             <div id="matkul-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('materi1.html', 'Materi Kuliah 1')"><i class="far fa-file-alt"></i> Materi Kuliah 1</button>
-                <button class="sub-item" onclick="loadPage('materi2.html', 'Materi Kuliah 2')"><i class="far fa-file-alt"></i> Materi Kuliah 2</button>
+                <button class="sub-item" onclick="loadPage('materi1.html', 'Mata Kuliah 1')"><i class="fas fa-file-alt"></i> Mata Kuliah 1</button>
+                <button class="sub-item" onclick="loadPage('materi2.html', 'Mata Kuliah 2')"><i class="fas fa-file-alt"></i> Mata Kuliah 2</button>
             </div>
 
             <button id="btn-silabus" class="nav-header" onclick="toggleMenu('silabus-list', this)">
@@ -121,6 +119,7 @@
             </div>
 
             <div class="menu-label">Kuis dan Evaluasi</div>
+            
             <button id="btn-kuis" class="nav-header" onclick="toggleMenu('kuis-list', this)">
                 <span><i class="fas fa-spell-check"></i> Kuis</span>
                 <span class="arrow fas fa-chevron-down"></span>
@@ -129,16 +128,19 @@
                 <button class="sub-item" onclick="loadPage('kuis1.html', 'Kuis 1')"><i class="fas fa-pencil-alt"></i> Kuis 1</button>
                 <button class="sub-item" onclick="loadPage('kuis2.html', 'Kuis 2')"><i class="fas fa-pencil-alt"></i> Kuis 2</button>
                 <button class="sub-item" onclick="loadPage('kuis3.html', 'Kuis 3')"><i class="fas fa-pencil-alt"></i> Kuis 3</button>
-                <button class="sub-item" style="color: #28a745; font-weight: bold;" onclick="toggleMenu('eval-list', this)">
-                    <i class="fas fa-check-double"></i> Evaluasi <i class="fas fa-chevron-right" style="font-size: 0.7rem; float: right; margin-top: 4px;"></i>
-                </button>
-                <div id="eval-list" class="sub-menu" style="background: rgba(40, 167, 69, 0.1);">
-                    <button class="sub-item" onclick="loadPage('rekap2.html', 'Rekap Nilai Kuis 2')"><i class="fas fa-chart-bar"></i> Rekap Nilai Kuis 2</button>
-                    <button class="sub-item" onclick="loadPage('rekap3.html', 'Rekap Nilai Kuis 3')"><i class="fas fa-chart-bar"></i> Rekap Nilai Kuis 3</button>
-                </div>
+            </div>
+
+            <button id="btn-eval" class="nav-header" onclick="toggleMenu('eval-list', this)">
+                <span><i class="fas fa-clipboard-check"></i> Evaluasi</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="eval-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('rekap2.html', 'Rekap Nilai Kuis 2')"><i class="fas fa-chart-bar"></i> Rekap Nilai Kuis 2</button>
+                <button class="sub-item" onclick="loadPage('rekap3.html', 'Rekap Nilai Kuis 3')"><i class="fas fa-chart-bar"></i> Rekap Nilai Kuis 3</button>
             </div>
 
             <div class="menu-label">Laporan Hasil</div>
+            
             <button id="btn-laporan" class="nav-header" onclick="toggleMenu('laporan-list', this)">
                 <span><i class="fas fa-folder-open"></i> Laporan</span>
                 <span class="arrow fas fa-chevron-down"></span>
@@ -199,16 +201,14 @@
             btn.classList.add('active-pulse');
 
             // Tutup menu lain agar rapi
-            if (!id.includes('eval')) {
-                document.querySelectorAll('.sub-menu').forEach(m => {
-                    if(m.id !== id && m.id !== 'eval-list') {
-                        m.classList.remove('show');
-                        if(m.previousElementSibling.querySelector('.arrow')) {
-                            m.previousElementSibling.querySelector('.arrow').classList.remove('rotated');
-                        }
+            document.querySelectorAll('.sub-menu').forEach(m => {
+                if(m.id !== id) {
+                    m.classList.remove('show');
+                    if(m.previousElementSibling.querySelector('.arrow')) {
+                        m.previousElementSibling.querySelector('.arrow').classList.remove('rotated');
                     }
-                });
-            }
+                }
+            });
 
             menu.classList.toggle('show');
             if(arrow) arrow.classList.toggle('rotated');
