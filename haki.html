@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>HAKI & Paten - Nahiruddin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background: #0f172a; color: white; padding: 50px; }
+        .haki-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
+        .haki-card {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px; border-radius: 25px; text-align: center;
+            transition: 0.4s; position: relative; overflow: hidden;
+        }
+
+        .haki-card:hover { border-color: #d4af37; transform: translateY(-10px); background: rgba(255, 255, 255, 0.07); }
+        
+        .gold-icon { font-size: 4rem; color: #d4af37; margin-bottom: 20px; text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .haki-card h3 { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
+        .reg-number { font-family: 'Courier New', monospace; color: #d4af37; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center; font-size:2.5rem; letter-spacing:5px;">HAK KEKAYAAN INTELEKTUAL</h1>
+    <p style="text-align:center; opacity:0.5; margin-bottom:60px;">Kemenkumham RI - Direktorat Jenderal Kekayaan Intelektual</p>
+
+    <div class="haki-grid">
+        <div class="haki-card">
+            <div class="gold-icon"><i class="fas fa-ribbon"></i></div>
+            <h3>Modul Digital Statistika Terapan</h3>
+            <p class="reg-number">No. Pencatatan: 000202401XXX</p>
+            <p style="opacity:0.7;">Jenis Karya: Modul Pembelajaran</p>
+        </div>
+        <div class="haki-card">
+            <div class="gold-icon"><i class="fas fa-file-code"></i></div>
+            <h3>Software Kalkulator Anggaran APD</h3>
+            <p class="reg-number">No. Pencatatan: 000202402YYY</p>
+            <p style="opacity:0.7;">Jenis Karya: Program Komputer</p>
+        </div>
+    </div>
+</body>
+</html>
