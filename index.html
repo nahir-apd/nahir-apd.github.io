@@ -9,7 +9,7 @@
         * { box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; height: 100vh; background: #eef2f5; overflow: hidden; }
 
-        /* SIDEBAR VISUAL */
+        /* SIDEBAR */
         .sidebar { width: 320px; background: #002d5a; color: white; display: flex; flex-direction: column; box-shadow: 5px 0 20px rgba(0,0,0,0.2); }
         .sidebar-header { padding: 30px 20px; background: #001f3f; text-align: center; border-bottom: 1px solid #003366; }
         .sidebar-header h2 { margin: 0; font-size: 1.3rem; letter-spacing: 1px; font-weight: 700; }
@@ -24,14 +24,13 @@
             letter-spacing: 1.5px; text-transform: uppercase;
         }
 
-        /* Tombol Utama & Animasi Pulse */
+        /* Nav Header & Pulse */
         .nav-header { 
             width: 100%; padding: 14px 18px; background: transparent; border: none; 
             color: #ecf0f1; text-align: left; font-size: 0.98rem; font-weight: 600; 
             cursor: pointer; display: flex; justify-content: space-between; align-items: center;
             border-radius: 12px; transition: all 0.4s; margin-top: 5px;
         }
-
         .active-pulse {
             background: rgba(40, 167, 69, 0.2) !important;
             border: 1px solid #28a745 !important;
@@ -42,7 +41,6 @@
             70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
             100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
         }
-
         .nav-header:hover { background: #004a99; color: white; }
 
         .arrow { font-size: 0.8rem; transition: transform 0.5s; opacity: 0.7; }
@@ -63,23 +61,20 @@
         .sub-item:hover { color: white; background: #28a745; border-radius: 8px; padding-left: 50px; }
         .sub-item i { margin-right: 10px; font-size: 0.8rem; opacity: 0.7; }
 
-        /* AREA KANAN (BINGKAI 3D) */
-        .main-content { flex: 1; display: flex; flex-direction: column; background: #eef2f5; padding: 25px; gap: 20px; }
+        /* AREA KANAN */
+        .main-content { flex: 1; display: flex; flex-direction: column; background: #eef2f5; }
+        .top-bar { padding: 20px 30px; background: rgba(255, 255, 255, 0.9); border-bottom: 1px solid #dee2e6; font-weight: bold; color: #002d5a; font-size: 1.1rem; }
+        .content-area { flex: 1; padding: 25px; position: relative; }
         
-        .top-bar { 
-            padding: 20px 30px; background: #eef2f5; border-radius: 15px;
-            box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
-            font-weight: bold; color: #002d5a; font-size: 1.1rem;
-        }
+        iframe { width: 100%; height: 100%; border: none; border-radius: 20px; background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: none; }
 
-        .content-area { 
-            flex: 1; background: #eef2f5; border-radius: 20px;
-            box-shadow: inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff;
-            padding: 20px; position: relative;
+        /* WELCOME CARD DENGAN BINGKAI HIJAU ASLI */
+        #welcome-card {
+            width: 100%; height: 100%; background: white; border-radius: 20px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; border-top: 8px solid #28a745; /* BINGKAI HIJAU PERMANEN */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
-        
-        iframe { width: 100%; height: 100%; border: none; border-radius: 15px; background: white; display: none; }
-        #welcome-card { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 
         footer { padding: 18px; font-size: 0.8rem; color: #cbd5e0; text-align: center; background: #001f3f; }
     </style>
@@ -98,8 +93,7 @@
             </button>
 
             <div class="menu-label">Akademik & Pembelajaran</div>
-            
-            <button id="btn-matkul" class="nav-header" onclick="toggleMenu('matkul-list', this)">
+            <button class="nav-header" onclick="toggleMenu('matkul-list', this)">
                 <span><i class="fas fa-book-reader"></i> Mata Kuliah</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
@@ -108,7 +102,7 @@
                 <button class="sub-item" onclick="loadPage('materi2.html', 'Mata Kuliah 2')"><i class="fas fa-file-alt"></i> Mata Kuliah 2</button>
             </div>
 
-            <button id="btn-silabus" class="nav-header" onclick="toggleMenu('silabus-list', this)">
+            <button class="nav-header" onclick="toggleMenu('silabus-list', this)">
                 <span><i class="fas fa-file-download"></i> Silabus & Modul</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
@@ -118,7 +112,7 @@
                 <button class="sub-item" onclick="loadPage('sil3.html', 'Silabus 3')"><i class="fas fa-file-pdf"></i> Silabus 3</button>
             </div>
 
-            <button id="btn-kuis" class="nav-header" onclick="toggleMenu('kuis-list', this)">
+            <button class="nav-header" onclick="toggleMenu('kuis-list', this)">
                 <span><i class="fas fa-spell-check"></i> Kuis</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
@@ -128,7 +122,7 @@
                 <button class="sub-item" onclick="loadPage('kuis3.html', 'Kuis 3')"><i class="fas fa-pencil-alt"></i> Kuis 3</button>
             </div>
 
-            <button id="btn-eval" class="nav-header" onclick="toggleMenu('eval-list', this)">
+            <button class="nav-header" onclick="toggleMenu('eval-list', this)">
                 <span><i class="fas fa-clipboard-check"></i> Evaluasi</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
@@ -137,36 +131,36 @@
                 <button class="sub-item" onclick="loadPage('rekap3.html', 'Rekap Nilai Kuis 3')"><i class="fas fa-chart-bar"></i> Rekap Nilai Kuis 3</button>
             </div>
 
-            <button id="btn-skmengajar" class="nav-header" onclick="toggleMenu('sk-list', this)">
+            <button class="nav-header" onclick="toggleMenu('sk-list', this)">
                 <span><i class="fas fa-briefcase"></i> SK Mengajar</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
             <div id="sk-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('sk-semester-ganjil.html', 'SK Mengajar Ganjil')"><i class="fas fa-file-signature"></i> Semester Ganjil</button>
-                <button class="sub-item" onclick="loadPage('sk-semester-genap.html', 'SK Mengajar Genap')"><i class="fas fa-file-signature"></i> Semester Genap</button>
+                <button class="sub-item" onclick="loadPage('sk1.html', 'SK Ganjil')"><i class="fas fa-file-signature"></i> Semester Ganjil</button>
+                <button class="sub-item" onclick="loadPage('sk2.html', 'SK Genap')"><i class="fas fa-file-signature"></i> Semester Genap</button>
             </div>
 
             <div class="menu-label">Kepakaran & Asesor</div>
-            <button id="btn-asesor" class="nav-header" onclick="toggleMenu('asesor-list', this)">
+            <button class="nav-header" onclick="toggleMenu('asesor-list', this)">
                 <span><i class="fas fa-user-check"></i> Asesor Kompetensi</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
             <div id="asesor-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('sertifikat-met.html', 'Sertifikat Asesor MET')"><i class="fas fa-certificate"></i> Sertifikat MET</button>
-                <button class="sub-item" onclick="loadPage('skema-diampu.html', 'Skema Sertifikasi')"><i class="fas fa-list-check"></i> Skema Diampu</button>
+                <button class="sub-item" onclick="loadPage('met.html', 'Sertifikat MET')"><i class="fas fa-certificate"></i> Sertifikat MET</button>
+                <button class="sub-item" onclick="loadPage('skema.html', 'Skema Sertifikasi')"><i class="fas fa-list-check"></i> Skema Diampu</button>
             </div>
 
             <div class="menu-label">Tridharma & Karya</div>
-            <button id="btn-p3m" class="nav-header" onclick="toggleMenu('p3m-list', this)">
+            <button class="nav-header" onclick="toggleMenu('p3m-list', this)">
                 <span><i class="fas fa-microscope"></i> Penelitian & P3M</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
             <div id="p3m-list" class="sub-menu">
                 <button class="sub-item" onclick="loadPage('sk-p3m.html', 'SK P3M')"><i class="fas fa-file-contract"></i> SK P3M</button>
-                <button class="sub-item" onclick="loadPage('laporan-p3m.html', 'Laporan P3M')"><i class="fas fa-book"></i> Laporan P3M</button>
+                <button class="sub-item" onclick="loadPage('lap-p3m.html', 'Laporan P3M')"><i class="fas fa-book"></i> Laporan P3M</button>
             </div>
 
-            <button id="btn-karya" class="nav-header" onclick="toggleMenu('karya-list', this)">
+            <button class="nav-header" onclick="toggleMenu('karya-list', this)">
                 <span><i class="fas fa-award"></i> Publikasi & HAKI</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
@@ -176,7 +170,7 @@
             </div>
 
             <div class="menu-label">Pengaturan</div>
-            <button id="btn-admin" class="nav-header" onclick="toggleMenu('admin-list', this)">
+            <button class="nav-header" onclick="toggleMenu('admin-list', this)">
                 <span><i class="fas fa-cogs"></i> Sistem Admin</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
@@ -193,13 +187,16 @@
 
     <div class="main-content">
         <div class="top-bar">
-            <span><i class="fas fa-door-open"></i> &nbsp; <span id="page-title">Dashboard Portal</span></span>
+            <span><i class="fas fa-door-open"></i> <span id="page-title">Dashboard Portal</span></span>
         </div>
         <div class="content-area">
             <div id="welcome-card">
                 <i class="fas fa-graduation-cap" style="font-size: 4rem; color: #28a745; margin-bottom: 20px;"></i>
-                <h1 style="color: #002d5a; margin: 0; font-size: 2.2rem;">Selamat Datang, Bapak Nahiruddin</h1>
-                <p style="color: #6c757d; font-size: 1.1rem; margin-top: 15px;">Portal Akademik, Asesor Kompetensi, & Portofolio P3M.</p>
+                <h1 style="color: #002d5a; margin: 0; font-size: 2.2rem;">Selamat Datang</h1>
+                <p style="color: #6c757d; max-width: 550px; line-height: 1.8; font-size: 1.1rem; margin-top: 15px;">
+                    Portal Akademik, Asesor Kompetensi, & Portofolio P3M Bapak Nahiruddin.
+                </p>
+                <div style="margin-top: 25px; color: #002d5a; font-weight: 600;">Digital Class | Professional Portfolio</div>
             </div>
             <iframe id="main-frame"></iframe>
         </div>
@@ -210,11 +207,9 @@
             const menu = document.getElementById(id);
             const arrow = btn.querySelector('.arrow');
             
-            // Set Pulse Effect ke menu yang diklik
             document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
             btn.classList.add('active-pulse');
 
-            // Tutup menu lain agar sidebar tetap rapi
             document.querySelectorAll('.sub-menu').forEach(m => {
                 if(m.id !== id) {
                     m.classList.remove('show');
