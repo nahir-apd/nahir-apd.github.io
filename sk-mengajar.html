@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Executive Vault - Nahiruddin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-vault: #001f3f;
+            --gold: #d4af37;
+            --emerald: #28a745;
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: linear-gradient(135deg, #eef2f5 0%, #dce3e8 100%); 
+            margin: 0; padding: 40px; color: #2d3436; 
+        }
+
+        .container { max-width: 1100px; margin: auto; }
+
+        /* Header Eksklusif */
+        .legal-header {
+            background: var(--dark-vault);
+            padding: 40px;
+            border-radius: 25px 25px 5px 5px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .legal-header::before {
+            content: ""; position: absolute; top: -50%; left: -10%;
+            width: 300px; height: 300px; background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .title-area h1 { margin: 0; font-size: 2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .title-area span { color: var(--gold); font-weight: 300; font-size: 0.9rem; letter-spacing: 4px; }
+
+        /* Status Badge */
+        .status-badge {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid var(--emerald);
+            color: var(--emerald);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        /* Viewer Section */
+        .viewer-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+            margin-top: -10px;
+        }
+
+        .pdf-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 0 0 25px 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid white;
+        }
+
+        .pdf-frame {
+            width: 100%; height: 700px; border-radius: 15px; border: none;
+            background: #eee; transition: 0.3s;
+        }
+
+        /* Info Card */
+        .details-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .info-row {
+            display: flex; justify-content: space-between;
+            padding: 15px 0; border-bottom: 1px solid #f1f1f1;
+        }
+
+        .info-row strong { color: var(--dark-vault); }
+
+        .btn-action {
+            width: 100%; margin-top: 25px; padding: 18px;
+            background: var(--dark-vault); color: white;
+            border: none; border-radius: 15px; font-weight: bold;
+            cursor: pointer; transition: 0.3s; text-transform: uppercase;
+            letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 10px;
+            text-decoration: none;
+        }
+
+        .btn-action:hover { background: var(--emerald); transform: scale(1.02); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="sk-render"></div>
+</div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const sem = urlParams.get('sem');
+
+    const skData = {
+        'ganjil': {
+            title: "SK Mengajar Ganjil",
+            year: "2025/2026",
+            no: "011/SK/PNUP/2025",
+            date: "20 Agustus 2025",
+            file: "sk_ganjil_nahiruddin.pdf",
+            totalSks: "12 SKS"
+        },
+        'genap': {
+            title: "SK Mengajar Genap",
+            year: "2025/2026",
+            no: "089/SK/PNUP/2026",
+            date: "15 Februari 2026",
+            file: "sk_genap_nahiruddin.pdf",
+            totalSks: "14 SKS"
+        }
+    };
+
+    const cur = skData[sem] || skData['ganjil'];
+
+    document.getElementById('sk-render').innerHTML = `
+        <div class="legal-header">
+            <div class="title-area">
+                <span>OFFICIAL DOCUMENT</span>
+                <h1>${cur.title}</h1>
+            </div>
+            <div class="status-badge">
+                <i class="fas fa-check-circle"></i> VERIFIED BY PNUP
+            </div>
+        </div>
+
+        <div class="viewer-container">
+            <div class="pdf-card">
+                <iframe class="pdf-frame" src="${cur.file}#toolbar=0"></iframe>
+            </div>
+
+            <div class="details-card">
+                <h3 style="color:var(--dark-vault); margin-top:0;"><i class="fas fa-info-circle"></i> Document Details</h3>
+                <div class="info-row"><strong>Tahun Akademik</strong> <span>${cur.year}</span></div>
+                <div class="info-row"><strong>Nomor SK</strong> <span>${cur.no}</span></div>
+                <div class="info-row"><strong>Tanggal Terbit</strong> <span>${cur.date}</span></div>
+                <div class="info-row"><strong>Total Beban</strong> <span style="color:var(--emerald); font-weight:bold;">${cur.totalSks}</span></div>
+                
+                <a href="${cur.file}" class="btn-action" target="_blank">
+                    <i class="fas fa-cloud-download-alt"></i> Secure Download (PDF)
+                </a>
+                <p style="font-size:0.7rem; color:#999; margin-top:15px; text-align:center;">
+                    <i class="fas fa-lock"></i> Dokumen ini telah terarsip secara digital dalam portal portofolio dosen.
+                </p>
+            </div>
+        </div>
+    `;
+</script>
+
+</body>
+</html>
