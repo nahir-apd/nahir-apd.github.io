@@ -15,74 +15,76 @@
         .sidebar-header h2 { margin: 0; font-size: 1.3rem; letter-spacing: 1px; font-weight: 700; }
         .sidebar-header p { margin: 5px 0 0; font-size: 0.85rem; opacity: 0.8; font-weight: 300; }
         
-        .menu-container { flex: 1; overflow-y: auto; padding: 20px; }
+        .menu-container { flex: 1; overflow-y: auto; padding: 20px; scrollbar-width: none; }
+        .menu-container::-webkit-scrollbar { display: none; }
         
-        /* Label Kelompok yang Rapi */
         .menu-label { 
             font-size: 0.75rem; color: #a0aec0; font-weight: bold; 
             margin-top: 25px; margin-bottom: 10px; padding-left: 10px;
             letter-spacing: 1.5px; text-transform: uppercase;
         }
 
-        /* Tombol Utama (Accordion) */
+        /* Tombol Utama & Efek Pulse */
         .nav-header { 
             width: 100%; padding: 14px 18px; background: transparent; border: none; 
             color: #ecf0f1; text-align: left; font-size: 0.98rem; font-weight: 600; 
             cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            border-radius: 12px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); margin-top: 5px;
-        }
-        /* Efek Hover Mempesona (Glow) */
-        .nav-header:hover { 
-            background: #004a99; 
-            box-shadow: 0 0 15px rgba(40, 167, 69, 0.4); /* Glow hijau lembut */
-            color: white; 
+            border-radius: 12px; transition: all 0.4s; margin-top: 5px;
         }
 
-        /* Icon Segitiga Modern (Chevron) - Efek Perputaran Menakjubkan */
-        .arrow { 
-            font-size: 0.8rem; 
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Smooth Bounce */
-            opacity: 0.7;
+        /* Animasi Pulse saat Aktif */
+        .active-pulse {
+            background: rgba(40, 167, 69, 0.2) !important;
+            border: 1px solid #28a745 !important;
+            animation: pulse-effect 2s infinite;
         }
-        .rotated { transform: rotate(180deg); opacity: 1; color: #28a745; }
+        @keyframes pulse-effect {
+            0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.5); }
+            70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+        }
 
-        /* Sub-menu (Item di dalamnya) - Efek Sliding Sempurna */
+        .nav-header:hover { background: #004a99; color: white; }
+
+        .arrow { font-size: 0.8rem; transition: transform 0.5s; opacity: 0.7; }
+        .rotated { transform: rotate(180deg); color: #28a745; opacity: 1; }
+
         .sub-menu { 
-            max-height: 0; /* Awalnya tertutup */
-            overflow: hidden; 
-            transition: max-height 0.5s ease-out; /* Efek tirai meluncur */
+            max-height: 0; overflow: hidden; 
+            transition: max-height 0.5s ease-out; 
             background: rgba(0,0,0,0.15); border-radius: 10px; margin-top: 8px;
         }
-        .sub-menu.show { max-height: 400px; /* Terbuka otomatis menyesuaikan isi */ }
+        .sub-menu.show { max-height: 500px; }
 
         .sub-item { 
             display: block; width: 100%; padding: 11px 15px 11px 45px; color: #bdc3c7; 
             text-decoration: none; border: none; background: transparent; 
             text-align: left; cursor: pointer; font-size: 0.9rem; transition: 0.3s;
         }
-        .sub-item:hover { 
-            color: white; background: #28a745; border-radius: 8px; 
-            padding-left: 50px; /* Sedikit geser ke kanan */
-        }
-        /* Ikon di depan sub-item agar lebih jelas */
+        .sub-item:hover { color: white; background: #28a745; border-radius: 8px; padding-left: 50px; }
         .sub-item i { margin-right: 10px; font-size: 0.8rem; opacity: 0.7; }
 
-        /* AREA KANAN (GLASSMORPHISM) */
-        .main-content { flex: 1; display: flex; flex-direction: column; background: #eef2f5; }
-        .top-bar { padding: 20px 30px; background: rgba(255, 255, 255, 0.9); border-bottom: 1px solid #dee2e6; font-weight: bold; color: #002d5a; backdrop-filter: blur(5px); font-size: 1.1rem; }
-        .content-area { flex: 1; padding: 25px; position: relative; }
+        /* AREA KANAN (BINGKAI DIMENSI TIGA) */
+        .main-content { flex: 1; display: flex; flex-direction: column; background: #eef2f5; padding: 25px; gap: 20px; }
         
-        /* Iframe Visual Premium */
-        iframe { width: 100%; height: 100%; border: none; border-radius: 20px; background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: none; }
-
-        #welcome-card {
-            width: 100%; height: 100%; background: white; border-radius: 20px;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; border-top: 8px solid #28a745; box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            transition: 0.5s ease-out;
+        /* Bingkai Atas 3D (Timbul) */
+        .top-bar { 
+            padding: 20px 30px; background: #eef2f5; border-radius: 15px;
+            box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+            font-weight: bold; color: #002d5a; font-size: 1.1rem;
         }
 
-        footer { padding: 18px; font-size: 0.8rem; color: #cbd5e0; text-align: center; background: #001f3f; border-top: 1px solid #003366; }
+        /* Bingkai Konten 3D (Cekung/Inset) */
+        .content-area { 
+            flex: 1; background: #eef2f5; border-radius: 20px;
+            box-shadow: inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff;
+            padding: 20px; position: relative;
+        }
+        
+        iframe { width: 100%; height: 100%; border: none; border-radius: 15px; background: white; display: none; }
+        #welcome-card { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+
+        footer { padding: 18px; font-size: 0.8rem; color: #cbd5e0; text-align: center; background: #001f3f; }
     </style>
 </head>
 <body>
@@ -90,76 +92,98 @@
     <div class="sidebar">
         <div class="sidebar-header">
             <h2><i class="fas fa-university"></i> Nahiruddin</h2>
-            <p>Adminitrasi Perkantoran Digital - PNUP</p>
+            <p>Administrasi Perkantoran Digital - PNUP</p>
         </div>
 
         <div class="menu-container">
-            <button class="nav-header" style="margin-bottom: 10px;" onclick="goHome()">
-                <span><i class="fas fa-th-large icon-space"></i> Dashboard Portal</span>
+            <button id="btn-dash" class="nav-header active-pulse" onclick="goHome()">
+                <span><i class="fas fa-th-large"></i> Dashboard Portal</span>
             </button>
 
             <div class="menu-label">Sumber Belajar</div>
-            <button class="nav-header" onclick="toggleMenu('matkul-list', this)">
-                <span><i class="fas fa-book-reader icon-space"></i> Mata Kuliah</span>
-                <span class="arrow fas fa-chevron-down"></span> </button>
-            <div id="matkul-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('materi1.html', 'Akses Mata Kuliah 1')"><i class="far fa-file-alt"></i> Materi Kuliah 1</button>
-                <button class="sub-item" onclick="loadPage('materi2.html', 'Akses Mata Kuliah 2')"><i class="far fa-file-alt"></i> Materi Kuliah 2</button>
-            </div>
-            <button class="sub-item" style="padding-left:18px; color:#ecf0f1; width: 100%; font-weight: 500;" onclick="loadPage('silabus.html', 'Download Silabus & Modul')">
-                <i class="fas fa-file-download"></i> Silabus & Modul
+            <button id="btn-matkul" class="nav-header" onclick="toggleMenu('matkul-list', this)">
+                <span><i class="fas fa-book-reader"></i> Mata Kuliah</span>
+                <span class="arrow fas fa-chevron-down"></span>
             </button>
+            <div id="matkul-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('materi1.html', 'Materi Kuliah 1')"><i class="far fa-file-alt"></i> Materi Kuliah 1</button>
+                <button class="sub-item" onclick="loadPage('materi2.html', 'Materi Kuliah 2')"><i class="far fa-file-alt"></i> Materi Kuliah 2</button>
+            </div>
+
+            <button id="btn-silabus" class="nav-header" onclick="toggleMenu('silabus-list', this)">
+                <span><i class="fas fa-file-download"></i> Silabus & Modul</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="silabus-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('sil1.html', 'Silabus 1')"><i class="fas fa-file-pdf"></i> Silabus 1</button>
+                <button class="sub-item" onclick="loadPage('sil2.html', 'Silabus 2')"><i class="fas fa-file-pdf"></i> Silabus 2</button>
+                <button class="sub-item" onclick="loadPage('sil3.html', 'Silabus 3')"><i class="fas fa-file-pdf"></i> Silabus 3</button>
+            </div>
 
             <div class="menu-label">Kuis dan Evaluasi</div>
-            <button class="nav-header" onclick="toggleMenu('kuis-list', this)">
-                <span><i class="fas fa-spell-check icon-space"></i> Kuis</span>
+            <button id="btn-kuis" class="nav-header" onclick="toggleMenu('kuis-list', this)">
+                <span><i class="fas fa-spell-check"></i> Kuis</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
             <div id="kuis-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('kuis1.html', 'Pengerjaan Kuis 1')"><i class="fas fa-pencil-alt"></i> Kuis 1: Latihan Cobaan</button>
-                <button class="sub-item" onclick="loadPage('kuis2.html', 'Pengerjaan Kuis 2')"><i class="fas fa-pencil-alt"></i> Kuis 2: Latihan UAS AKB</button>
-                <button class="sub-item" onclick="loadPage('kuis3.html', 'Pengerjaan Kuis 3')"><i class="fas fa-pencil-alt"></i> Kuis 3: Uji Coba UAS AKB</button>
+                <button class="sub-item" onclick="loadPage('kuis1.html', 'Kuis 1')"><i class="fas fa-pencil-alt"></i> Kuis 1</button>
+                <button class="sub-item" onclick="loadPage('kuis2.html', 'Kuis 2')"><i class="fas fa-pencil-alt"></i> Kuis 2</button>
+                <button class="sub-item" onclick="loadPage('kuis3.html', 'Kuis 3')"><i class="fas fa-pencil-alt"></i> Kuis 3</button>
+                <button class="sub-item" style="color: #28a745; font-weight: bold;" onclick="toggleMenu('eval-list', this)">
+                    <i class="fas fa-check-double"></i> Evaluasi <i class="fas fa-chevron-right" style="font-size: 0.7rem; float: right; margin-top: 4px;"></i>
+                </button>
+                <div id="eval-list" class="sub-menu" style="background: rgba(40, 167, 69, 0.1);">
+                    <button class="sub-item" onclick="loadPage('rekap2.html', 'Rekap Nilai Kuis 2')"><i class="fas fa-chart-bar"></i> Rekap Nilai Kuis 2</button>
+                    <button class="sub-item" onclick="loadPage('rekap3.html', 'Rekap Nilai Kuis 3')"><i class="fas fa-chart-bar"></i> Rekap Nilai Kuis 3</button>
+                </div>
             </div>
 
             <div class="menu-label">Laporan Hasil</div>
-            <button class="sub-item" style="padding-left:18px; color:#ecf0f1; width: 100%; font-weight: 500;" onclick="loadPage('rekap2.html', 'Rekapitulasi Nilai Kuis 2')">
-                <i class="fas fa-chart-line"></i> Rekap Nilai Kuis 2
+            <button id="btn-laporan" class="nav-header" onclick="toggleMenu('laporan-list', this)">
+                <span><i class="fas fa-folder-open"></i> Laporan</span>
+                <span class="arrow fas fa-chevron-down"></span>
             </button>
-            <button class="sub-item" style="padding-left:18px; color:#ecf0f1; width: 100%; font-weight: 500;" onclick="loadPage('rekap3.html', 'Rekapitulasi Nilai Kuis 3')">
-                <i class="fas fa-chart-line"></i> Rekap Nilai Kuis 3
+            <div id="laporan-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('lap1.html', 'Laporan 1')"><i class="fas fa-file-contract"></i> Laporan 1</button>
+                <button class="sub-item" onclick="loadPage('lap2.html', 'Laporan 2')"><i class="fas fa-file-contract"></i> Laporan 2</button>
+                <button class="sub-item" onclick="loadPage('lap3.html', 'Laporan 3')"><i class="fas fa-file-contract"></i> Laporan 3</button>
+            </div>
+
+            <button id="btn-hasil" class="nav-header" onclick="toggleMenu('hasil-list', this)">
+                <span><i class="fas fa-poll"></i> Hasil</span>
+                <span class="arrow fas fa-chevron-down"></span>
             </button>
+            <div id="hasil-list" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('has1.html', 'Hasil 1')"><i class="fas fa-clipboard-check"></i> Hasil 1</button>
+                <button class="sub-item" onclick="loadPage('has2.html', 'Hasil 2')"><i class="fas fa-clipboard-check"></i> Hasil 2</button>
+                <button class="sub-item" onclick="loadPage('has3.html', 'Hasil 3')"><i class="fas fa-clipboard-check"></i> Hasil 3</button>
+            </div>
 
             <div class="menu-label">Pengaturan</div>
-            <button class="nav-header" onclick="toggleMenu('admin-list', this)">
-                <span><i class="fas fa-cogs icon-space"></i> Admin</span>
+            <button id="btn-admin" class="nav-header" onclick="toggleMenu('admin-list', this)">
+                <span><i class="fas fa-cogs"></i> Admin</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
             <div id="admin-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('profil.html', 'Profil Dosen APD')"><i class="far fa-id-card"></i> Profil Dosen</button>
-                <button class="sub-item" onclick="loadPage('config.html', 'Konfigurasi Sistem Portal')"><i class="fas fa-users-cog"></i> Manajemen User</button>
+                <button class="sub-item" onclick="loadPage('profil.html', 'Profil Dosen')"><i class="far fa-id-card"></i> Profil Dosen</button>
+                <button class="sub-item" onclick="loadPage('config.html', 'Manajemen User')"><i class="fas fa-users-cog"></i> Manajemen User</button>
             </div>
         </div>
 
         <footer>
-            &copy; Mei 2026 - Nahiruddin <br> 
-            <small>APD - Politeknik Negeri Ujung Pandang</small> <br>
-            <small style="opacity: 0.6; font-size: 0.65rem;">Built with Digital Professionalism</small>
+            &copy; 2026 - Nahiruddin <br> APD - PNUP
         </footer>
     </div>
 
     <div class="main-content">
         <div class="top-bar">
-            <span><i class="fas fa-door-open"></i> <span id="page-title">Dashboard Portal</span></span>
+            <span><i class="fas fa-door-open"></i> &nbsp; <span id="page-title">Dashboard Portal</span></span>
         </div>
         <div class="content-area">
             <div id="welcome-card">
                 <i class="fas fa-graduation-cap" style="font-size: 4rem; color: #28a745; margin-bottom: 20px;"></i>
-                <h1 style="color: #002d5a; margin: 0; font-size: 2.2rem;">Selamat Datang, Mahasiswa</h1>
-                <p style="color: #6c757d; max-width: 550px; line-height: 1.8; font-size: 1.1rem; margin-top: 15px;">
-                    Portal ini adalah pusat akses materi dan evaluasi mandiri mata kuliah APD. <br>
-                    Silakan klik menu <strong>Mata Kuliah</strong> atau <strong>Kuis</strong> di sebelah kiri untuk melihat daftar isi.
-                </p>
-                <div style="margin-top: 25px; color: #002d5a; font-weight: 600;">Praktikum APD | Digital Class</div>
+                <h1 style="color: #002d5a; margin: 0; font-size: 2.2rem;">Selamat Datang</h1>
+                <p style="color: #6c757d; font-size: 1.1rem; margin-top: 15px;">Silakan pilih menu di samping untuk mengakses konten.</p>
             </div>
             <iframe id="main-frame"></iframe>
         </div>
@@ -170,20 +194,24 @@
             const menu = document.getElementById(id);
             const arrow = btn.querySelector('.arrow');
             
-            // Tutup menu lain agar sidebar tetap ringkas (Sesuai Permintaan Bapak)
-            document.querySelectorAll('.sub-menu').forEach(m => {
-                if(m.id !== id) {
-                    m.classList.remove('show');
-                    if(m.previousElementSibling.querySelector('.arrow')) {
-                        m.previousElementSibling.querySelector('.arrow').classList.remove('rotated');
-                    }
-                }
-            });
+            // Set Pulse Effect
+            document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
+            btn.classList.add('active-pulse');
 
-            // Efek Mempesona: Buka-Tutup TIRAI (Sliding)
+            // Tutup menu lain agar rapi
+            if (!id.includes('eval')) {
+                document.querySelectorAll('.sub-menu').forEach(m => {
+                    if(m.id !== id && m.id !== 'eval-list') {
+                        m.classList.remove('show');
+                        if(m.previousElementSibling.querySelector('.arrow')) {
+                            m.previousElementSibling.querySelector('.arrow').classList.remove('rotated');
+                        }
+                    }
+                });
+            }
+
             menu.classList.toggle('show');
-            // Efek Mempesona: Putar Icon (Rotating) Bounce
-            arrow.classList.toggle('rotated');
+            if(arrow) arrow.classList.toggle('rotated');
         }
 
         function loadPage(url, title) {
@@ -195,10 +223,11 @@
         }
 
         function goHome() {
+            document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
+            document.getElementById('btn-dash').classList.add('active-pulse');
             document.getElementById('main-frame').style.display = 'none';
             document.getElementById('welcome-card').style.display = 'flex';
             document.getElementById('page-title').innerText = 'Dashboard Portal';
-            // Tutup semua dropdown biar ringkas kembali
             document.querySelectorAll('.sub-menu').forEach(m => m.classList.remove('show'));
             document.querySelectorAll('.arrow').forEach(a => a.classList.remove('rotated'));
         }
