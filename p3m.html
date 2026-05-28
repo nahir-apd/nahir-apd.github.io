@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3M Portofolio - Nahiruddin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #002d5a; --accent: #28a745; --bg: #f4f7f6; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); margin: 0; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: auto; }
+
+        /* Header Gaya Dashboard */
+        .p3m-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #004a99 100%);
+            padding: 40px; border-radius: 20px; color: white; margin-bottom: 30px;
+            box-shadow: 0 15px 30px rgba(0,45,90,0.15); position: relative;
+        }
+
+        /* Card Karya Ilmiah */
+        .karya-card {
+            background: white; border-radius: 15px; padding: 25px; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 20px;
+            border-left: 6px solid var(--accent); transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .karya-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+        .year-box {
+            min-width: 70px; height: 70px; background: #eef2f5; border-radius: 12px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--primary); font-weight: bold;
+        }
+
+        .info-karya h3 { margin: 0; color: var(--primary); font-size: 1.2rem; }
+        .info-karya p { margin: 5px 0; color: #666; font-size: 0.9rem; }
+        
+        .tag-sinta {
+            display: inline-block; padding: 3px 12px; background: #fff3cd;
+            color: #856404; border-radius: 5px; font-size: 0.75rem; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="p3m-render"></div>
+</div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type');
+
+    const dataP3M = {
+        'penelitian': {
+            title: "Daftar Penelitian Ilmiah",
+            icon: "fa-search",
+            items: [
+                { y: "2024", t: "Implementasi Manajemen Data Digital pada UMKM", s: "SINTA 2 - Jurnal Administrasi", d: "Hibah Kompetitif Internal PNUP" },
+                { y: "2023", t: "Efektivitas Penggunaan Spreadsheet Advanced bagi Staf Administrasi", s: "SINTA 3 - Jurnal Pendidikan", d: "Mandiri Terstruktur" }
+            ]
+        },
+        'pengabdian': {
+            title: "Pengabdian Kepada Masyarakat",
+            icon: "fa-hands-helping",
+            items: [
+                { y: "2024", t: "Pelatihan Otomasi Kantor bagi Perangkat Desa", s: "Pengabdian Wilayah Maros", d: "PNUP - P3M" },
+                { y: "2023", t: "Peningkatan Literasi Digital bagi Siswa SMK", s: "Pengabdian Wilayah Makassar", d: "PNUP - P3M" }
+            ]
+        }
+    };
+
+    const cur = dataP3M[type] || dataP3M['penelitian'];
+
+    document.getElementById('p3m-render').innerHTML = `
+        <div class="p3m-header">
+            <h1><i class="fas ${cur.icon}"></i> ${cur.title}</h1>
+            <p>Nahiruddin, S.Pd., M.Pd. | Bidang Kepakaran Administrasi Digital</p>
+        </div>
+
+        ${cur.items.map(item => `
+            <div class="karya-card">
+                <div class="year-box">
+                    <span style="font-size: 0.7rem; opacity: 0.6;">TAHUN</span>
+                    <span>${item.y}</span>
+                </div>
+                <div class="info-karya">
+                    <span class="tag-sinta">${item.s}</span>
+                    <h3>${item.t}</h3>
+                    <p><i class="fas fa-university"></i> Sumber Dana: ${item.d}</p>
+                </div>
+                <div style="margin-left: auto;">
+                    <button style="background:var(--primary); color:white; border:none; padding:10px; border-radius:8px; cursor:pointer;"><i class="fas fa-eye"></i></button>
+                </div>
+            </div>
+        `).join('')}
+    `;
+</script>
+</body>
+</html>
