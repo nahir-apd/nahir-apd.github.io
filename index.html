@@ -1,73 +1,175 @@
-<div class="menu-label">Pendidikan & Pengajaran</div>
-<button class="nav-header" onclick="toggleMenu('mk-list', this)">
-    <span><i class="fas fa-book"></i> Mata Kuliah</span>
-    <span class="arrow fas fa-chevron-down"></span>
-</button>
-<div id="mk-list" class="sub-menu">
-    <button class="sub-item" onclick="loadPage('materi1.html', 'Statistika Terapan')">
-        <i class="fas fa-chart-line"></i> Statistika Terapan
-    </button>
-    <button class="sub-item" onclick="loadPage('materi2.html', 'App. Komputer Spreadsheet')">
-        <i class="fas fa-file-excel"></i> App. Komputer Spreadsheet
-    </button>
-    <button class="sub-item" onclick="loadPage('materi3.html', 'Advanced Digital Spreadsheet')">
-        <i class="fas fa-table"></i> Advanced Digital Spreadsheet
-    </button>
-    <button class="sub-item" onclick="loadPage('materi4.html', 'App. Komputer Database')">
-        <i class="fas fa-database"></i> App. Komputer Database
-    </button>
-</div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Eksekutif - Nahiruddin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sidebar-bg: #002d5a;
+            --sidebar-hover: #004a99;
+            --accent: #2ecc71;
+            --text-light: #ecf0f1;
+        }
 
-<button class="nav-header" onclick="toggleMenu('asesor-list', this)">
-    <span><i class="fas fa-user-check"></i> Asesor Kompetensi</span>
-    <span class="arrow fas fa-chevron-down"></span>
-</button>
-<div id="asesor-list" class="sub-menu">
-    <button class="sub-item" onclick="loadPage('asesor1.html', 'Asesor LSP PNUP')">
-        <i class="fas fa-university"></i> LSP P1 Politeknik (PNUP)
-    </button>
-    <button class="sub-item" onclick="loadPage('asesor2.html', 'Asesor LSP SMK')">
-        <i class="fas fa-school"></i> LSP P1 dan P3 SMK
-    </button>
-    <button class="sub-item" onclick="loadPage('asesor3.html', 'Lisensi Sertifikasi')">
-        <i class="fas fa-id-card"></i> Lisensi Sertifikasi (MET)
-    </button>
-</div>
+        body {
+            margin: 0; font-family: 'Inter', sans-serif;
+            display: flex; height: 100vh; overflow: hidden; background: #f4f7f6;
+        }
 
-<div class="menu-label">Tridharma & Karya</div>
-<button class="nav-header" onclick="toggleMenu('p3m-list', this)">
-    <span><i class="fas fa-microscope"></i> Penelitian & P3M</span>
-    <span class="arrow fas fa-chevron-down"></span>
-</button>
-<div id="p3m-list" class="sub-menu">
-    <button class="sub-item" onclick="loadPage('p3m1.html', 'Penelitian')">
-        <i class="fas fa-search"></i> Penelitian
-    </button>
-    <button class="sub-item" onclick="loadPage('p3m2.html', 'Pengabdian Masyarakat')">
-        <i class="fas fa-hands-helping"></i> Pengabdian
-    </button>
-</div>
+        /* Sidebar Styling */
+        .sidebar {
+            width: 280px; background: var(--sidebar-bg); color: var(--text-light);
+            display: flex; flex-direction: column; overflow-y: auto; transition: 0.3s;
+        }
 
-<button class="nav-header" onclick="toggleMenu('haki-list', this)">
-    <span><i class="fas fa-award"></i> Publikasi & HAKI</span>
-    <span class="arrow fas fa-chevron-down"></span>
-</button>
-<div id="haki-list" class="sub-menu">
-    <button class="sub-item" onclick="loadPage('haki1.html', 'HAKI & Sertifikat')">
-        <i class="fas fa-copyright"></i> HAKI & Sertifikat
-    </button>
-    <button class="sub-item" onclick="loadPage('kuis1.html', 'Kuis & Evaluasi')">
-        <i class="fas fa-edit"></i> Kuis & Evaluasi
-    </button>
-</div>
+        .sidebar-header {
+            padding: 30px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-<div class="menu-label">Pengaturan</div>
-<button class="nav-header" onclick="toggleMenu('admin-list', this)">
-    <span><i class="fas fa-user-cog"></i> Sistem Admin</span>
-    <span class="arrow fas fa-chevron-down"></span>
-</button>
-<div id="admin-list" class="sub-menu">
-    <button class="sub-item" onclick="loadPage('admin1.html', 'Control Panel')">
-        <i class="fas fa-shield-alt"></i> Dashboard Admin
-    </button>
-</div>
+        .sidebar-header i { font-size: 40px; margin-bottom: 10px; color: var(--text-light); }
+        .sidebar-header h2 { margin: 0; font-size: 1.2rem; font-weight: 600; }
+        .sidebar-header p { margin: 5px 0 0; font-size: 0.8rem; opacity: 0.7; }
+
+        .menu-label {
+            padding: 20px 20px 10px; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 1px; color: rgba(255,255,255,0.4); font-weight: bold;
+        }
+
+        .nav-header {
+            width: 100%; border: none; background: transparent; color: var(--text-light);
+            padding: 15px 20px; display: flex; justify-content: space-between;
+            align-items: center; cursor: pointer; font-size: 0.95rem; transition: 0.2s;
+        }
+
+        .nav-header:hover { background: var(--sidebar-hover); }
+        .nav-header i { margin-right: 12px; width: 20px; text-align: center; }
+
+        .sub-menu { display: none; background: rgba(0,0,0,0.2); padding: 5px 0; }
+        
+        .sub-item {
+            width: 100%; border: none; background: transparent; color: #bdc3c7;
+            padding: 12px 20px 12px 52px; text-align: left; cursor: pointer;
+            font-size: 0.85rem; transition: 0.2s; display: block;
+        }
+
+        .sub-item:hover { color: white; background: rgba(255,255,255,0.1); }
+        .sub-item i { margin-right: 10px; }
+
+        .arrow { font-size: 0.8rem; transition: 0.3s; }
+        .active .arrow { transform: rotate(180deg); }
+        .active + .sub-menu { display: block; }
+
+        /* Main Content Styling */
+        .main-content { flex-grow: 1; display: flex; flex-direction: column; }
+        .top-bar {
+            height: 60px; background: white; display: flex; align-items: center;
+            padding: 0 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); z-index: 10;
+        }
+        #content-title { font-weight: 600; color: var(--sidebar-bg); }
+
+        iframe { width: 100%; height: 100%; border: none; background: #f4f7f6; }
+
+        .footer {
+            padding: 20px; text-align: center; font-size: 0.75rem; opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-university"></i>
+            <h2>Nahiruddin</h2>
+            <p>Admin Perkantoran Digital - PNUP</p>
+        </div>
+
+        <div class="menu-label">Pendidikan & Pengajaran</div>
+        <button class="nav-header" onclick="toggleMenu('mk-list', this)">
+            <span><i class="fas fa-book"></i> Mata Kuliah</span>
+            <i class="arrow fas fa-chevron-down"></i>
+        </button>
+        <div id="mk-list" class="sub-menu">
+            <button class="sub-item" onclick="loadPage('materi1.html', 'Statistika Terapan')"><i class="fas fa-chart-line"></i> Statistika Terapan</button>
+            <button class="sub-item" onclick="loadPage('materi2.html', 'App. Komputer Spreadsheet')"><i class="fas fa-file-excel"></i> App. Komputer Spreadsheet</button>
+            <button class="sub-item" onclick="loadPage('materi3.html', 'Advanced Digital Spreadsheet')"><i class="fas fa-table"></i> Advanced Spreadsheet</button>
+            <button class="sub-item" onclick="loadPage('materi4.html', 'App. Komputer Database')"><i class="fas fa-database"></i> App. Komputer Database</button>
+        </div>
+
+        <button class="nav-header" onclick="toggleMenu('asesor-list', this)">
+            <span><i class="fas fa-user-check"></i> Asesor Kompetensi</span>
+            <i class="arrow fas fa-chevron-down"></i>
+        </button>
+        <div id="asesor-list" class="sub-menu">
+            <button class="sub-item" onclick="loadPage('asesor1.html', 'Asesor LSP PNUP')"><i class="fas fa-university"></i> LSP P1 Politeknik (PNUP)</button>
+            <button class="sub-item" onclick="loadPage('asesor2.html', 'Asesor LSP SMK')"><i class="fas fa-school"></i> LSP P1 dan P3 SMK</button>
+            <button class="sub-item" onclick="loadPage('asesor3.html', 'Lisensi Sertifikasi')"><i class="fas fa-id-card"></i> Lisensi Sertifikasi (MET)</button>
+        </div>
+
+        <div class="menu-label">Tridharma & Karya</div>
+        <button class="nav-header" onclick="toggleMenu('p3m-list', this)">
+            <span><i class="fas fa-microscope"></i> Penelitian & P3M</span>
+            <i class="arrow fas fa-chevron-down"></i>
+        </button>
+        <div id="p3m-list" class="sub-menu">
+            <button class="sub-item" onclick="loadPage('p3m1.html', 'Penelitian')"><i class="fas fa-search"></i> Penelitian</button>
+            <button class="sub-item" onclick="loadPage('p3m2.html', 'Pengabdian Masyarakat')"><i class="fas fa-hands-helping"></i> Pengabdian</button>
+        </div>
+
+        <button class="nav-header" onclick="toggleMenu('haki-list', this)">
+            <span><i class="fas fa-award"></i> Publikasi & HAKI</span>
+            <i class="arrow fas fa-chevron-down"></i>
+        </button>
+        <div id="haki-list" class="sub-menu">
+            <button class="sub-item" onclick="loadPage('haki1.html', 'HAKI & Sertifikat')"><i class="fas fa-copyright"></i> HAKI & Sertifikat</button>
+            <button class="sub-item" onclick="loadPage('kuis1.html', 'Kuis & Evaluasi')"><i class="fas fa-edit"></i> Kuis & Evaluasi</button>
+        </div>
+
+        <div class="menu-label">Pengaturan</div>
+        <button class="nav-header" onclick="loadPage('admin1.html', 'Control Panel')">
+            <span><i class="fas fa-user-cog"></i> Sistem Admin</span>
+        </button>
+
+        <div class="footer">
+            &copy; 2026 - Nahiruddin<br>APD - PNUP
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="top-bar">
+            <i class="fas fa-th-large" style="margin-right: 15px; color: #ccc;"></i>
+            <span id="content-title">Dashboard Utama</span>
+        </div>
+        <iframe id="content-frame" name="content-frame" src="asesor1.html"></iframe>
+    </div>
+
+    <script>
+        function toggleMenu(menuId, element) {
+            const menu = document.getElementById(menuId);
+            const allMenus = document.querySelectorAll('.sub-menu');
+            const allHeaders = document.querySelectorAll('.nav-header');
+
+            // Tutup menu lain
+            allMenus.forEach(m => { if(m.id !== menuId) m.style.display = 'none'; });
+            allHeaders.forEach(h => { if(h !== element) h.classList.remove('active'); });
+
+            // Toggle menu yang diklik
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                element.classList.remove('active');
+            } else {
+                menu.style.display = 'block';
+                element.classList.add('active');
+            }
+        }
+
+        function loadPage(url, title) {
+            document.getElementById('content-frame').src = url;
+            document.getElementById('content-title').innerText = title;
+        }
+    </script>
+</body>
+</html>
