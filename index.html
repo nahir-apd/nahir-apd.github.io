@@ -225,5 +225,29 @@
             document.querySelectorAll('.arrow').forEach(a => a.classList.remove('rotated'));
         }
     </script>
+    <script>
+function loadPage(url, title) {
+    // 1. Ambil elemen kartu ucapan selamat datang & elemen iframe
+    const welcomeCard = document.getElementById('welcome-card');
+    const mainFrame = document.getElementById('main-frame');
+    const pageTitle = document.getElementById('page-title');
+
+    // 2. Sembunyikan kartu selamat datang jika ada
+    if (welcomeCard) {
+        welcomeCard.style.display = 'none';
+    }
+
+    // 3. Tampilkan iframe dan isi sumbernya (source) dengan file asesor
+    if (mainFrame) {
+        mainFrame.style.display = 'block';
+        mainFrame.src = url; // Bagian ini yang memanggil asesor1.html
+    }
+
+    // 4. Ubah judul di bagian atas kolom ke-2
+    if (pageTitle) {
+        pageTitle.innerText = title;
+    }
+}
+</script>
 </body>
 </html>
