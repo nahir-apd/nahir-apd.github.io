@@ -252,5 +252,16 @@ function loadPage(url, title) {
     }
 }
 </script>
+
+<script>
+function loadPage(url, title) {
+    document.getElementById('welcome-card').style.display = 'none';
+    const frame = document.getElementById('main-frame');
+    frame.style.display = 'block';
+    frame.src = url; // Baris inilah yang memanggil asesor1.html
+    document.getElementById('page-title').innerText = title;
+}
+</script>
+    
 </body>
 </html>
