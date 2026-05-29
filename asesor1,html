@@ -2,37 +2,42 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Asesor LSP PNUP</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #f4f7f6; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .card { max-width: 800px; margin: auto; background-color: #1a3a5f; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .card-header { background-color: #1a3a5f; color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid #d4af37; }
-        .card-header h1 { margin: 0; font-size: 2.2rem; letter-spacing: 2px; text-transform: uppercase; line-height: 1.2; }
-        .card-header p { margin: 10px 0 0; font-size: 1.2rem; color: #d1d1d1; }
-        .card-body { background-color: #2c3e50; padding: 30px; color: white; }
-        .breadcrumb { color: #d4af37; font-size: 0.9rem; font-weight: bold; margin-bottom: 20px; border-bottom: 1px solid #d4af37; padding-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; background-color: rgba(0, 0, 0, 0.2); }
-        th, td { border: 1px solid #444; padding: 15px; text-align: left; }
-        th { background-color: rgba(212, 175, 55, 0.1); color: #d4af37; width: 35%; font-size: 0.85rem; }
-        .aktif { color: #2ecc71; font-weight: bold; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; background: #f4f7f6; }
+        .header-box { background: linear-gradient(135deg, #001f3f 0%, #333 100%); padding: 40px; border-radius: 15px 15px 0 0; color: white; }
+        .content-box { background: white; padding: 30px; border-radius: 0 0 15px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { color: #888; font-size: 0.8rem; text-transform: uppercase; }
+        .badge { background: #e8f4fd; color: #001f3f; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="card-header">
-            <h1>ASESOR LSP P1<br>POLITEKNIK PNUP</h1>
-            <p>Nahiruddin, S.Pd., M.Pd. <i class="fas fa-shield-alt"></i></p>
-        </div>
-        <div class="card-body">
-            <div class="breadcrumb"><i class="fas fa-star"></i> Official Asesor Breadcrumb</div>
-            <table>
-                <tr><th colspan="2" style="text-align: center; color: #d4af37; font-size: 1.1rem;">Skema & No. Registrasi</th></tr>
-                <tr><th>SKEMA</th><td>Digital Spreadsheet / Admin Perkantoran</td></tr>
-                <tr><th>LEVEL</th><td>6 (Diploma IV)</td></tr>
-                <tr><th>NO. REGISTRASI</th><td>MET.000.XXXX.2024 <span class="aktif">(Aktif)</span></td></tr>
-            </table>
-        </div>
+    <div class="header-box">
+        <span style="font-size: 0.7rem; letter-spacing: 2px; opacity: 0.7;">OFFICIAL ASESOR BREADCRUMB</span>
+        <h1 style="margin: 10px 0;">LSP Politeknik Negeri Ujung Pandang</h1>
+        <p>Asesor Kompetensi Internal - Administrasi Perkantoran Digital</p>
+    </div>
+    <div class="content-box">
+        <h3><i class="fas fa-list-check"></i> Daftar Skema & Lisensi</h3>
+        <table>
+            <thead>
+                <tr><th>Nama Skema</th><th>Kualifikasi</th><th>Target Asesi</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Skema Digital Administration</strong></td>
+                    <td>Level VI (Diploma)</td>
+                    <td><span class="badge">Mahasiswa APD</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Skema Teknisi Akuntansi</strong></td>
+                    <td>Level V</td>
+                    <td><span class="badge">Mahasiswa Akuntansi</span></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
