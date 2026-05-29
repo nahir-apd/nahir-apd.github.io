@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 25px; background: #f8f9fa; color: #333; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 5px solid #1a3a5f; }
+        .header { background: #1a3a5f; color: white; padding: 30px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px; }
+        .info-box { background: #f1f4f8; padding: 15px; border-radius: 10px; border-left: 4px solid #d4af37; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; padding: 12px; border-bottom: 2px solid #eee; color: #1a3a5f; }
+        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        .badge { background: #28a745; color: white; padding: 4px 10px; border-radius: 5px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h1 style="margin:0;"><i class="fas fa-chart-line"></i> Statistika Terapan</h1>
+            <p style="margin:5px 0 0 0; opacity:0.8;">Mata Kuliah Inti - Semester IV (APD)</p>
+        </div>
+        <div class="grid">
+            <div class="info-box"><strong>SKS:</strong> 3 SKS (Teori & Praktik)</div>
+            <div class="info-box"><strong>Software:</strong> SPSS & Microsoft Excel</div>
+        </div>
+        <div class="padding:20px;">
+            <h3 style="margin-left:20px;">Topik Pembahasan Utama</h3>
+            <table style="margin: 20px;">
+                <thead>
+                    <tr><th>Modul</th><th>Materi Pokok</th><th>Capaian</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>01</td><td>Distribusi Probabilitas & Z-Score</td><td><span class="badge">Tuntas</span></td>
+                    <tr><td>02</td><td>Uji T-Test & ANOVA Dasar</td><td><span class="badge">Tuntas</span></td>
+                    <tr><td>03</td><td>Analisis Regresi Linear Berganda</td><td><span class="badge">Aktif</span></td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
