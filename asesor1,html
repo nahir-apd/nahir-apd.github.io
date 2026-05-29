@@ -2,50 +2,40 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asesor LSP PNUP</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px; background: #f4f7f6; }
-        .container { max-width: 900px; margin: auto; background: #1a3a5f; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .header { background: #1a3a5f; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #d4af37; }
-        .header h1 { margin: 0; font-size: 2rem; letter-spacing: 2px; text-transform: uppercase; }
-        .header p { margin: 10px 0 0; opacity: 0.9; font-size: 1.1rem; }
-        .content { padding: 30px; background: #2c3e50; color: white; }
-        .breadcrumb { font-size: 0.9rem; margin-bottom: 20px; color: #d4af37; font-weight: bold; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; background: rgba(255,255,255,0.05); }
-        th, td { padding: 15px; text-align: left; border: 1px solid rgba(212, 175, 55, 0.3); }
-        th { background: rgba(212, 175, 55, 0.2); color: #d4af37; text-transform: uppercase; font-size: 0.85rem; }
-        .status { color: #2ecc71; font-weight: bold; }
+        body { font-family: 'Segoe UI', sans-serif; background: #eef2f5; display: flex; justify-content: center; padding: 20px; }
+        .main-card { width: 100%; max-width: 800px; background: #1e3a5f; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .header-blue { background: #1e3a5f; color: white; text-align: center; padding: 40px 20px; border-bottom: 4px solid #d4af37; }
+        .header-blue h1 { margin: 0; font-size: 2.2rem; letter-spacing: 2px; line-height: 1.2; }
+        .header-blue p { margin: 10px 0 0; font-size: 1.2rem; opacity: 0.9; }
+        .content-dark { background: #252a34; padding: 30px; color: white; }
+        .breadcrumb { color: #d4af37; font-size: 0.9rem; font-weight: bold; margin-bottom: 20px; border-bottom: 1px solid #d4af37; padding-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; background: rgba(0,0,0,0.2); }
+        th, td { border: 1px solid #444; padding: 15px; text-align: left; }
+        th { background: rgba(212, 175, 55, 0.1); color: #d4af37; width: 35%; text-transform: uppercase; font-size: 0.8rem; }
+        .status-valid { color: #2ecc71; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <div class="main-card">
+        <div class="header-blue">
             <h1>ASESOR LSP P1<br>POLITEKNIK PNUP</h1>
             <p>Nahiruddin, S.Pd., M.Pd. <i class="fas fa-shield-alt"></i></p>
         </div>
-        <div class="content">
+        <div class="content-dark">
             <div class="breadcrumb"><i class="fas fa-star"></i> Official Asesor Breadcrumb</div>
             <table>
                 <thead>
                     <tr>
-                        <th colspan="2" style="text-align: center; font-size: 1.1rem;">Skema & No. Registrasi</th>
+                        <th colspan="2" style="text-align: center; font-size: 1rem;">Skema & No. Registrasi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td width="30%">Skema</td>
-                        <td>Digital Spreadsheet / Administrasi Perkantoran</td>
-                    </tr>
-                    <tr>
-                        <td>Level</td>
-                        <td>6 (Diploma VI)</td>
-                    </tr>
-                    <tr>
-                        <td>No. Registrasi</td>
-                        <td>MET.000.XXXX.2024 <span class="status">(Aktif)</span></td>
-                    </tr>
+                    <tr><th>SKEMA</th><td>Digital Spreadsheet</td></tr>
+                    <tr><th>LEVEL</th><td>6 (Diploma IV)</td></tr>
+                    <tr><th>NO. REGISTRASI</th><td>MET.000.XXXX.2024 <span class="status-valid">(Aktif)</span></td></tr>
                 </tbody>
             </table>
         </div>
