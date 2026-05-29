@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #f4f4f4; padding: 20px; font-family: 'Segoe UI', sans-serif; }
+        .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .bento-box { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .full-width { grid-column: span 2; background: #1a3a5f; color: white; }
+        .haki-icon { font-size: 2rem; color: #d4af37; margin-bottom: 10px; }
+        .stat-num { font-size: 2rem; font-weight: bold; color: #1a3a5f; }
+    </style>
+</head>
+<body>
+    <div class="bento-grid">
+        <div class="bento-box full-width">
+            <h3><i class="fas fa-copyright"></i> Hak Kekayaan Intelektual (HAKI)</h3>
+            <p>Pencatatan karya cipta perangkat lunak dan modul ajar tahun 2023-2024.</p>
+        </div>
+        <div class="bento-box">
+            <i class="fas fa-file-alt haki-icon"></i>
+            <h4>Sistem Informasi APD</h4>
+            <small>ID: 00021345</small>
+        </div>
+        <div class="bento-box">
+            <i class="fas fa-book haki-icon"></i>
+            <h4>Buku Statistika Digital</h4>
+            <small>ID: 00099872</small>
+        </div>
+        <div class="bento-box" style="text-align:center;">
+            <div class="stat-num">12</div>
+            <p>Total Publikasi</p>
+        </div>
+        <div class="bento-box" style="text-align:center;">
+            <div class="stat-num">5</div>
+            <p>Sertifikat HAKI</p>
+        </div>
+    </div>
+</body>
+</html>
