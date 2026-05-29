@@ -3,28 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sertifikat Kompetensi MET</title>
+    <title>Lisensi MET</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; padding: 30px; background: white; color: #333; }
-        .card { border-left: 5px solid #28a745; background: #fffde7; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #ffe082; }
-        h2 { color: #002d5a; margin-top: 0; display: flex; align-items: center; }
-        h2 i { margin-right: 15px; color: #f57f17; }
-        .info-grid { display: grid; grid-template-columns: 150px 10px auto; gap: 10px; margin-top: 20px; }
-        .label { font-weight: bold; color: #555; }
-        .status-badge { background: #f57f17; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; display: inline-block; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px; background: #f4f7f6; }
+        .container { max-width: 900px; margin: auto; background: #1a3a5f; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .header { background: #1a3a5f; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #d4af37; }
+        .header h1 { margin: 0; font-size: 2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .header p { margin: 10px 0 0; opacity: 0.9; font-size: 1.1rem; }
+        .content { padding: 30px; background: #2c3e50; color: white; }
+        .breadcrumb { font-size: 0.9rem; margin-bottom: 20px; color: #d4af37; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; background: rgba(255,255,255,0.05); }
+        th, td { padding: 15px; text-align: left; border: 1px solid rgba(212, 175, 55, 0.3); }
+        th { background: rgba(212, 175, 55, 0.2); color: #d4af37; text-transform: uppercase; font-size: 0.85rem; }
+        .status { color: #2ecc71; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2><i class="fas fa-award"></i> Lisensi Sertifikasi (MET)</h2>
-        <p>Master Trainer / Sertifikat Kompetensi Teknis yang dimiliki.</p>
-        
-        <div class="info-grid">
-            <div class="label">Nama Pemegang</div><div>:</div><div>Nahiruddin</div>
-            <div class="label">Jenis Lisensi</div><div>:</div><div>Metodologi Asesmen (MET)</div>
-            <div class="label">Masa Berlaku</div><div>:</div><div>2026 - 2029</div>
-            <div class="label">Status</div><div>:</div><div><span class="status-badge">Valid</span></div>
+    <div class="container">
+        <div class="header">
+            <h1>LISENSI SERTIFIKASI<br>(MET)</h1>
+            <p>Nahiruddin, S.Pd., M.Pd. <i class="fas fa-shield-alt"></i></p>
+        </div>
+        <div class="content">
+            <div class="breadcrumb"><i class="fas fa-star"></i> Official Asesor Breadcrumb</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align: center; font-size: 1.1rem;">Lisensi & No. Sertifikat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td width="30%">Lisensi</td>
+                        <td>Metodologi Asesmen (MET)</td>
+                    </tr>
+                    <tr>
+                        <td>Deskripsi</td>
+                        <td>Lisensi Penguji Kompetensi Teknik & Metodologi</td>
+                    </tr>
+                    <tr>
+                        <td>No. Sertifikat</td>
+                        <td>MET.000.ZZZZ.2024 <span class="status">(Aktif)</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
