@@ -4,53 +4,38 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; padding: 20px; background: #f4f7f6; }
-        .premium-header { padding: 30px; border-radius: 15px 15px 0 0; color: white; }
-        .skema-container { background: white; padding: 20px; border-radius: 0 0 15px 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .skema-table { width: 100%; border-collapse: collapse; }
-        .skema-table th, .skema-table td { padding: 12px; border: 1px solid #eee; text-align: left; }
-        .badge-asesor { background: rgba(0,0,0,0.1); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; background: #f4f7f6; }
+        .box { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .header { background: #001f3f; color: white; padding: 30px; }
+        .content { padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
+        .badge { background: #e8f4fd; color: #001f3f; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; }
     </style>
 </head>
 <body>
-
-<div id="render-asesor"></div>
-
-<script>
-    // INI SCRIPT YANG BAPAK MINTA TADI
-    const cur = {
-        title: "LSP Politeknik Negeri Ujung Pandang",
-        subtitle: "Asesor Kompetensi Internal - Administrasi Perkantoran Digital",
-        skema: [
-            ["Skema Digital Administration", "Level VI (Diploma)", "Mahasiswa APD"],
-            ["Skema Teknisi Akuntansi", "Level V", "Mahasiswa Akuntansi"]
-        ],
-        color: "#001f3f"
-    };
-
-    document.getElementById('render-asesor').innerHTML = `
-        <div class="premium-header" style="background: linear-gradient(135deg, ${cur.color} 0%, #333 100%);">
-            <span class="badge-asesor" style="color:white">OFFICIAL ASESOR BREADCRUMB</span>
-            <h1 style="margin: 15px 0 5px 0;">${cur.title}</h1>
-            <p style="opacity: 0.8;">${cur.subtitle}</p>
+    <div class="box">
+        <div class="header">
+            <h1 style="margin:0;">LSP P1 PNUP</h1>
+            <p style="margin:5px 0 0 0; opacity:0.8;">Asesor Kompetensi Internal</p>
         </div>
-        <div class="skema-container">
-            <h3 style="color: #333;"><i class="fas fa-list-check"></i> Daftar Skema & Lisensi</h3>
-            <table class="skema-table">
-                <thead>
-                    <tr><th>Nama Skema</th><th>Kualifikasi</th><th>Target</th></tr>
-                </thead>
-                <tbody>
-                    ${cur.skema.map(s => `
-                        <tr>
-                            <td><strong>${s[0]}</strong></td>
-                            <td>${s[1]}</td>
-                            <td><span class="badge-asesor">${s[2]}</span></td>
-                        </tr>
-                    `).join('')}
-                </tbody>
+        <div class="content">
+            <h3>Daftar Skema</h3>
+            <table>
+                <tr>
+                    <th>Skema</th>
+                    <th>Target</th>
+                </tr>
+                <tr>
+                    <td><strong>Digital Administration</strong></td>
+                    <td><span class="badge">Mahasiswa APD</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Teknisi Akuntansi</strong></td>
+                    <td><span class="badge">Mahasiswa Akuntansi</span></td>
+                </tr>
             </table>
-        </div>`;
-</script>
+        </div>
+    </div>
 </body>
 </html>
