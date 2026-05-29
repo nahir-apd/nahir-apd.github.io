@@ -192,76 +192,60 @@
         </div>
     </div>
 
-    <script>
-        function toggleMenu(id, btn) {
-            const menu = document.getElementById(id);
-            const arrow = btn.querySelector('.arrow');
-            document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
-            btn.classList.add('active-pulse');
-            document.querySelectorAll('.sub-menu').forEach(m => {
-                if(m.id !== id) {
-                    m.classList.remove('show');
-                    if(m.previousElementSibling.querySelector('.arrow')) {
-                        m.previousElementSibling.querySelector('.arrow').classList.remove('rotated');
-                    }
-                }
-            });
-            menu.classList.toggle('show');
-            if(arrow) arrow.classList.toggle('rotated');
-        }
-
-        function loadPage(url, title) {
-            document.getElementById('welcome-card').style.display = 'none';
-            const frame = document.getElementById('main-frame');
-            frame.style.display = 'block';
-            frame.src = url;
-            document.getElementById('page-title').innerText = title;
-        }
-
-        function goHome() {
-            document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
-            document.getElementById('btn-dash').classList.add('active-pulse');
-            document.getElementById('main-frame').style.display = 'none';
-            document.getElementById('welcome-card').style.display = 'flex';
-            document.getElementById('page-title').innerText = 'Dashboard Portal';
-            document.querySelectorAll('.sub-menu').forEach(m => m.classList.remove('show'));
-            document.querySelectorAll('.arrow').forEach(a => a.classList.remove('rotated'));
-        }
-    </script>
-    <script>
-function loadPage(url, title) {
-    // 1. Ambil elemen kartu ucapan selamat datang & elemen iframe
-    const welcomeCard = document.getElementById('welcome-card');
-    const mainFrame = document.getElementById('main-frame');
-    const pageTitle = document.getElementById('page-title');
-
-    // 2. Sembunyikan kartu selamat datang jika ada
-    if (welcomeCard) {
-        welcomeCard.style.display = 'none';
-    }
-
-    // 3. Tampilkan iframe dan isi sumbernya (source) dengan file asesor
-    if (mainFrame) {
-        mainFrame.style.display = 'block';
-        mainFrame.src = url; // Bagian ini yang memanggil asesor1.html
-    }
-
-    // 4. Ubah judul di bagian atas kolom ke-2
-    if (pageTitle) {
-        pageTitle.innerText = title;
-    }
-}
-</script>
-
 <script>
-function loadPage(url, title) {
-    document.getElementById('welcome-card').style.display = 'none';
-    const frame = document.getElementById('main-frame');
-    frame.style.display = 'block';
-    frame.src = url; // Baris inilah yang memanggil asesor1.html
-    document.getElementById('page-title').innerText = title;
-}
+    // 1. FUNGSI UNTUK MEMBUKA/TUTUP MENU (Agar Sidebar Tetap Normal)
+    function toggleMenu(id, btn) {
+        const menu = document.getElementById(id);
+        const arrow = btn.querySelector('.arrow');
+        document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
+        btn.classList.add('active-pulse');
+        document.querySelectorAll('.sub-menu').forEach(m => {
+            if(m.id !== id) {
+                m.classList.remove('show');
+                if(m.previousElementSibling.querySelector('.arrow')) {
+                    m.previousElementSibling.querySelector('.arrow').classList.remove('rotated');
+                }
+            }
+        });
+        menu.classList.toggle('show');
+        if(arrow) arrow.classList.toggle('rotated');
+    }
+
+    // 2. FUNGSI UNTUK MEMANGGIL HALAMAN (Termasuk Asesor, HAKI, Kuis, dll)
+    function loadPage(url, title) {
+        const welcomeCard = document.getElementById('welcome-card');
+        const mainFrame = document.getElementById('main-frame');
+        const pageTitle = document.getElementById('page-title');
+
+        // Sembunyikan pesan selamat datang
+        if (welcomeCard) {
+            welcomeCard.style.display = 'none';
+        }
+
+        // Tampilkan Iframe dan panggil filenya (asesor1.html, dll)
+        if (mainFrame) {
+            mainFrame.style.display = 'block';
+            mainFrame.src = url; 
+        }
+
+        // Update Judul Halaman
+        if (pageTitle) {
+            pageTitle.innerText = title;
+        }
+    }
+
+    // 3. FUNGSI UNTUK TOMBOL HOME
+    function goHome() {
+        document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
+        document.getElementById('btn-dash').classList.add('active-pulse');
+        document.getElementById('main-frame').style.display = 'none';
+        document.getElementById('welcome-card').style.display = 'flex';
+        document.getElementById('page-title').innerText = 'Dashboard Portal';
+        document.querySelectorAll('.sub-menu').forEach(m => m.classList.remove('show'));
+        document.querySelectorAll('.arrow').forEach(a => a.classList.remove('rotated'));
+    }
 </script>
     
+     
 </body>
 </html>
