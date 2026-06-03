@@ -157,22 +157,54 @@
                 <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
                     <i class="fas fa-laptop-code"></i> Tingkat Poltek
                 </div>
-                <button class="sub-item" onclick="loadPage('kuis/kpoltek1.html', 'Kuis Poltek 1')"><i class="fas fa-list-ol"></i> Kuis Poltek 1</button>
-                <button class="sub-item" onclick="loadPage('kuis/kpoltek2.html', 'Kuis Poltek 2')"><i class="fas fa-list-ol"></i> Kuis Poltek 2</button>
+                <button class="sub-item" onclick="loadPage('kuis/kpoltek1.html', 'Kuis Poltek 1')"><i class="fas fa-list-ol"></i> Kuis Latihan</button>
+                <button class="sub-item" onclick="loadPage('kuis/kpoltek2.html', 'Kuis Poltek 2')"><i class="fas fa-list-ol"></i> Kuis Uji Coba</button>
                 <button class="sub-item" onclick="loadPage('kuis/kpoltek3.html', 'Kuis Poltek 3')"><i class="fas fa-list-ol"></i> Kuis Poltek 3</button>
                 <button class="sub-item" onclick="loadPage('kuis/kpoltek4.html', 'Kuis Poltek 4')"><i class="fas fa-list-ol"></i> Kuis Poltek 4</button>
                 <button class="sub-item" onclick="loadPage('kuis/kpoltek5.html', 'Kuis Poltek 5')"><i class="fas fa-list-ol"></i> Kuis Poltek 5</button>
                 <button class="sub-item" onclick="loadPage('kuis/kpoltek6.html', 'Kuis Poltek 6')"><i class="fas fa-list-ol"></i> Kuis Poltek 6</button>
             </div>
-            <button class="nav-header" onclick="toggleMenu('eval-list', this)">
-                <span><i class="fas fa-clipboard-check"></i> Evaluasi</span>
+            <!-- MENU UTAMA: EVALUASI & REKAP NILAI (IDENTIK DENGAN KUIS) -->
+            <button class="nav-header" onclick="toggleMenu('main-menu-rekap', this)">
+                <span><i class="fas fa-clipboard-check"></i> Evaluasi & Rekap</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
-            <div id="eval-list" class="sub-menu">
-                <button class="sub-item" onclick="loadPage('rekap1.html', 'Rekap Nilai 1')"><i class="fas fa-chart-bar"></i> Rekap Nilai 1</button>
-                <button class="sub-item" onclick="loadPage('rekap2.html', 'Rekap Nilai 2')"><i class="fas fa-chart-bar"></i> Rekap Nilai 2</button>
-                <button class="sub-item" onclick="loadPage('rekap3.html', 'Rekap Nilai 3')"><i class="fas fa-chart-bar"></i> Rekap Nilai 3</button>
+            <div id="main-menu-rekap" class="sub-menu">
+                <!-- REKAP TINGKAT SD -->
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-child"></i> Rekap Nilai SD</div>
+                <button class="sub-item" onclick="loadPage('rekap/rsd1.html', 'Rekap Nilai SD Kelas 1')"><i class="fas fa-chart-bar"></i> Rekap SD 1</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd2.html', 'Rekap Nilai SD Kelas 2')"><i class="fas fa-chart-bar"></i> Rekap SD 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd3.html', 'Rekap Nilai SD Kelas 3')"><i class="fas fa-chart-bar"></i> Rekap SD 3</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd4.html', 'Rekap Nilai SD Kelas 4')"><i class="fas fa-chart-bar"></i> Rekap SD 4</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd5.html', 'Rekap Nilai SD Kelas 5')"><i class="fas fa-chart-bar"></i> Rekap SD 5</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd6.html', 'Rekap Nilai SD Kelas 6')"><i class="fas fa-chart-bar"></i> Rekap SD 6</button>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
+                <!-- REKAP TINGKAT SMP -->
+                <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-graduation-cap"></i> Rekap Nilai SMP</div>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp1.html', 'Rekap Nilai SMP 1')"><i class="fas fa-chart-bar"></i> Rekap SMP 1</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp2.html', 'Rekap Nilai SMP 2')"><i class="fas fa-chart-bar"></i> Rekap SMP 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp3.html', 'Rekap Nilai SMP 3')"><i class="fas fa-chart-bar"></i> Rekap SMP 3</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp4.html', 'Rekap Nilai SMP 4')"><i class="fas fa-chart-bar"></i> Rekap SMP 4</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp5.html', 'Rekap Nilai SMP 5')"><i class="fas fa-chart-bar"></i> Rekap SMP 5</button>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
+                <!-- REKAP TINGKAT SMA -->
+                <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-university"></i> Rekap Nilai SMA</div>
+                <button class="sub-item" onclick="loadPage('rekap/rsma1.html', 'Rekap Nilai SMA 1')"><i class="fas fa-chart-bar"></i> Rekap SMA 1</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsma2.html', 'Rekap Nilai SMA 2')"><i class="fas fa-chart-bar"></i> Rekap SMA 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsma3.html', 'Rekap Nilai SMA 3')"><i class="fas fa-chart-bar"></i> Rekap SMA 3</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsma4.html', 'Rekap Nilai SMA 4')"><i class="fas fa-chart-bar"></i> Rekap SMA 4</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsma5.html', 'Rekap Nilai SMA 5')"><i class="fas fa-chart-bar"></i> Rekap SMA 5</button>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
+                <!-- REKAP TINGKAT POLTEK -->
+                <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-laptop-code"></i> Rekap Nilai Poltek</div>
+                <button class="sub-item" onclick="loadPage('rekap/rpoltek1.html', 'Rekap Nilai Poltek 1')"><i class="fas fa-chart-bar"></i> Rekap Poltek 1</button>
+                <button class="sub-item" onclick="loadPage('rekap/rpoltek2.html', 'Rekap Nilai Poltek 2')"><i class="fas fa-chart-bar"></i> Rekap Poltek 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rpoltek3.html', 'Rekap Nilai Poltek 3')"><i class="fas fa-chart-bar"></i> Rekap Poltek 3</button>
+                <button class="sub-item" onclick="loadPage('rekap/rpoltek4.html', 'Rekap Nilai Poltek 4')"><i class="fas fa-chart-bar"></i> Rekap Poltek 4</button>
+                <button class="sub-item" onclick="loadPage('rekap/rpoltek5.html', 'Rekap Nilai Poltek 5')"><i class="fas fa-chart-bar"></i> Rekap Poltek 5</button>
+                <button class="sub-item" onclick="loadPage('rekap/rpoltek6.html', 'Rekap Nilai Poltek 6')"><i class="fas fa-chart-bar"></i> Rekap Poltek 6</button>
             </div>
+            
 
             <!-- KELOMPOK KEPAKARAN -->
             <div class="menu-label">Kepakaran & Asesor</div>
