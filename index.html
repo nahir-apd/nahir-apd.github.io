@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Eksekutif - Nahiruddin</title>
+    <title>Dashboard Executive - Nahiruddin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; height: 100vh; background: #eef2f5; overflow: hidden; }
 
         /* SIDEBAR */
-        .sidebar { width: 320px; background: #002d5a; color: white; display: flex; flex-direction: column; box-shadow: 5px 0 20px rgba(0,0,0,0.2); }
+        .sidebar { width: 320px; background: #002d5a; color: white; display: flex; flex-direction: column; box-shadow: 5px 0 20px rgba(0,0,0,0.2); flex-shrink: 0; }
         .sidebar-header { padding: 30px 20px; background: #001f3f; text-align: center; border-bottom: 1px solid #003366; }
         .sidebar-header h2 { margin: 0; font-size: 1.3rem; letter-spacing: 1px; font-weight: 700; }
         .sidebar-header p { margin: 5px 0 0; font-size: 0.85rem; opacity: 0.8; font-weight: 300; }
@@ -74,7 +74,7 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
 
-        footer { padding: 18px; font-size: 0.8rem; color: #cbd5e0; text-align: center; background: #001f3f; }
+        footer { padding: 18px; font-size: 0.8rem; color: #cbd5e0; text-align: center; background: #001f3f; margin-top: auto; }
     </style>
 </head>
 <body>
@@ -90,7 +90,9 @@
                 <span><i class="fas fa-th-large"></i> Dashboard Portal</span>
             </button>
 
+            <!-- KELOMPOK AKADEMIK -->
             <div class="menu-label">Akademik & Pembelajaran</div>
+            
             <button class="nav-header" onclick="toggleMenu('matkul-list', this)">
                 <span><i class="fas fa-book-reader"></i> Mata Kuliah</span>
                 <span class="arrow fas fa-chevron-down"></span>
@@ -112,98 +114,56 @@
                 <button class="sub-item" onclick="loadPage('silabus3.html', 'Silabus 3')"><i class="fas fa-file-pdf"></i> Silabus 3</button>
             </div>
 
-            
-           
-            
-            <button class="nav-header" onclick="toggleMenu('kuis-list', this)">
-                <span><i class="fas fa-spell-check"></i> Kuis</span>
+            <!-- KELOMPOK KUIS MANDIRI -->
+            <button class="nav-header" onclick="toggleMenu('menu-kuis-sd', this)">
+                <span><i class="fas fa-child"></i> Kuis SD</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
-           <!-- KELOMPOK UTAMA KUIS -->
-<div class="nav-header" onclick="toggleMenu('menu-kuis', this)">
-    <i class="fas fa-book-open"></i> 
-    <span>Kuis SD</span>
-    <i class="fas fa-chevron-right arrow"></i>
-</div>
+            <div id="menu-kuis-sd" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('kuis/ksd1.html', 'Kuis SD Kelas 1')"><i class="fas fa-pen-alt"></i> Kuis SD 1</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksd2.html', 'Kuis SD Kelas 2')"><i class="fas fa-pen-alt"></i> Kuis SD 2</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksd3.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Kuis SD 3</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksd4.html', 'Kuis SD Kelas 4')"><i class="fas fa-pen-alt"></i> Kuis SD 4</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksd5.html', 'Kuis SD Kelas 5')"><i class="fas fa-pen-alt"></i> Kuis SD 5</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksd6.html', 'Kuis SD Kelas 6')"><i class="fas fa-pen-alt"></i> Kuis SD 6</button>
+            </div>
 
-<div class="sub-menu" id="menu-kuis">
-    <!-- SUB KELOMPOK: SD -->
-    <div style="padding: 5px 15px; color: #d4af37; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-        <i class="fas fa-child"></i> Kelompok SD
-    </div>
-    <button class="sub-item" onclick="loadPage('ksd1.html', 'Kuis SD Kelas 1')"><i class="fas fa-pen-alt"></i> Kuis SD 1</button>
-    <button class="sub-item" onclick="loadPage('ksd2.html', 'Kuis SD Kelas 2')"><i class="fas fa-pen-alt"></i> Kuis SD 2</button>
-    <button class="sub-item" onclick="loadPage('ksd3.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Kuis SD 3</button>
-    <button class="sub-item" onclick="loadPage('ksd4.html', 'Kuis SD Kelas 4')"><i class="fas fa-pen-alt"></i> Kuis SD 4</button>
-    <button class="sub-item" onclick="loadPage('ksd5.html', 'Kuis SD Kelas 5')"><i class="fas fa-pen-alt"></i> Kuis SD 5</button>
-    <button class="sub-item" onclick="loadPage('ksd6.html', 'Kuis SD Kelas 6')"><i class="fas fa-pen-alt"></i> Kuis SD 6</button>
-    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 10px 0;">
-</div>
-            
-<div class="nav-header" onclick="toggleMenu('menu-kuis', this)">
-    <i class="fas fa-book-open"></i> 
-    <span>Kuis SMP</span>
-    <i class="fas fa-chevron-right arrow"></i>
-</div>
-    
-    <!-- SUB KELOMPOK: SMP -->
-    <div style="padding: 5px 15px; color: #d4af37; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-        <i class="fas fa-graduation-cap"></i> Kelompok SMP
-    </div>
-    <button class="sub-item" onclick="loadPage('ksmp1.html', 'Kuis SMP 1')"><i class="fas fa-pen-alt"></i> Kuis SMP 1</button>
-    <button class="sub-item" onclick="loadPage('ksmp2.html', 'Kuis SMP 2')"><i class="fas fa-pen-alt"></i> Kuis SMP 2</button>
-    <button class="sub-item" onclick="loadPage('ksmp3.html', 'Kuis SMP 3')"><i class="fas fa-pen-alt"></i> Kuis SMP 3</button>
-    <button class="sub-item" onclick="loadPage('ksmp4.html', 'Kuis SMP 4')"><i class="fas fa-pen-alt"></i> Kuis SMP 4</button>
-    <button class="sub-item" onclick="loadPage('ksmp5.html', 'Kuis SMP 5')"><i class="fas fa-pen-alt"></i> Kuis SMP 5</button>
+            <button class="nav-header" onclick="toggleMenu('menu-kuis-smp', this)">
+                <span><i class="fas fa-graduation-cap"></i> Kuis SMP</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-kuis-smp" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('kuis/ksmp1.html', 'Kuis SMP 1')"><i class="fas fa-pen-alt"></i> Kuis SMP 1</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksmp2.html', 'Kuis SMP 2')"><i class="fas fa-pen-alt"></i> Kuis SMP 2</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksmp3.html', 'Kuis SMP 3')"><i class="fas fa-pen-alt"></i> Kuis SMP 3</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksmp4.html', 'Kuis SMP 4')"><i class="fas fa-pen-alt"></i> Kuis SMP 4</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksmp5.html', 'Kuis SMP 5')"><i class="fas fa-pen-alt"></i> Kuis SMP 5</button>
+            </div>
 
-    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 10px 0;">
-</div>
-<div class="nav-header" onclick="toggleMenu('menu-kuis', this)">
-    <i class="fas fa-book-open"></i> 
-    <span>Kuis SMA</span>
-    <i class="fas fa-chevron-right arrow"></i>
-</div>
-<div class="sub-menu" id="menu-kuis">
-    <!-- SUB KELOMPOK: SMA -->
-    <div style="padding: 5px 15px; color: #d4af37; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-        <i class="fas fa-child"></i> Kelompok SMA
-    </div>
-        
-    <!-- SUB KELOMPOK: SMA -->
-    <div style="padding: 5px 15px; color: #d4af37; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-        <i class="fas fa-university"></i> Kelompok SMA
-    </div>
-    <button class="sub-item" onclick="loadPage('ksma1.html', 'Kuis SMA 1')"><i class="fas fa-pen-alt"></i> Kuis SMA 1</button>
-    <button class="sub-item" onclick="loadPage('ksma1.html', 'Kuis SMA 2')"><i class="fas fa-pen-alt"></i> Kuis SMA 2</button>
-    <button class="sub-item" onclick="loadPage('ksma3.html', 'Kuis SMA 3')"><i class="fas fa-pen-alt"></i> Kuis SMA 3</button>
-    <button class="sub-item" onclick="loadPage('ksma4.html', 'Kuis SMA 4')"><i class="fas fa-pen-alt"></i> Kuis SMA 4</button>
-    <button class="sub-item" onclick="loadPage('ksma5.html', 'Kuis SMA 5')"><i class="fas fa-pen-alt"></i> Kuis SMA 5</button>
+            <button class="nav-header" onclick="toggleMenu('menu-kuis-sma', this)">
+                <span><i class="fas fa-university"></i> Kuis SMA</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-kuis-sma" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('kuis/ksma1.html', 'Kuis SMA 1')"><i class="fas fa-pen-alt"></i> Kuis SMA 1</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksma2.html', 'Kuis SMA 2')"><i class="fas fa-pen-alt"></i> Kuis SMA 2</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksma3.html', 'Kuis SMA 3')"><i class="fas fa-pen-alt"></i> Kuis SMA 3</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksma4.html', 'Kuis SMA 4')"><i class="fas fa-pen-alt"></i> Kuis SMA 4</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksma5.html', 'Kuis SMA 5')"><i class="fas fa-pen-alt"></i> Kuis SMA 5</button>
+            </div>
 
-    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 10px 0;">
-</div>
-
-<div class="nav-header" onclick="toggleMenu('menu-kuis', this)">
-    <i class="fas fa-book-open"></i> 
-    <span>Kuis Poltek</span>
-    <i class="fas fa-chevron-right arrow"></i>
-</div>
-        <div class="sub-menu" id="menu-kuis">
-    <!-- SUB KELOMPOK: Poltek -->
-    <div style="padding: 5px 15px; color: #d4af37; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-        <i class="fas fa-child"></i> Kelompok Poltek
-    </div>
-    
-    <!-- SUB KELOMPOK: POLTEK -->
-    <div style="padding: 5px 15px; color: #d4af37; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-        <i class="fas fa-laptop-code"></i> Kelompok Poltek
-    </div>
-    <button class="sub-item" onclick="loadPage('kpoltek1.html', 'Kuis Poltek 1')"><i class="fas fa-list-ol"></i> Kuis Poltek 1</button>
-    <button class="sub-item" onclick="loadPage('kpoltek2.html', 'Kuis Poltek 2')"><i class="fas fa-list-ol"></i> Kuis Poltek 2</button>
-    <button class="sub-item" onclick="loadPage('kpoltek3.html', 'Kuis Poltek 3')"><i class="fas fa-list-ol"></i> Kuis Poltek 3</button>
-    <button class="sub-item" onclick="loadPage('kpoltek4.html', 'Kuis Poltek 4')"><i class="fas fa-list-ol"></i> Kuis Poltek 4</button>
-    <button class="sub-item" onclick="loadPage('kpoltek5.html', 'Kuis Poltek 5')"><i class="fas fa-list-ol"></i> Kuis Poltek 5</button>
-    <button class="sub-item" onclick="loadPage('kpoltek6.html', 'Kuis Poltek 6')"><i class="fas fa-list-ol"></i> Kuis Poltek 6</button>
-</div>
+            <button class="nav-header" onclick="toggleMenu('menu-kuis-poltek', this)">
+                <span><i class="fas fa-laptop-code"></i> Kuis Poltek</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-kuis-poltek" class="sub-menu">
+                <button class="sub-item" onclick="loadPage('kuis/kpoltek1.html', 'Kuis Poltek 1')"><i class="fas fa-list-ol"></i> Kuis Poltek 1</button>
+                <button class="sub-item" onclick="loadPage('kuis/kpoltek2.html', 'Kuis Poltek 2')"><i class="fas fa-list-ol"></i> Kuis Poltek 2</button>
+                <button class="sub-item" onclick="loadPage('kuis/kpoltek3.html', 'Kuis Poltek 3')"><i class="fas fa-list-ol"></i> Kuis Poltek 3</button>
+                <button class="sub-item" onclick="loadPage('kuis/kpoltek4.html', 'Kuis Poltek 4')"><i class="fas fa-list-ol"></i> Kuis Poltek 4</button>
+                <button class="sub-item" onclick="loadPage('kuis/kpoltek5.html', 'Kuis Poltek 5')"><i class="fas fa-list-ol"></i> Kuis Poltek 5</button>
+                <button class="sub-item" onclick="loadPage('kuis/kpoltek6.html', 'Kuis Poltek 6')"><i class="fas fa-list-ol"></i> Kuis Poltek 6</button>
+            </div>
 
             <button class="nav-header" onclick="toggleMenu('eval-list', this)">
                 <span><i class="fas fa-clipboard-check"></i> Evaluasi</span>
@@ -215,14 +175,12 @@
                 <button class="sub-item" onclick="loadPage('rekap3.html', 'Rekap Nilai 3')"><i class="fas fa-chart-bar"></i> Rekap Nilai 3</button>
             </div>
 
+            <!-- KELOMPOK KEPAKARAN -->
             <div class="menu-label">Kepakaran & Asesor</div>
             <button class="nav-header" onclick="toggleMenu('asesor-list', this)">
                 <span><i class="fas fa-user-check"></i> Asesor Kompetensi</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
-
-        
-            
             <div id="asesor-list" class="sub-menu">
                 <button class="sub-item" onclick="loadPage('asesor1.html', 'Asesor LSP P1 PNUP')"><i class="fas fa-university"></i> LSP P1 Politeknik (PNUP)</button>
                 <button class="sub-item" onclick="loadPage('asesor2.html', 'Asesor LSP P1 SMK')"><i class="fas fa-school"></i> LSP P1 dan P3 SMK</button>
@@ -232,6 +190,7 @@
                 <button class="sub-item" onclick="loadPage('asesor6.html', 'Lisensi Sertifikasi TEK')"><i class="fas fa-award"></i> Lisensi Sertifikasi (MET)</button>
             </div>
 
+            <!-- KELOMPOK TRIDHARMA -->
             <div class="menu-label">Tridharma & Karya</div>
             <button class="nav-header" onclick="toggleMenu('p3m-list', this)">
                 <span><i class="fas fa-microscope"></i> Penelitian & P3M</span>
@@ -254,23 +213,26 @@
                 <button class="sub-item" onclick="loadPage('publikasi3.html', 'Laporan HAKI2')"><i class="fas fa-copyright"></i> Laporan HAKI</button>
                 <button class="sub-item" onclick="loadPage('publikasi4.html', 'Laporan HAKI3')"><i class="fas fa-copyright"></i> Laporan HAKI</button>
             </div>
-             <div class="menu-label">Pengaturan</div>
-                <button class="nav-header" onclick="toggleMenu('admin-list', this)">
-                    <span><i class="fas fa-cogs"></i> Sistem Admin</span>
-                    <span class="arrow fas fa-chevron-down"></span>
-                </button>
-               <div id="admin-list" class="sub-menu">
+
+            <!-- PENGATURAN -->
+            <div class="menu-label">Pengaturan</div>
+            <button class="nav-header" onclick="toggleMenu('admin-list', this)">
+                <span><i class="fas fa-cogs"></i> Sistem Admin</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="admin-list" class="sub-menu">
                 <button class="sub-item" onclick="loadPage('admin1.html', 'Profil Dosen')"><i class="far fa-id-card"></i> Profil Dosen</button>
                 <button class="sub-item" onclick="loadPage('admin2.html', 'Manajemen User')"><i class="fas fa-users-cog"></i> Manajemen User</button>
                 <button class="sub-item" onclick="loadPage('admin3.html', 'Manajemen User')"><i class="fas fa-users-cog"></i> Manajemen User</button>
-               </div>
-          
+            </div>
         </div>
+        
         <footer>
             &copy; 2026 - Nahiruddin <br> APD - PNUP
         </footer>
     </div>
 
+    <!-- AREA KANAN (KONTEN UTAMA) -->
     <div class="main-content">
         <div class="top-bar">
             <span><i class="fas fa-door-open"></i> <span id="page-title">Dashboard Portal</span></span>
@@ -289,48 +251,45 @@
     </div>
 
 <script>
-    // 1. FUNGSI UNTUK MEMBUKA/TUTUP MENU (Agar Sidebar Tetap Normal)
     function toggleMenu(id, btn) {
         const menu = document.getElementById(id);
         const arrow = btn.querySelector('.arrow');
+        
         document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
         btn.classList.add('active-pulse');
+        
         document.querySelectorAll('.sub-menu').forEach(m => {
             if(m.id !== id) {
                 m.classList.remove('show');
-                if(m.previousElementSibling.querySelector('.arrow')) {
+                if(m.previousElementSibling && m.previousElementSibling.querySelector('.arrow')) {
                     m.previousElementSibling.querySelector('.arrow').classList.remove('rotated');
                 }
             }
         });
-        menu.classList.toggle('show');
-        if(arrow) arrow.classList.toggle('rotated');
+        
+        if(menu) {
+            menu.classList.toggle('show');
+        }
+        if(arrow) {
+            arrow.classList.toggle('rotated');
+        }
     }
 
-    // 2. FUNGSI UNTUK MEMANGGIL HALAMAN (Termasuk Asesor, HAKI, Kuis, dll)
     function loadPage(url, title) {
         const welcomeCard = document.getElementById('welcome-card');
         const mainFrame = document.getElementById('main-frame');
         const pageTitle = document.getElementById('page-title');
 
-        // Sembunyikan pesan selamat datang
-        if (welcomeCard) {
-            welcomeCard.style.display = 'none';
-        }
-
-        // Tampilkan Iframe dan panggil filenya (asesor1.html, dll)
+        if (welcomeCard) welcomeCard.style.display = 'none';
+        
         if (mainFrame) {
             mainFrame.style.display = 'block';
             mainFrame.src = url; 
         }
 
-        // Update Judul Halaman
-        if (pageTitle) {
-            pageTitle.innerText = title;
-        }
+        if (pageTitle) pageTitle.innerText = title;
     }
 
-    // 3. FUNGSI UNTUK TOMBOL HOME
     function goHome() {
         document.querySelectorAll('.nav-header').forEach(h => h.classList.remove('active-pulse'));
         document.getElementById('btn-dash').classList.add('active-pulse');
@@ -341,7 +300,6 @@
         document.querySelectorAll('.arrow').forEach(a => a.classList.remove('rotated'));
     }
 </script>
-    
      
 </body>
 </html>
