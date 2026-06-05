@@ -113,15 +113,36 @@
                 <button class="sub-item" onclick="loadPage('silabus2.html', 'Silabus 2')"><i class="fas fa-file-pdf"></i> Silabus 2</button>
                 <button class="sub-item" onclick="loadPage('silabus3.html', 'Silabus 3')"><i class="fas fa-file-pdf"></i> Silabus 3</button>
             </div>
-
-          <button class="nav-header" onclick="toggleMenu('main-menu-kuis', this)">
-                <span><i class="fas fa-spell-check"></i> Kuis & Ujian</span>
+        
+           <!-- ==================== 1. KELOMPOK KUIS & UJIAN SD ==================== -->
+            <button class="nav-header" onclick="toggleMenu('menu-kuis-sd', this)">
+                <span><i class="fas fa-child"></i> Kuis & Ujian SD</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
-            <div id="main-menu-kuis" class="sub-menu">
+            <div id="menu-kuis-sd" class="sub-menu">
                 
+                <!-- SD KELAS 3 -->
                 <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-child"></i> Tingkat SD Kelas 6
+                    <i class="fas fa-chevron-right"></i> SD Kelas 3
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/kuis-sd3-1.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Latihan Tema Kelas 3</button>
+                <button class="sub-item" onclick="loadPage('kuis/kuis7.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Koding Kelas 3</button>
+
+                <!-- SD KELAS 4 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SD Kelas 4
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/kuis-sd4-1.html', 'Kuis SD Kelas 4')"><i class="fas fa-pen-alt"></i> Latihan Tema Kelas 4</button>
+
+                <!-- SD KELAS 5 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SD Kelas 5
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/kuis-sd5-1.html', 'Kuis SD Kelas 5')"><i class="fas fa-pen-alt"></i> Latihan Tema Kelas 5</button>
+
+                <!-- SD KELAS 6 (Data Asli) -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SD Kelas 6
                 </div>
                 <button class="sub-item" onclick="loadPage('kuis/kuis1.html', 'Kuis SD Kelas 6')"><i class="fas fa-pen-alt"></i> Matematika SD Kelas 6</button>
                 <button class="sub-item" onclick="loadPage('kuis/kuis2.html', 'Kuis SD Kelas 6')"><i class="fas fa-pen-alt"></i> IPAS SD Kelas 6</button>
@@ -129,55 +150,84 @@
                 <button class="sub-item" onclick="loadPage('kuis/kuis4.html', 'Kuis SD Kelas 6')"><i class="fas fa-pen-alt"></i> PPKn SD Kelas 6</button>
                 <button class="sub-item" onclick="loadPage('kuis/kuis5.html', 'Kuis SD Kelas 6')"><i class="fas fa-pen-alt"></i> Bhs Indonesia Kelas 6</button>
                 <button class="sub-item" onclick="loadPage('kuis/kuis6.html', 'Kuis SD Kelas 6')"><i class="fas fa-pen-alt"></i> Seni Rupa/Tari Kelas 6</button>
-            
-             <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                 <i class="fas fa-graduation-cap"></i> Tingkat SD Kelas 3
-             </div>
-                
-                <button class="sub-item" onclick="loadPage('kuis/kuis7.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Koding Kelas 6</button>
-                <button class="sub-item" onclick="loadPage('kuis/kuisa1.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Kuis SD 6</button>
-                <button class="sub-item" onclick="loadPage('kuis/kuisa2.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Kuis SD 6</button>
-                <button class="sub-item" onclick="loadPage('kuis/kuisa3.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Kuis SD 6</button>
-                <button class="sub-item" onclick="loadPage('kuis/kuisa4.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Kuis SD 6</button>
-                <button class="sub-item" onclick="loadPage('kuis/kuisa5.html', 'Kuis SD Kelas 3')"><i class="fas fa-pen-alt"></i> Kuis SD 6</button>
                 
                 <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
-         </div>    
-                
-            <button class="nav-header" onclick="toggleMenu('main-menu-kuis', this)">
-                <span><i class="fas fa-spell-check"></i> Kuis & Ujian SMP </span>
+            </div>
+
+            <!-- ==================== 2. KELOMPOK KUIS & UJIAN SMP ==================== -->
+            <button class="nav-header" onclick="toggleMenu('menu-kuis-smp', this)">
+                <span><i class="fas fa-graduation-cap"></i> Kuis & Ujian SMP</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
-            <div id="main-menu-kuis" class="sub-menu">
+            <div id="menu-kuis-smp" class="sub-menu">
                 
-                <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-graduation-cap"></i> Tingkat SMP
+                <!-- SMP KELAS 1 -->
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMP Kelas 1
                 </div>
-                
+                <button class="sub-item" onclick="loadPage('kuis/kuis-smp1.html', 'Kuis SMP Kelas 1')"><i class="fas fa-pen-alt"></i> Latihan SMP Kelas 1</button>
+
+                <!-- SMP KELAS 2 (Data Asli) -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMP Kelas 2
+                </div>
                 <button class="sub-item" onclick="loadPage('kuis/kuissmpmath.html', 'Kuis SMP 1')"><i class="fas fa-pen-alt"></i> Matematika Kelas 2</button>
                 <button class="sub-item" onclick="loadPage('kuis/kuissmpipa.html', 'Kuis SMP 2')"><i class="fas fa-pen-alt"></i> IPA Kelas 2</button>
                 <button class="sub-item" onclick="loadPage('kuis/kuissmpingg.html', 'Kuis SMP 3')"><i class="fas fa-pen-alt"></i> Bhs Inggris Kelas 2</button>
                 <button class="sub-item" onclick="loadPage('kuis/kuissmpips.html', 'Kuis SMP 4')"><i class="fas fa-pen-alt"></i> IPS Kelas 2</button>
                 <button class="sub-item" onclick="loadPage('kuis/kuissmpppkn.html', 'Kuis SMP 5')"><i class="fas fa-pen-alt"></i> PPKn Kelas 2</button>
-                 <button class="sub-item" onclick="loadPage('kuis/kuissmpfiqih.html', 'Kuis SMP 6')"><i class="fas fa-pen-alt"></i> Fiqih Kelas 2</button>
-                 <button class="sub-item" onclick="loadPage('kuis/kuissmpindo.html', 'Kuis SMP 7')"><i class="fas fa-pen-alt"></i> Bhs Indonesia Kelas 2</button>
-                 <button class="sub-item" onclick="loadPage('kuis/kuissmpinfo.html', 'Kuis SMP 8')"><i class="fas fa-pen-alt"></i> Informatika Kelas 2</button>
-                
-                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
+                <button class="sub-item" onclick="loadPage('kuis/kuissmpfiqih.html', 'Kuis SMP 6')"><i class="fas fa-pen-alt"></i> Fiqih Kelas 2</button>
+                <button class="sub-item" onclick="loadPage('kuis/kuissmpindo.html', 'Kuis SMP 7')"><i class="fas fa-pen-alt"></i> Bhs Indonesia Kelas 2</button>
+                <button class="sub-item" onclick="loadPage('kuis/kuissmpinfo.html', 'Kuis SMP 8')"><i class="fas fa-pen-alt"></i> Informatika Kelas 2</button>
 
-                <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-university"></i> Tingkat SMA
+                <!-- SMP KELAS 3 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMP Kelas 3
                 </div>
-                <button class="sub-item" onclick="loadPage('kuis/ksma1.html', 'Kuis SMA 1')"><i class="fas fa-pen-alt"></i> Kuis SMA 1</button>
-                <button class="sub-item" onclick="loadPage('kuis/ksma2.html', 'Kuis SMA 2')"><i class="fas fa-pen-alt"></i> Kuis SMA 2</button>
-                <button class="sub-item" onclick="loadPage('kuis/ksma3.html', 'Kuis SMA 3')"><i class="fas fa-pen-alt"></i> Kuis SMA 3</button>
-                <button class="sub-item" onclick="loadPage('kuis/ksma4.html', 'Kuis SMA 4')"><i class="fas fa-pen-alt"></i> Kuis SMA 4</button>
-                <button class="sub-item" onclick="loadPage('kuis/ksma5.html', 'Kuis SMA 5')"><i class="fas fa-pen-alt"></i> Kuis SMA 5</button>
+                <button class="sub-item" onclick="loadPage('kuis/kuis-smp3.html', 'Kuis SMP Kelas 3')"><i class="fas fa-pen-alt"></i> Latihan SMP Kelas 3</button>
 
                 <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
+            </div>
 
-                <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-laptop-code"></i> Tingkat Poltek
+            <!-- ==================== 3. KELOMPOK KUIS & UJIAN SMA ==================== -->
+            <button class="nav-header" onclick="toggleMenu('menu-kuis-sma', this)">
+                <span><i class="fas fa-university"></i> Kuis & Ujian SMA</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-kuis-sma" class="sub-menu">
+                
+                <!-- SMA KELAS 1 -->
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMA Kelas 1
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/ksma1.html', 'Kuis SMA 1')"><i class="fas fa-pen-alt"></i> Kuis Latihan SMA 1</button>
+
+                <!-- SMA KELAS 2 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMA Kelas 2
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/ksma2.html', 'Kuis SMA 2')"><i class="fas fa-pen-alt"></i> Kuis Latihan SMA 2</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksma3.html', 'Kuis SMA 3')"><i class="fas fa-pen-alt"></i> Ujian SMA 2</button>
+
+                <!-- SMA KELAS 3 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMA Kelas 3
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/ksma4.html', 'Kuis SMA 4')"><i class="fas fa-pen-alt"></i> Kuis Latihan SMA 3</button>
+                <button class="sub-item" onclick="loadPage('kuis/ksma5.html', 'Kuis SMA 5')"><i class="fas fa-pen-alt"></i> Ujian SMA 3</button>
+
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
+            </div>
+
+            <!-- ==================== 4. KELOMPOK KUIS & UJIAN POLTEK ==================== -->
+            <button class="nav-header" onclick="toggleMenu('menu-kuis-poltek', this)">
+                <span><i class="fas fa-laptop-code"></i> Kuis & Ujian Poltek</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-kuis-poltek" class="sub-menu">
+                
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Tingkat Poltek
                 </div>
                 <button class="sub-item" onclick="loadPage('kuis/kuisapd1.html', 'Kuis Poltek 1')"><i class="fas fa-list-ol"></i> Kuis Latihan</button>
                 <button class="sub-item" onclick="loadPage('kuis/kuisapd2.html', 'Kuis Poltek 2')"><i class="fas fa-list-ol"></i> Kuis Uji Coba</button>
@@ -185,7 +235,9 @@
                 <button class="sub-item" onclick="loadPage('kuis/kpoltek4.html', 'Kuis Poltek 4')"><i class="fas fa-list-ol"></i> Kuis Poltek 4</button>
                 <button class="sub-item" onclick="loadPage('kuis/kpoltek5.html', 'Kuis Poltek 5')"><i class="fas fa-list-ol"></i> Kuis Poltek 5</button>
                 <button class="sub-item" onclick="loadPage('kuis/kpoltek6.html', 'Kuis Poltek 6')"><i class="fas fa-list-ol"></i> Kuis Poltek 6</button>
-            </div>
+
+            </div>  
+            
             <!-- MENU UTAMA: EVALUASI & REKAP NILAI (IDENTIK DENGAN KUIS) -->
             <button class="nav-header" onclick="toggleMenu('main-menu-rekap', this)">
                 <span><i class="fas fa-clipboard-check"></i> Evaluasi & Rekap</span>
