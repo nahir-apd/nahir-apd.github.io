@@ -219,15 +219,17 @@
                 <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
             </div>
 
-            <!-- ==================== 4. KELOMPOK KUIS & UJIAN POLTEK ==================== -->
+
+<!-- ==================== 4. KELOMPOK KUIS & UJIAN POLTEK ==================== -->
             <button class="nav-header" onclick="toggleMenu('menu-kuis-poltek', this)">
                 <span><i class="fas fa-laptop-code"></i> Kuis & Ujian Poltek</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
             <div id="menu-kuis-poltek" class="sub-menu">
                 
+                <!-- KELOMPOK 1: APD (Data Bawaan Asli Bapak) -->
                 <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-chevron-right"></i> Tingkat Poltek
+                    <i class="fas fa-chevron-right"></i> Kelompok APD
                 </div>
                 <button class="sub-item" onclick="loadPage('kuis/kuisapd1.html', 'Kuis Poltek 1')"><i class="fas fa-list-ol"></i> Kuis Latihan</button>
                 <button class="sub-item" onclick="loadPage('kuis/kuisapd2.html', 'Kuis Poltek 2')"><i class="fas fa-list-ol"></i> Kuis Uji Coba</button>
@@ -236,49 +238,143 @@
                 <button class="sub-item" onclick="loadPage('kuis/kpoltek5.html', 'Kuis Poltek 5')"><i class="fas fa-list-ol"></i> Kuis Poltek 5</button>
                 <button class="sub-item" onclick="loadPage('kuis/kpoltek6.html', 'Kuis Poltek 6')"><i class="fas fa-list-ol"></i> Kuis Poltek 6</button>
 
-            </div>  
-            
-            <!-- MENU UTAMA: EVALUASI & REKAP NILAI (IDENTIK DENGAN KUIS) -->
-            <button class="nav-header" onclick="toggleMenu('main-menu-rekap', this)">
-                <span><i class="fas fa-clipboard-check"></i> Evaluasi & Rekap</span>
+                <!-- KELOMPOK 2: UJI KOMPETENSI (Baru) -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Uji Kompetensi
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/kuis-ujikom1.html', 'Uji Kompetensi 1')"><i class="fas fa-user-check"></i> Uji Kompetensi 1</button>
+                <button class="sub-item" onclick="loadPage('kuis/kuis-ujikom2.html', 'Uji Kompetensi 2')"><i class="fas fa-user-check"></i> Uji Kompetensi 2</button>
+            </div>
+
+            <!-- ==================== 1. KELOMPOK REKAP SD ==================== -->
+            <button class="nav-header" onclick="toggleMenu('menu-rekap-sd', this)">
+                <span><i class="fas fa-clipboard-list"></i> Rekap Nilai SD</span>
                 <span class="arrow fas fa-chevron-down"></span>
             </button>
-            <div id="main-menu-rekap" class="sub-menu">
-                <!-- REKAP TINGKAT SD -->
-                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-child"></i> Rekap Nilai SD</div>
-                <button class="sub-item" onclick="loadPage('rekap/rekap1.html', 'Rekap Nilai SD Kelas 1')"><i class="fas fa-chart-bar"></i> Rekap SD 1</button>
-                <button class="sub-item" onclick="loadPage('rekap/rekap2.html', 'Rekap Nilai SD Kelas 2')"><i class="fas fa-chart-bar"></i> Rekap SD 2</button>
+            <div id="menu-rekap-sd" class="sub-menu">
+                
+                <!-- SD KELAS 3 -->
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SD Kelas 3
+                </div>
                 <button class="sub-item" onclick="loadPage('rekap/rsd3.html', 'Rekap Nilai SD Kelas 3')"><i class="fas fa-chart-bar"></i> Rekap SD 3</button>
+
+                <!-- SD KELAS 4 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SD Kelas 4
+                </div>
                 <button class="sub-item" onclick="loadPage('rekap/rsd4.html', 'Rekap Nilai SD Kelas 4')"><i class="fas fa-chart-bar"></i> Rekap SD 4</button>
+
+                <!-- SD KELAS 5 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SD Kelas 5
+                </div>
                 <button class="sub-item" onclick="loadPage('rekap/rsd5.html', 'Rekap Nilai SD Kelas 5')"><i class="fas fa-chart-bar"></i> Rekap SD 5</button>
-                <button class="sub-item" onclick="loadPage('rekap/rsd6.html', 'Rekap Nilai SD Kelas 6')"><i class="fas fa-chart-bar"></i> Rekap SD 6</button>
+
+                <!-- SD KELAS 6 (Disamakan dengan Kuis) -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SD Kelas 6
+                </div>
+                <button class="sub-item" onclick="loadPage('rekap/rsd6-math.html', 'Rekap Matematika SD 6')"><i class="fas fa-chart-bar"></i> Rekap Matematika Kelas 6</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd6-ipas.html', 'Rekap IPAS SD 6')"><i class="fas fa-chart-bar"></i> Rekap IPAS Kelas 6</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd6-inggris.html', 'Rekap Bhs Inggris SD 6')"><i class="fas fa-chart-bar"></i> Rekap Bhs Inggris Kelas 6</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd6-ppkn.html', 'Rekap PPKn SD 6')"><i class="fas fa-chart-bar"></i> Rekap PPKn Kelas 6</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd6-indo.html', 'Rekap Bhs Indonesia SD 6')"><i class="fas fa-chart-bar"></i> Rekap Bhs Indonesia Kelas 6</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsd6-seni.html', 'Rekap Seni Rupa/Tari SD 6')"><i class="fas fa-chart-bar"></i> Rekap Seni Rupa/Tari Kelas 6</button>
+
                 <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
-                <!-- REKAP TINGKAT SMP -->
-                <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-graduation-cap"></i> Rekap Nilai SMP</div>
+            </div>
+
+            <!-- ==================== 2. KELOMPOK REKAP SMP ==================== -->
+            <button class="nav-header" onclick="toggleMenu('menu-rekap-smp', this)">
+                <span><i class="fas fa-chart-pie"></i> Rekap Nilai SMP</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-rekap-smp" class="sub-menu">
+                
+                <!-- SMP KELAS 1 -->
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMP Kelas 1
+                </div>
                 <button class="sub-item" onclick="loadPage('rekap/rsmp1.html', 'Rekap Nilai SMP 1')"><i class="fas fa-chart-bar"></i> Rekap SMP 1</button>
-                <button class="sub-item" onclick="loadPage('rekap/rsmp2.html', 'Rekap Nilai SMP 2')"><i class="fas fa-chart-bar"></i> Rekap SMP 2</button>
+
+                <!-- SMP KELAS 2 (Disamakan dengan Kuis) -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMP Kelas 2
+                </div>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp2-math.html', 'Rekap Matematika SMP 2')"><i class="fas fa-chart-bar"></i> Rekap Matematika Kelas 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp2-ipa.html', 'Rekap IPA SMP 2')"><i class="fas fa-chart-bar"></i> Rekap IPA Kelas 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp2-inggris.html', 'Rekap Bhs Inggris SMP 2')"><i class="fas fa-chart-bar"></i> Rekap Bhs Inggris Kelas 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp2-ips.html', 'Rekap IPS SMP 2')"><i class="fas fa-chart-bar"></i> Rekap IPS Kelas 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp2-ppkn.html', 'Rekap PPKn SMP 2')"><i class="fas fa-chart-bar"></i> Rekap PPKn Kelas 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp2-fiqih.html', 'Rekap Fiqih SMP 2')"><i class="fas fa-chart-bar"></i> Rekap Fiqih Kelas 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp2-indo.html', 'Rekap Bhs Indonesia SMP 2')"><i class="fas fa-chart-bar"></i> Rekap Bhs Indonesia Kelas 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsmp2-info.html', 'Rekap Informatika SMP 2')"><i class="fas fa-chart-bar"></i> Rekap Informatika Kelas 2</button>
+
+                <!-- SMP KELAS 3 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMP Kelas 3
+                </div>
                 <button class="sub-item" onclick="loadPage('rekap/rsmp3.html', 'Rekap Nilai SMP 3')"><i class="fas fa-chart-bar"></i> Rekap SMP 3</button>
-                <button class="sub-item" onclick="loadPage('rekap/rsmp4.html', 'Rekap Nilai SMP 4')"><i class="fas fa-chart-bar"></i> Rekap SMP 4</button>
-                <button class="sub-item" onclick="loadPage('rekap/rsmp5.html', 'Rekap Nilai SMP 5')"><i class="fas fa-chart-bar"></i> Rekap SMP 5</button>
+
                 <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
-                <!-- REKAP TINGKAT SMA -->
-                <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-university"></i> Rekap Nilai SMA</div>
-                <button class="sub-item" onclick="loadPage('rekap/rsma1.html', 'Rekap Nilai SMA 1')"><i class="fas fa-chart-bar"></i> Rekap SMA 1</button>
-                <button class="sub-item" onclick="loadPage('rekap/rsma2.html', 'Rekap Nilai SMA 2')"><i class="fas fa-chart-bar"></i> Rekap SMA 2</button>
-                <button class="sub-item" onclick="loadPage('rekap/rsma3.html', 'Rekap Nilai SMA 3')"><i class="fas fa-chart-bar"></i> Rekap SMA 3</button>
-                <button class="sub-item" onclick="loadPage('rekap/rsma4.html', 'Rekap Nilai SMA 4')"><i class="fas fa-chart-bar"></i> Rekap SMA 4</button>
-                <button class="sub-item" onclick="loadPage('rekap/rsma5.html', 'Rekap Nilai SMA 5')"><i class="fas fa-chart-bar"></i> Rekap SMA 5</button>
+            </div>
+            
+            <!-- ==================== 3. KELOMPOK REKAP SMA (Disamakan dengan Kuis) ==================== -->
+            <button class="nav-header" onclick="toggleMenu('menu-rekap-sma', this)">
+                <span><i class="fas fa-chart-line"></i> Rekap Nilai SMA</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-rekap-sma" class="sub-menu">
+                
+                <!-- SMA KELAS 1 -->
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMA Kelas 1
+                </div>
+                <button class="sub-item" onclick="loadPage('rekap/rsma1-latihan.html', 'Rekap Latihan SMA 1')"><i class="fas fa-chart-bar"></i> Rekap Latihan SMA 1</button>
+
+                <!-- SMA KELAS 2 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMA Kelas 2
+                </div>
+                <button class="sub-item" onclick="loadPage('rekap/rsma2-latihan.html', 'Rekap Latihan SMA 2')"><i class="fas fa-chart-bar"></i> Rekap Latihan SMA 2</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsma2-ujian.html', 'Rekap Ujian SMA 2')"><i class="fas fa-chart-bar"></i> Rekap Ujian SMA 2</button>
+
+                <!-- SMA KELAS 3 -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> SMA Kelas 3
+                </div>
+                <button class="sub-item" onclick="loadPage('rekap/rsma3-latihan.html', 'Rekap Latihan SMA 3')"><i class="fas fa-chart-bar"></i> Rekap Latihan SMA 3</button>
+                <button class="sub-item" onclick="loadPage('rekap/rsma3-ujian.html', 'Rekap Ujian SMA 3')"><i class="fas fa-chart-bar"></i> Rekap Ujian SMA 3</button>
+
                 <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 5px 20px;">
-                <!-- REKAP TINGKAT POLTEK -->
-                <div style="padding: 10px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-laptop-code"></i> Rekap Nilai Poltek</div>
+            </div>
+             
+            <!-- ==================== 4. KELOMPOK REKAP POLTEK ==================== -->
+            <button class="nav-header" onclick="toggleMenu('menu-rekap-poltek', this)">
+                <span><i class="fas fa-poll"></i> Rekap Nilai Poltek</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-rekap-poltek" class="sub-menu">
+                
+                <!-- KELOMPOK 1: APD (Data Bawaan Asli Bapak) -->
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Kelompok APD
+                </div>
                 <button class="sub-item" onclick="loadPage('rekap/rekapapd1.html', 'Rekap Nilai Poltek 1')"><i class="fas fa-chart-bar"></i> Rekap Poltek 1</button>
                 <button class="sub-item" onclick="loadPage('rekap/rekapapd2.html', 'Rekap Nilai Poltek 2')"><i class="fas fa-chart-bar"></i> Rekap Poltek 2</button>
                 <button class="sub-item" onclick="loadPage('rekap/rpoltek3.html', 'Rekap Nilai Poltek 3')"><i class="fas fa-chart-bar"></i> Rekap Poltek 3</button>
                 <button class="sub-item" onclick="loadPage('rekap/rpoltek4.html', 'Rekap Nilai Poltek 4')"><i class="fas fa-chart-bar"></i> Rekap Poltek 4</button>
                 <button class="sub-item" onclick="loadPage('rekap/rpoltek5.html', 'Rekap Nilai Poltek 5')"><i class="fas fa-chart-bar"></i> Rekap Poltek 5</button>
                 <button class="sub-item" onclick="loadPage('rekap/rpoltek6.html', 'Rekap Nilai Poltek 6')"><i class="fas fa-chart-bar"></i> Rekap Poltek 6</button>
+
+                <!-- KELOMPOK 2: UJI KOMPETENSI (Baru) -->
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Uji Kompetensi
+                </div>
+                <button class="sub-item" onclick="loadPage('rekap/rekap-ujikom1.html', 'Rekap Uji Kompetensi 1')"><i class="fas fa-chart-bar"></i> Rekap Uji Kompetensi 1</button>
+                <button class="sub-item" onclick="loadPage('rekap/rekap-ujikom2.html', 'Rekap Uji Kompetensi 2')"><i class="fas fa-chart-bar"></i> Rekap Uji Kompetensi 2</button>
             </div>
-            
 
             <!-- KELOMPOK KEPAKARAN -->
             <div class="menu-label">Kepakaran & Asesor</div>
