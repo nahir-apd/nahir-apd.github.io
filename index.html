@@ -114,24 +114,22 @@
                 <button class="sub-item" onclick="loadPage('silabus3.html', 'Silabus 3')"><i class="fas fa-file-pdf"></i> Silabus 3</button>
             </div>
 
-            <div id="menu-kuis-ibac" class="sub-menu">
-                
-                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-chevron-right"></i> Data Processing
-                </div>
-                <button class="sub-item" onclick="loadPage('kuis/ibac-dp.html', 'Kuis Penyisihan Data Processing')"><i class="fas fa-pen"></i> Kuis Data Processing</button>
-
-                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-chevron-right"></i> Web Desain
-                </div>
-                <button class="sub-item" onclick="loadPage('kuis/ibac-web.html', 'Kuis Penyisihan Web Desain')"><i class="fas fa-pen"></i> Kuis Web Desain</button>
-
-                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-chevron-right"></i> Kearsipan
-                </div>
-                <button class="sub-item" onclick="loadPage('kuis/ibac-kearsipan.html', 'Kuis Penyisihan Kearsipan')"><i class="fas fa-pen"></i> Kuis Kearsipan</button>
-                
-            </div>
+            <button class="nav-header" onclick="toggleMenu('menu-kuis-ibac', this)">
+    <span><i class="fas fa-user-edit"></i> Kuis Penyisihan IBAC</span>
+    <span class="arrow fas fa-chevron-down"></span>
+</button>
+<div id="menu-kuis-ibac" class="sub-menu">
+    <button class="sub-item" onclick="loadPage('kuis/ibac-dp.html', 'Kuis Data Processing')">
+        <i class="fas fa-pen"></i> Data Processing
+    </button>
+    <button class="sub-item" onclick="loadPage('kuis/ibac-web.html', 'Kuis Web Desain')">
+        <i class="fas fa-pen"></i> Web Desain
+    </button>
+    <button class="sub-item" onclick="loadPage('kuis/ibac-kearsipan.html', 'Kuis Kearsipan')">
+        <i class="fas fa-pen"></i> Kearsipan
+    </button>
+</div>
+          
             
            <!-- ==================== 1. KELOMPOK KUIS & UJIAN SD ==================== -->
             <button class="nav-header" onclick="toggleMenu('menu-kuis-sd', this)">
@@ -285,23 +283,21 @@
                 <button class="sub-item" onclick="loadPage('kuis/kuis-ujikom2.html', 'Uji Kompetensi 2')"><i class="fas fa-user-check"></i> Uji Kompetensi 2</button>
             </div>
 
-            <div id="menu-penyisihan-ibac" class="sub-menu">
-                
-                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-chevron-right"></i> Data Processing
-                </div>
-                <button class="sub-item" onclick="loadPage('rekap/rekapibac-dp.html', 'Rekap Penyisihan Data Processing')"><i class="fas fa-chart-bar"></i> Data Processing</button>
-
-                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-chevron-right"></i> Web Desain
-                </div>
-                <button class="sub-item" onclick="loadPage('rekap/rekapibac-web.html', 'Rekap Penyisihan Web Desain')"><i class="fas fa-chart-bar"></i> Web Desain</button>
-
-                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <i class="fas fa-chevron-right"></i> Kearsipan
-                </div>
-                <button class="sub-item" onclick="loadPage('rekap/rekapibac-kearsipan.html', 'Rekap Penyisihan Kearsipan')"><i class="fas fa-chart-bar"></i> Kearsipan</button>
-            </div>
+            <button class="nav-header" onclick="toggleMenu('menu-rekap-ibac', this)">
+    <span><i class="fas fa-clipboard-list"></i> Rekap Penyisihan IBAC</span>
+    <span class="arrow fas fa-chevron-down"></span>
+</button>
+<div id="menu-rekap-ibac" class="sub-menu">
+    <button class="sub-item" onclick="loadPage('rekap/ibac-dp.html', 'Rekap Data Processing')">
+        <i class="fas fa-chart-bar"></i> Data Processing
+    </button>
+    <button class="sub-item" onclick="loadPage('rekap/ibac-web.html', 'Rekap Web Desain')">
+        <i class="fas fa-chart-bar"></i> Web Desain
+    </button>
+    <button class="sub-item" onclick="loadPage('rekap/ibac-kearsipan.html', 'Rekap Kearsipan')">
+        <i class="fas fa-chart-bar"></i> Kearsipan
+    </button>
+</div>
 
             
             <!-- ==================== 1. KELOMPOK REKAP SD ==================== -->
