@@ -252,6 +252,30 @@
                  <button class="sub-item" onclick="loadPage('kuis/kab5.html', 'Kuis AB 5')"><i class="fas fa-list-ol"></i> Kuis AB 5</button>
                  <button class="sub-item" onclick="loadPage('kuis/kab6.html', 'Kuis AB 6')"><i class="fas fa-list-ol"></i> Kuis AB 6</button>
 
+                <button class="nav-header" onclick="toggleMenu('menu-kuis-ibac', this)">
+                <span><i class="fas fa-edit"></i> Kuis Penyisihan IBAC</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-kuis-ibac" class="sub-menu">
+                
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Data Processing
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/ibac-dp.html', 'Kuis Penyisihan Data Processing')"><i class="fas fa-pen"></i> Kuis Data Processing</button>
+
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Web Desain
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/ibac-web.html', 'Kuis Penyisihan Web Desain')"><i class="fas fa-pen"></i> Kuis Web Desain</button>
+
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Kearsipan
+                </div>
+                <button class="sub-item" onclick="loadPage('kuis/ibac-kearsipan.html', 'Kuis Penyisihan Kearsipan')"><i class="fas fa-pen"></i> Kuis Kearsipan</button>
+                
+            </div>
+
+                   
                 <!-- KELOMPOK 3: UJI KOMPETENSI (Baru) -->
                 <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
                     <i class="fas fa-chevron-right"></i> Uji Kompetensi
@@ -401,6 +425,28 @@
                 <button class="sub-item" onclick="loadPage('rekap/rekap-ujikom2.html', 'Rekap Uji Kompetensi 2')"><i class="fas fa-chart-bar"></i> Rekap Uji Kompetensi 2</button>
             </div>
 
+            <button class="nav-header" onclick="toggleMenu('menu-penyisihan-ibac', this)">
+                <span><i class="fas fa-clipboard-list"></i> Penyisihan IBAC</span>
+                <span class="arrow fas fa-chevron-down"></span>
+            </button>
+            <div id="menu-penyisihan-ibac" class="sub-menu">
+                
+                <div style="padding: 12px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Data Processing
+                </div>
+                <button class="sub-item" onclick="loadPage('rekap/ibac-dp.html', 'Rekap Penyisihan Data Processing')"><i class="fas fa-chart-bar"></i> Data Processing</button>
+
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Web Desain
+                </div>
+                <button class="sub-item" onclick="loadPage('rekap/ibac-web.html', 'Rekap Penyisihan Web Desain')"><i class="fas fa-chart-bar"></i> Web Desain</button>
+
+                <div style="padding: 15px 15px 5px 25px; color: #ffca28; font-weight: bold; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-chevron-right"></i> Kearsipan
+                </div>
+                <button class="sub-item" onclick="loadPage('rekap/ibac-kearsipan.html', 'Rekap Penyisihan Kearsipan')"><i class="fas fa-chart-bar"></i> Kearsipan</button>
+            </div>
+            
             <!-- KELOMPOK KEPAKARAN -->
             <div class="menu-label">Kepakaran & Asesor</div>
             <button class="nav-header" onclick="toggleMenu('asesor-list', this)">
